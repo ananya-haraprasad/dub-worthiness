@@ -42,11 +42,12 @@ GRADE_COLORS = {
 
 # Per-engine identity for the "why this score" breakdown bar.
 ENGINE_META = {
-    "semantic":   ("Semantic loss", "#6366f1"),
-    "idiomatic":  ("Idioms",        "#f59e0b"),
-    "cultural":   ("Cultural",      "#ec4899"),
-    "structural": ("Code-switch",   "#14b8a6"),
-    "prosody":    ("Prosody",       "#8b5cf6"),
+    "semantic":     ("Semantic loss", "#6366f1"),
+    "localization": ("Localization",  "#0891b2"),
+    "idiomatic":    ("Idioms",        "#f59e0b"),
+    "cultural":     ("Cultural",      "#ec4899"),
+    "structural":   ("Code-switch",   "#14b8a6"),
+    "prosody":      ("Prosody",       "#8b5cf6"),
 }
 
 _LEVEL_STYLE = {
@@ -621,34 +622,36 @@ def render_footer(res):
         with st.expander("🧮  How scores are calculated (methodology)"):
             st.markdown(
                 """
-**Travel Score (0–100)** starts at 100 and subtracts five weighted penalties:
+The Travel Score starts at 100 and subtracts a capped penalty for six signals.
+The numbers are the most each can take off:
 
-| Engine | Weight | Measures |
+| Signal | Max | What it measures |
 |---|---|---|
-| Semantic loss | 35% | Meaning lost on a translate→back-translate round-trip (most honest signal). |
-| Idiomatic density | 25% | Slang/idioms where surface meaning ≠ real meaning. |
-| Cultural risk | 20% | References an audience may not recognise (per-audience familiarity). |
-| Structural interleave | 10% | Languages fused mid-sentence — no clean seam to re-voice. |
-| Prosody dependency | 10% | Meaning carried by delivery, not words (**text-based proxy**). |
+| Semantic loss | 40 | Meaning lost on a translate then back-translate round trip. |
+| Localization | 30 | Common terms machine translation mishandles for this language. |
+| Idiomatic density | 20 | Slang and idioms that need adapting, not translating. |
+| Cultural risk | 16 | References an audience may not recognise. |
+| Structural interleave | 8 | Languages fused mid-sentence, with no clean seam to re-voice. |
+| Prosody dependency | 8 | Meaning carried by delivery, not words (a text proxy). |
 
-**Audience Opportunity** is a *separate* dimension and is **never multiplied** into
-quality.
+I added the **localization** signal after testing: the first five clustered every
+clip at 85 to 95, because meaning round-trips fine for short, literal speech.
+Localization catches the real failure, content full of English terms that get
+transliterated instead of localized.
 
-**What this score is — and isn't.** It rates whether a clip's *meaning and
-structure* survive localisation, i.e. whether it's **worth** dubbing. It does
-**not** judge the *fluency of a specific auto-dub*: because back-translation uses
-the same MT engine both ways, a transliteration like "cuticle"→"க்யூட்டிகில்"
-round-trips perfectly and reads as "clean" — so the score can't catch a bad
-machine dub. Output fluency needs a human/QA pass (and Sarvam's Mayura
-translation in production). I tested three automatic dub-fluency detectors
-(romanised-leakage, source jargon-density, target-language OOV-rate); none
-separated good dubs from bad ones reliably, so I flag the limitation rather than
-ship a misleading number.
+**Audience Opportunity** is a separate dimension and is never multiplied into the
+score. A hard-to-dub clip can still be worth localising.
 
-**Other honest limits:** prosody is a text proxy; `langdetect` is weak on short
-text; idiom matching is tuned for Roman/code-mixed tokens, so native-script
-(Devanagari/Tamil) idioms are under-counted; back-translation uses free Google
-Translate and may rate-limit.
+**What the score is, and isn't.** It rates whether a clip is *worth* dubbing, not
+the fluency of one machine dub. Back-translation uses the same engine both ways,
+so a transliteration like "cuticle" to "க்யூட்டிகில்" round-trips perfectly and
+reads as clean. Output fluency needs a human pass (and Sarvam's Mayura
+translation in production). The Localization panel above shows that gap directly.
+
+**Honest limits.** Prosody is a text proxy. `langdetect` is weak on short text.
+Idiom matching is tuned for Roman and code-mixed text, so for native-script
+(Devanagari or Tamil) sources the score leans more on semantic loss and
+localization. Back-translation uses free Google Translate and can rate-limit.
                 """)
             st.caption(f"Idioms: {res['idiomatic']['dictionary_size']} · "
                        f"Cultural base: {res['cultural']['dictionary_size']} · "

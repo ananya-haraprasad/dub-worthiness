@@ -1,52 +1,64 @@
-"""Aggregate engine outputs into a per-language Dub Quality Score.
+"""Aggregate engine outputs into a per-language Travel Score.
 
-Design rule (deliberate): Dub Quality and Audience Opportunity are SEPARATE
+Design rule (deliberate): the Travel Score and Audience Opportunity are SEPARATE
 dimensions and are never multiplied. A video that dubs badly should score low on
-quality even if the audience prize is huge — we show both and let the operator
-make the trade-off. Quality is a pure "how faithfully does this survive
-localisation" measure.
+quality even if the audience prize is huge. We show both and let the operator
+make the trade-off.
 
-The five quality penalties and weights (sum of weights = 1.0):
-    semantic loss        0.35   most honest signal (meaning actually lost)
-    idiomatic density    0.25   phrases needing adaptation, not translation
-    cultural risk        0.20   references an audience may not recognise
-    structural interleave 0.10  mid-clause language fusion (no clean seam)
-    prosody dependency   0.10   meaning carried by delivery, not words
+The score starts at 100 and subtracts a capped penalty for each of six signals.
+'localization' was added after testing showed the original five clustered every
+clip at 85-95: meaning round-trips fine for short, literal speech, so semantic
+loss alone barely moved. The localization signal catches the real failure mode,
+content full of English terms that machine translation transliterates rather
+than localizes (the skincare-clip problem).
+
+  semantic loss        meaning lost on a translate -> back-translate round trip
+  localization         share of common terms MT mishandles for this language
+  idiomatic density    slang/idioms that need adapting, not translating
+  cultural risk        references an audience may not recognise
+  structural interleave mid-sentence language fusion (no clean seam)
+  prosody dependency   meaning carried by delivery, not words
+
+Known gap: idiom detection is tuned to Roman/code-mixed text, so for native-
+script (Devanagari/Tamil) sources the idiomatic signal under-reads and the score
+leans more on semantic loss and cultural risk.
 """
 from __future__ import annotations
 
+# Max penalty each signal can subtract from 100.
 WEIGHTS = {
-    "semantic_loss": 0.35,
-    "idiomatic_density": 0.25,
-    "cultural_risk": 0.20,
-    "structural_interleave": 0.10,
-    "prosody_dependency": 0.10,
+    "semantic_loss": 40,
+    "localization": 30,
+    "idiomatic_density": 20,
+    "cultural_risk": 16,
+    "structural_interleave": 8,
+    "prosody_dependency": 8,
 }
 
-_CULTURAL_PENALTY = {"low": 0, "medium": 10, "high": 20}
-_PROSODY_PENALTY = {"low": 0, "medium": 5, "high": 10}
+_CULTURAL_PENALTY = {"low": 0, "medium": 8, "high": 16}
+_PROSODY_PENALTY = {"low": 0, "medium": 4, "high": 8}
 
 
 def _grade(score: int) -> str:
-    if score >= 80:
+    if score >= 85:
         return "Travels cleanly"
-    if score >= 60:
+    if score >= 65:
         return "Light adaptation needed"
-    if score >= 40:
+    if score >= 45:
         return "Heavy localisation"
     return "Not recommended"
 
 
 def _recommendation(lang: str, score: int, opportunity: int) -> str:
     if score >= 80:
-        return f"High-confidence dub — a strong, low-effort {lang} candidate."
+        return f"A strong, low-effort {lang} candidate. You can dub this with confidence."
     if score >= 60:
-        return f"Worth dubbing into {lang} with a light adaptation pass on flagged lines."
+        return f"Worth dubbing into {lang}, with a light pass on the flagged lines."
     if score >= 40:
         opp = "high" if opportunity >= 85 else "moderate"
-        return (f"Only dub into {lang} if the {opp}-opportunity payoff justifies a "
-                f"heavy localisation rewrite.")
-    return f"Not recommended for a straight {lang} dub — it needs a near-rewrite."
+        return (f"Dub into {lang} only if the {opp} audience payoff is worth a heavy "
+                f"localisation rewrite.")
+    return f"Not a good fit for a straight {lang} dub. It would need a near-rewrite."
 
 
 def compute_language_score(results: dict, lang: str) -> dict:
@@ -60,11 +72,15 @@ def compute_language_score(results: dict, lang: str) -> dict:
     interleave = results.get("structural", {}).get("interleave_ratio", 0.0)
     prosody_dep = results.get("prosody", {}).get("prosody_dependency", "low")
 
+    loc_rows = results.get("localization", {}).get("by_language", {}).get(lang, [])
+    loc_wrong = sum(1 for r in loc_rows if not r.get("correct", True))
+
     penalties = {
-        "semantic": loss * 35,
-        "idiomatic": min((idiom_density / 20) * 25, 25),
+        "semantic": loss * 40,
+        "localization": min(loc_wrong, 5) * 6,
+        "idiomatic": min((idiom_density / 20) * 20, 20),
         "cultural": _CULTURAL_PENALTY.get(cultural_risk, 0),
-        "structural": interleave * 10,
+        "structural": interleave * 8,
         "prosody": _PROSODY_PENALTY.get(prosody_dep, 0),
     }
     score = max(0, min(100, round(100 - sum(penalties.values()))))
@@ -75,25 +91,27 @@ def compute_language_score(results: dict, lang: str) -> dict:
         if f.get("familiarity", {}).get(lang) in ("low", "medium")
     )
     sentences = {
-        "semantic": (f"~{round(loss * 100)}% of meaning is lost on a {lang} "
-                     f"round-trip — idioms and wordplay don't survive translation."),
+        "semantic": (f"About {round(loss * 100)}% of the meaning slips on a {lang} "
+                     f"round trip. Idioms and wordplay don't survive."),
+        "localization": (f"{loc_wrong} common term(s) don't localise cleanly into "
+                         f"{lang}. Machine translation transliterates or mistranslates "
+                         f"them, so a dub needs hand-fixing."),
         "idiomatic": (f"Idiom-heavy speech ({idiom_density:.1f} slang hits per 100 "
-                      f"words) needs adaptation, not literal translation."),
+                      f"words). These need adapting, not translating."),
         "cultural": (f"{n_risky} culture-specific reference(s) may not land with a "
                      f"{lang} audience."),
-        "structural": (f"Languages fuse mid-sentence in "
-                       f"{round(interleave * 100)}% of clauses — no clean seam to "
-                       f"re-voice along."),
-        "prosody": ("Meaning leans on delivery and emphasis, raising lip-sync and "
-                    "tone risk for the voice actor."),
+        "structural": (f"Languages fuse mid-sentence in {round(interleave * 100)}% of "
+                       f"clauses, so there's no clean seam to re-voice."),
+        "prosody": ("A lot of the meaning rides on delivery and emphasis, which raises "
+                    "lip-sync and tone risk."),
     }
     ranked = sorted(penalties.items(), key=lambda kv: kv[1], reverse=True)
     top_risks = [sentences[k] for k, v in ranked if v >= 3][:3]
     if not semantic_available:
-        top_risks.append("Note: back-translation check was unavailable "
-                          "(rate-limited/offline), so semantic loss is treated as 0.")
+        top_risks.append("Heads up: the back-translation check didn't run "
+                          "(rate-limited or offline), so semantic loss is counted as 0.")
     if not top_risks:
-        top_risks = [f"No major localisation risks detected for {lang} — clean source."]
+        top_risks = [f"No major localisation risks for {lang}. Clean source."]
 
     opp = (results.get("opportunity", {})
            .get("opportunity_by_language", {})
