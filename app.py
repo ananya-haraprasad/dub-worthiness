@@ -56,20 +56,23 @@ _LEVEL_STYLE = {
     "unknown": ("#8a8073", "#e2e8f0"), "undetermined": ("#8a8073", "#e2e8f0"),
 }
 
-# Sample videos a viewer can copy and paste in. Covers all three source languages.
-# Presented as a neutral list, not a red/yellow/green verdict: the back-translation
-# score reflects whether MEANING travels, not the fluency of one machine dub, so a
-# confident per-language traffic-light isn't something to claim up front. Let the
-# live score speak for itself. Label format: "Language · Sentence-case description".
+# One "travels cleanly" (green) and one "needs work" (yellow) per source language,
+# so the rail itself shows the score discriminating. No red band: with Sarvam,
+# content rarely collapses to a near-rewrite, so "needs work" (yellow) is the
+# honest low end. Label format: "Language · Sentence-case description".
 SAMPLES = [
-    ("English · Barbie monologue", "https://youtube.com/shorts/q9wKARQ8_pg"),
-    ("English · Skincare tips", "https://youtube.com/shorts/obRs6VrF9FE"),
-    ("Hindi · Antarctica vlog", "https://youtube.com/shorts/LPI9mLkIIS8"),
-    ("Hindi · Dear Zindagi monologue", "https://youtube.com/shorts/iMphpp3Yfh0"),
-    ("Hindi · Street-food vlog", "https://youtube.com/shorts/L5mWKH07TBQ"),
-    ("Tamil · Assembly speech", "https://youtube.com/shorts/1CBtqHEDUXI"),
-    ("Tamil · Shirt seller", "https://youtube.com/shorts/mRFs19QPAwI"),
-    ("Tamil · Village advice", "https://youtube.com/shorts/0uHkXWIKaQ4"),
+    ("English · Barbie monologue", "https://youtube.com/shorts/q9wKARQ8_pg", "green"),
+    ("Hindi · Antarctica vlog", "https://youtube.com/shorts/LPI9mLkIIS8", "green"),
+    ("Tamil · Assembly speech", "https://youtube.com/shorts/1CBtqHEDUXI", "green"),
+    ("English · Skincare tips", "https://youtube.com/shorts/obRs6VrF9FE", "yellow"),
+    ("Hindi · Street-food vlog", "https://youtube.com/shorts/L5mWKH07TBQ", "yellow"),
+    ("Tamil · Shirt seller", "https://youtube.com/shorts/mRFs19QPAwI", "yellow"),
+]
+
+# Two-band signal for the sample grid: green = travels cleanly, yellow = needs work.
+SAMPLE_BANDS = [
+    ("green", "Travels cleanly", "#2f8f5f"),
+    ("yellow", "Needs work", "#c98a2b"),
 ]
 
 # Hardcoded benchmark context so a single score feels grounded, not arbitrary.
@@ -801,26 +804,41 @@ def main():
                    f"{extractor.MAX_DURATION_SECONDS // 60} minutes to stay within the "
                    f"free Sarvam tier.")
         st.markdown("---")
-        st.markdown("**Try an example**\n\nCopy one and paste it above.")
-        _rows = "".join(
-            f"<div class='s'><span class='t'>{html.escape(label)}</span>"
-            f"<button onclick=\"cp('{url}',this)\">Copy</button></div>"
-            for label, url in SAMPLES)
+        st.markdown("**Try an example**\n\nCopy one, paste it above. The colour is how "
+                    "well it travels.")
+        blocks = ""
+        for key, blabel, color in SAMPLE_BANDS:
+            items = [(l, u) for l, u, b in SAMPLES if b == key]
+            if not items:
+                continue
+            rows = "".join(
+                f"<div class='s'><span class='dot' style='background:{color}'></span>"
+                f"<span class='t'>{html.escape(l)}</span>"
+                f"<button onclick=\"cp('{u}',this)\">Copy</button></div>"
+                for l, u in items)
+            blocks += (f"<div class='bl' style='color:{color}'>"
+                       f"<span class='dot' style='background:{color}'></span>{blabel}</div>"
+                       f"<div class='grp'>{rows}</div>")
+        n_bands = len({b for _, _, b in SAMPLES})
         components.html(
             "<style>@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&display=swap');"
             "body{margin:0;font-family:'Hanken Grotesk',system-ui,sans-serif;background:transparent;}"
-            ".s{display:flex;justify-content:space-between;align-items:center;gap:8px;"
-            "padding:8px 0;border-bottom:1px solid #e7decd;}"
-            ".t{font-size:.85rem;color:#23201b;}"
-            "button{font-family:inherit;font-size:.72rem;font-weight:700;color:#7a4a3c;background:#fffdf8;"
-            "border:1px solid #d8b9ad;border-radius:5px;padding:4px 11px;cursor:pointer;white-space:nowrap;}"
+            ".bl{display:flex;align-items:center;gap:7px;font-size:.66rem;font-weight:700;"
+            "letter-spacing:.07em;text-transform:uppercase;margin:12px 0 3px;}"
+            ".grp{margin-bottom:2px;}"
+            ".s{display:flex;align-items:center;gap:9px;padding:6px 0 6px 4px;"
+            "border-bottom:1px solid #e7decd;}"
+            ".dot{width:8px;height:8px;border-radius:50%;flex:0 0 auto;}"
+            ".t{font-size:.84rem;color:#23201b;flex:1;}"
+            "button{font-family:inherit;font-size:.7rem;font-weight:700;color:#7a4a3c;background:#fffdf8;"
+            "border:1px solid #d8b9ad;border-radius:5px;padding:3px 10px;cursor:pointer;white-space:nowrap;}"
             "button:hover{background:#f3e7e1;}</style>"
-            f"<div>{_rows}</div>"
+            f"<div>{blocks}</div>"
             "<script>function cp(u,b){var t=document.createElement('textarea');t.value=u;"
             "document.body.appendChild(t);t.select();try{document.execCommand('copy');}catch(e){}"
             "document.body.removeChild(t);var o=b.textContent;b.textContent='Copied';"
             "setTimeout(function(){b.textContent=o;},1200);}</script>",
-            height=len(SAMPLES) * 42 + 8,
+            height=len(SAMPLES) * 36 + n_bands * 28 + 12,
         )
 
     if not api_key:
