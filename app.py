@@ -502,11 +502,14 @@ def render_sample_dub(res, api_key):
     # A fragment so clicking "Voice" reruns only this block, not the whole page
     # (otherwise Streamlit dims the previous frame and you see ghosted cards).
     st.markdown('<div class="eyebrow">Hear it dubbed · sample</div>', unsafe_allow_html=True)
-    gender = res["transcript"].get("voice_gender", "unknown")
-    voice_note = (f" Voiced with a {gender} voice to match the speaker."
-                  if gender in ("male", "female") else "")
     st.caption("The opening, translated and voiced with Sarvam TTS so you can actually "
-               "hear it. Audio is generated when you click, not on every run." + voice_note)
+               "hear it. Audio is generated when you click, not on every run.")
+    detected = res["transcript"].get("voice_gender", "unknown")
+    det_label = detected if detected in ("male", "female") else "unclear"
+    choice = st.radio(f"Dub voice  ·  auto-detected from the audio: **{det_label}**",
+                      ["Auto", "Male", "Female"], horizontal=True, key="voice_choice")
+    gender = {"Male": "male", "Female": "female"}.get(
+        choice, detected if detected in ("male", "female") else "female")
     dub = res.get("dub", {})
     src = res["source_lang"]
     src_ex = dub.get("source_excerpt", "")
@@ -699,10 +702,37 @@ localization. Back-translation uses Google Translate and can rate-limit.
                        f"Embeddings: MiniLM-L12-v2 · Dub text: Google Translate")
     with c2:
         st.markdown('<div class="eyebrow">Export</div>', unsafe_allow_html=True)
-        st.download_button("⬇  Full report (JSON)",
-                           data=json.dumps(res, ensure_ascii=False, indent=2, default=str),
-                           file_name="dub_worthiness_report.json",
-                           mime="application/json", use_container_width=True)
+        report = {
+            "source_language": res["source_lang"],
+            "targets": res["targets"],
+            "content_type": res["scores"]["detected_category"],
+            "duration_seconds": res["transcript"].get("duration_seconds"),
+            "detected_voice": res["transcript"].get("voice_gender"),
+            "results": {
+                lang: {
+                    "travel_score": s["dub_quality_score"],
+                    "grade": s["grade"],
+                    "recommendation": s["recommendation"],
+                    "top_risks": s["top_risks"],
+                }
+                for lang, s in res["scores"]["by_language"].items()
+            },
+            "localization_gap": {
+                lang: [
+                    {"term": r["term"], "machine_translation": r["mt_current"],
+                     "should_be": r["recommended"], "right_call": r["recommendation"],
+                     "mt_correct": r["correct"]}
+                    for r in rows
+                ]
+                for lang, rows in res.get("localization", {}).get("by_language", {}).items()
+                if rows
+            },
+        }
+        st.download_button(
+            "⬇  Download report (JSON)",
+            data=json.dumps(report, ensure_ascii=False, indent=2),
+            file_name="will-it-travel-report.json",
+            mime="application/json", use_container_width=True)
 
 
 def render_dashboard(res, api_key):

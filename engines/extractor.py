@@ -118,9 +118,12 @@ def _download_youtube_audio(url: str, workdir: str) -> str:
 def _estimate_gender(audio: AudioSegment) -> str:
     """Rough male/female from median pitch (F0), so the dub voice can match.
 
-    Autocorrelation pitch over voiced 40ms frames of the first 30s. Median F0
-    below ~165 Hz reads male, above reads female. Returns 'unknown' on anything
-    odd. It's a heuristic, not speaker ID, but good enough to pick a voice.
+    Cepstral pitch over voiced 50ms frames of the first 30s. Cepstrum measures
+    the *spacing* of harmonics, so it recovers the true F0 even when the
+    fundamental itself is missing — which is common in YouTube/compressed audio
+    that rolls off low frequencies (that rolloff is exactly what made a simple
+    autocorrelation read a male voice an octave too high). Median F0 below
+    ~165 Hz reads male, above reads female. 'unknown' on anything odd.
     """
     try:
         import numpy as np
@@ -133,27 +136,33 @@ def _estimate_gender(audio: AudioSegment) -> str:
         if peak_amp == 0:
             return "unknown"
         samples /= peak_amp
-        frame = int(0.04 * sr)
-        lo, hi = int(sr / 300), int(sr / 80)  # lag range for 80-300 Hz
+        frame = int(0.05 * sr)
+        win = np.hanning(frame)
+        lo, hi = int(sr / 300), int(sr / 70)  # quefrency range for 70-300 Hz
         f0s = []
         for i in range(0, len(samples) - frame, frame):
             f = samples[i:i + frame]
             if np.sqrt((f * f).mean()) < 0.04:  # skip near-silence
                 continue
-            f = f - f.mean()
-            corr = np.correlate(f, f, "full")[frame - 1:]
-            if corr[0] <= 0:
-                continue
-            seg = corr[lo:hi]
+            spectrum = np.fft.rfft(f * win)
+            log_mag = np.log(np.abs(spectrum) + 1e-9)
+            cepstrum = np.fft.irfft(log_mag)
+            seg = cepstrum[lo:hi]
             if not len(seg):
                 continue
             peak = int(np.argmax(seg)) + lo
-            if corr[peak] / corr[0] < 0.3:  # weak periodicity => unvoiced
+            # require the rahmonic to stand clearly above the local average
+            if cepstrum[peak] < 2.5 * np.abs(seg).mean():
                 continue
             f0s.append(sr / peak)
         if len(f0s) < 5:
             return "unknown"
-        return "male" if float(np.median(f0s)) < 165 else "female"
+        # Use a LOW percentile (the speaker's pitch FLOOR), not the median.
+        # Contamination (music, crowd, reverb, octave errors) only adds HIGH F0
+        # estimates, so a median gets dragged up and reads a male voice as female.
+        # The genuine low pitch of a male speaker still shows at the low end.
+        floor = float(np.percentile(f0s, 20))
+        return "male" if floor < 140 else "female"
     except Exception:
         return "unknown"
 
