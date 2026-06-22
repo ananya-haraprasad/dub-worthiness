@@ -24,6 +24,7 @@ from engines import (
     opportunity,
     langs,
     dubber,
+    localization,
 )
 import scorer
 
@@ -32,7 +33,7 @@ import scorer
 # other two. Computed per analysis, so there is no fixed target list here.
 
 GRADE_COLORS = {
-    "Dubs cleanly": "#15803d",
+    "Travels cleanly": "#15803d",
     "Light adaptation needed": "#b45309",
     "Heavy localisation": "#c2410c",
     "Not recommended": "#b91c1c",
@@ -66,7 +67,7 @@ BENCHMARKS = {
     "General":      {"avg_score": 70, "note": "Mixed-genre baseline."},
 }
 
-st.set_page_config(page_title="Dub Worthiness Score", page_icon="🎬",
+st.set_page_config(page_title="Will It Travel?", page_icon="🎬",
                    layout="wide", initial_sidebar_state="expanded")
 
 
@@ -180,6 +181,24 @@ def inject_css():
         .dub-note { background:#fffbeb; border:1px solid #fde68a; border-radius:10px;
                     padding:12px 15px; color:#92400e; font-size:.86rem; line-height:1.55;
                     margin-top:.7rem; }
+        .lg-table { width:100%; border-collapse:collapse; font-size:.9rem; margin-top:.3rem; }
+        .lg-table th { text-align:left; color:var(--faint); font-size:.68rem; font-weight:800;
+                       text-transform:uppercase; letter-spacing:.05em; padding:6px 10px;
+                       border-bottom:1px solid var(--line); }
+        .lg-table td { padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+        .lg-term { font-weight:700; color:var(--ink); }
+        .lg-mt { color:#b91c1c; }
+        .lg-nat { color:#15803d; font-weight:700; }
+        .lg-tag { display:inline-block; font-size:.62rem; font-weight:800; padding:2px 6px;
+                  border-radius:5px; margin-left:6px; }
+        .lg-tag.bad { color:#b91c1c; background:#fee2e2; }
+        .lg-tag.ok { color:#15803d; background:#dcfce7; }
+        .lg-ok { color:#15803d; }
+        .lg-rec { font-size:.64rem; font-weight:800; color:var(--faint); text-transform:uppercase;
+                  letter-spacing:.04em; white-space:nowrap; }
+        .vok { color:#15803d; font-weight:800; text-align:center; }
+        .vbad { color:#b91c1c; font-weight:800; text-align:center; }
+        .lg-score { font-size:.7rem; font-weight:700; color:var(--muted); }
         [data-testid="stMetricValue"] { font-size:1.4rem; font-weight:800; }
         </style>
         """,
@@ -294,12 +313,16 @@ def run_analysis(api_key, source_sig, youtube_url, uploaded_path, cb):
         sem_cache[th] = res["semantic"]
 
     # 4) Score
-    cb(0.92, "Computing Dub Worthiness Scores…")
+    cb(0.92, "Computing Travel Scores…")
     res["scores"] = scorer.compute_scores(res, targets)
 
     # 5) Sample-dub excerpts (cheap text translations; audio is on-demand in UI)
-    cb(0.97, "Preparing sample-dub text…")
+    cb(0.95, "Preparing sample-dub text…")
     res["dub"] = dubber.build_excerpts(transcript, source_lang, targets)
+
+    # 6) Localization gap — live MT vs natural equivalents for flagged terms
+    cb(0.98, "Comparing machine translation vs localisation…")
+    res["localization"] = localization.analyze(transcript, targets)
     cb(1.0, "Done.")
     return res
 
@@ -342,8 +365,8 @@ def render_verdict(res):
     opp_best = res["scores"]["opportunity_priority_order"][0]
 
     grades = {l: by[l]["grade"] for l in targets}
-    if len(set(grades.values())) == 1 and best_s["grade"] == "Dubs cleanly":
-        head = f"Dubs cleanly into both {targets[0]} and {targets[1]}"
+    if len(set(grades.values())) == 1 and best_s["grade"] == "Travels cleanly":
+        head = f"Travels cleanly into both {targets[0]} and {targets[1]}"
     else:
         head = f"Best bet: dub into {best} — {best_s['grade'].lower()} ({best_s['dub_quality_score']})"
 
@@ -354,9 +377,9 @@ def render_verdict(res):
         f'<span class="chip">{pr["speaking_rate_wpm"]:.0f} wpm</span>'
         f'<span class="chip">{tx.get("word_count",0):,} words</span>'
     )
-    sub = (f"Scoring how well this {source} content dubs into "
+    sub = (f"Scoring how well this {source} content travels into "
            f"<b>{' and '.join(targets)}</b>. {opp_best} carries the largest audience "
-           f"opportunity. Dub quality and opportunity are scored separately below — "
+           f"opportunity. Travel score and opportunity are scored separately below — "
            f"a hard-to-dub video can still be worth localising.")
     st.markdown(
         f'<div class="verdict"><div class="chips">{chips}</div>'
@@ -381,7 +404,9 @@ def render_scorecards(res):
                 f'<div class="card">'
                 f'<div class="lang-row"><span class="lang-name">{lang}</span>'
                 f'{grade_pill(s["grade"])}</div>'
-                f'<div class="ring-wrap">{score_ring(s["dub_quality_score"], color)}'
+                f'<div class="ring-wrap">'
+                f'<div style="text-align:center"><div class="opp-label">Travel score</div>'
+                f'{score_ring(s["dub_quality_score"], color)}</div>'
                 f'<div class="opp"><div class="opp-label">Audience opportunity</div>'
                 f'<div class="opp-num">{opp}<span style="font-size:.8rem;color:#94a3b8">/100</span></div>'
                 f'<div class="opp-track"><div class="opp-fill" style="width:{opp}%"></div></div>'
@@ -481,13 +506,55 @@ def render_sample_dub(res, api_key):
         "dub.</b> It can <i>transliterate</i> English terms instead of finding natural "
         "equivalents — e.g. “cuticle” → “க்யூட்டிகில்”, which is English in Tamil "
         "letters, not real Tamil. That's a <b>translation-quality</b> problem, and it is "
-        "deliberately <b>not</b> what the Dub Worthiness Score measures. The score rates "
+        "deliberately <b>not</b> what the Travel Score measures. The score rates "
         "whether the source's meaning and structure are <i>worth</i> dubbing — it can't "
         "vouch for an auto-dub's fluency, because back-translation uses the same engine "
         "both ways and transliteration round-trips perfectly (so it reads as “clean”). "
         "A production dub needs Sarvam's Mayura translation + a native-speaker QA pass.</div>",
         unsafe_allow_html=True,
     )
+
+
+def render_localization_gap(res):
+    loc = res.get("localization", {})
+    targets = [t for t in res["targets"] if t != "English"]
+    if not any(loc.get("by_language", {}).get(t) for t in targets):
+        return
+    st.markdown('<div class="eyebrow">Localization · what MT gets right vs. wrong</div>',
+                unsafe_allow_html=True)
+    st.caption("For common English terms: what free machine translation does live, vs. "
+               "the right call — localize to a native word, keep a fixed term in English "
+               "(translating “baby oil” literally is wrong), or keep a naturalised "
+               "loanword. ✓ = MT made the right call, ✗ = it didn't.")
+    rec_label = {"localize": "localize", "keep_english": "keep English",
+                 "loanword_ok": "loanword"}
+    cols = st.columns(len(targets))
+    for col, lang in zip(cols, targets):
+        rows = loc.get("by_language", {}).get(lang, [])
+        with col:
+            if not rows:
+                st.markdown(f"<div class='dub-lang'>{lang}</div>"
+                            "<div class='dub-empty'>No flagged terms.</div>",
+                            unsafe_allow_html=True)
+                continue
+            n_ok = sum(1 for r in rows if r["correct"])
+            st.markdown(f"<div class='dub-lang'>{lang} &nbsp;"
+                        f"<span class='lg-score'>MT correct: {n_ok}/{len(rows)}</span></div>",
+                        unsafe_allow_html=True)
+            body = ""
+            for r in rows:
+                ok = r["correct"]
+                mt_cls = "lg-ok" if ok else "lg-mt"
+                icon_cls, icon = ("vok", "✓") if ok else ("vbad", "✗")
+                body += (
+                    f"<tr><td class='lg-term'>{html.escape(r['term'])}</td>"
+                    f"<td class='{mt_cls}'>{html.escape(r['mt_current'] or '—')}</td>"
+                    f"<td><span class='lg-nat'>{html.escape(r['recommended'] or '—')}</span><br>"
+                    f"<span class='lg-rec'>{rec_label.get(r['recommendation'], '')}</span></td>"
+                    f"<td class='{icon_cls}'>{icon}</td></tr>")
+            st.markdown(
+                f"<table class='lg-table'><tr><th>Term</th><th>Free MT (now)</th>"
+                f"<th>Right call</th><th></th></tr>{body}</table>", unsafe_allow_html=True)
 
 
 def render_transcript(res):
@@ -554,7 +621,7 @@ def render_footer(res):
         with st.expander("🧮  How scores are calculated (methodology)"):
             st.markdown(
                 """
-**Dub Quality (0–100)** starts at 100 and subtracts five weighted penalties:
+**Travel Score (0–100)** starts at 100 and subtracts five weighted penalties:
 
 | Engine | Weight | Measures |
 |---|---|---|
@@ -602,6 +669,8 @@ def render_dashboard(res, api_key):
     st.write("")
     render_sample_dub(res, api_key)
     st.write("")
+    render_localization_gap(res)
+    st.write("")
     render_risk_profile(res)
     st.write("")
     render_transcript(res)
@@ -612,11 +681,11 @@ def render_dashboard(res, api_key):
 # --- App body ----------------------------------------------------------------
 def main():
     inject_css()
-    st.markdown('<div class="hero-title">Dub Worthiness Score</div>',
+    st.markdown('<div class="hero-title">Will It Travel?</div>',
                 unsafe_allow_html=True)
-    st.markdown('<p class="hero-sub">Predicts how well Indian video/audio will '
-                'localise across languages — honest, explainable scoring, not '
-                'naïve code-mix percentage.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="hero-sub">How well does your Indian video/audio travel '
+                'into other languages? Honest, explainable localisation scoring — '
+                'not naïve code-mix percentage.</p>', unsafe_allow_html=True)
 
     api_key = get_api_key()
 

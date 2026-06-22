@@ -29,7 +29,7 @@ _PROSODY_PENALTY = {"low": 0, "medium": 5, "high": 10}
 
 def _grade(score: int) -> str:
     if score >= 80:
-        return "Dubs cleanly"
+        return "Travels cleanly"
     if score >= 60:
         return "Light adaptation needed"
     if score >= 40:

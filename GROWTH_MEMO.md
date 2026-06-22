@@ -1,4 +1,4 @@
-# Growth memo — Dub Worthiness Score → Sarvam Studio
+# Growth memo — Will It Travel? → Sarvam Studio
 
 *Built and tested on real Indian YouTube content (Tamil, Hindi, English). The
 numbers below are from a small pilot (3 videos run end-to-end) plus what fell
@@ -60,7 +60,7 @@ third channel from the creator's existing work.** Creators don't want "a dub";
 they want reach they didn't have to re-shoot for. Re-frame the entire pitch from
 *cost-per-minute of audio* to *new audience unlocked*.
 
-Concretely: **the Dub Worthiness Score *is* the wedge.** Ship it as a free,
+Concretely: **the "Will It Travel?" score *is* the wedge.** Ship it as a free,
 public widget. A creator pastes a video and instantly sees "this dubs cleanly
 into Hindi and Tamil — that's an estimated N× audience you're leaving on the
 table." That single screen does three jobs at once:
@@ -75,7 +75,7 @@ priced as commodity throughput; low-score jobs priced as adaptation projects).
 
 ## 4. What I'd do in week one at Studio
 
-**Experiment 1 — Score-as-funnel.** Embed the Dub Worthiness Score as a free tool
+**Experiment 1 — Score-as-funnel.** Embed the "Will It Travel?" score as a free tool
 on the Studio site.
 - *Hypothesis:* creators who self-serve a score + audience-expansion estimate
   convert to a paid dub at a materially higher rate than cold outreach.

@@ -1,4 +1,7 @@
-# 🎬 Dub Worthiness Score
+# 🎬 Will It Travel?
+
+*Will your Indian content travel into other languages? — a Travel Score (0–100),
+per language, with the localization gap shown honestly.*
 
 Predicts how well Indian video/audio content will **localise into other Indian
 languages** — with honest, explainable scoring instead of a naïve code-mixing
@@ -7,8 +10,10 @@ percentage.
 Paste a YouTube URL or upload an MP3/MP4/WAV. The app transcribes it with the
 **Sarvam STT API**, runs five scoring engines, and returns a per-language **Dub
 Worthiness Score (0–100)**, a risk breakdown, a transcript explorer,
-language-priority recommendations, and a **playable sample dub** (translated +
-voiced with Sarvam TTS) so you can *hear* what the score means.
+language-priority recommendations, a **playable sample dub** (translated + voiced
+with Sarvam TTS) so you can *hear* what the score means, and a **Localization Gap**
+view that shows — live — where free machine translation *transliterates* English
+terms vs what a natural dub should say.
 
 **Works in any direction across English, Hindi, and Tamil** — it auto-detects the
 source language and scores dubbing into the other two (English→Tamil,
@@ -23,7 +28,7 @@ Tamil→Hindi, Hindi→English, etc.).
 
 ## How it scores
 
-**Dub Quality (0–100)** — starts at 100, subtracts five weighted penalties:
+**Travel Score (0–100)** — starts at 100, subtracts five weighted penalties:
 
 | Engine | Weight | Measures |
 |---|---|---|
@@ -84,6 +89,7 @@ dub-worthiness/
 │   ├── prosody.py          # speaking rate / emphasis / emotion (text proxy)
 │   ├── opportunity.py      # category detection + audience-size affinity
 │   ├── dubber.py           # sample dub: translate excerpt + Sarvam TTS (bulbul:v3)
+│   ├── localization.py     # localization gap: live MT vs natural-equivalent glossary
 │   ├── langs.py            # source-language detection + target selection
 │   └── textutils.py        # normalisation + Devanagari/Tamil romanisation helpers
 ├── data/

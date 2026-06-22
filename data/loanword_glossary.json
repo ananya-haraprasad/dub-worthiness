@@ -1,0 +1,1962 @@
+[
+  {
+    "term": "acne",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "मुहांसे",
+    "tamil": "முகப்பரு",
+    "why": "everyday native word for pimples; far more natural than the English term"
+  },
+  {
+    "term": "baby oil",
+    "domain": "beauty",
+    "recommendation": "keep_english",
+    "hindi": "बेबी ऑयल",
+    "tamil": "பேபி ஆயில்",
+    "why": "fixed product name; literal 'babies' oil' wrongly means oil made of babies"
+  },
+  {
+    "term": "blackheads",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "काले दाने",
+    "tamil": "கருப்பு புள்ளிகள்",
+    "why": "natural native description; transliteration is opaque to listeners"
+  },
+  {
+    "term": "blend",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "मिलाना",
+    "tamil": "கலத்தல்",
+    "why": "natural native word for blending makeup; commonly said"
+  },
+  {
+    "term": "blush",
+    "domain": "beauty",
+    "recommendation": "loanword_ok",
+    "hindi": "ब्लश",
+    "tamil": "பிளஷ்",
+    "why": "common makeup loanword; native words unused for the product"
+  },
+  {
+    "term": "body wash",
+    "domain": "beauty",
+    "recommendation": "keep_english",
+    "hindi": "बॉडी वॉश",
+    "tamil": "பாடி வாஷ்",
+    "why": "fixed product category; literal native phrase sounds absurd and unsaid"
+  },
+  {
+    "term": "cleanser",
+    "domain": "beauty",
+    "recommendation": "loanword_ok",
+    "hindi": "क्लेंजर",
+    "tamil": "கிளென்சர்",
+    "why": "naturalized product loanword commonly spoken as-is"
+  },
+  {
+    "term": "compact",
+    "domain": "beauty",
+    "recommendation": "loanword_ok",
+    "hindi": "कॉम्पैक्ट",
+    "tamil": "காம்பாக்ட்",
+    "why": "naturalized makeup loanword for pressed powder"
+  },
+  {
+    "term": "concealer",
+    "domain": "beauty",
+    "recommendation": "loanword_ok",
+    "hindi": "कंसीलर",
+    "tamil": "கன்சீலர்",
+    "why": "naturalized makeup loanword; no native term in everyday use"
+  },
+  {
+    "term": "conditioner",
+    "domain": "beauty",
+    "recommendation": "loanword_ok",
+    "hindi": "कंडीशनर",
+    "tamil": "கண்டிஷனர்",
+    "why": "everyday haircare loanword used as-is in both languages"
+  },
+  {
+    "term": "contour",
+    "domain": "beauty",
+    "recommendation": "loanword_ok",
+    "hindi": "कंटूर",
+    "tamil": "கான்டூர்",
+    "why": "naturalized makeup technique loanword; native words change the meaning"
+  },
+  {
+    "term": "cuticle",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "नाखून की खाल",
+    "tamil": "நகச் சுற்று தோல்",
+    "why": "natural native phrase for skin around the nail; MT transliterates uselessly"
+  },
+  {
+    "term": "dandruff",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "रूसी",
+    "tamil": "பொடுகு",
+    "why": "common everyday native word; English term sounds clinical"
+  },
+  {
+    "term": "dewy",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "दमकती त्वचा",
+    "tamil": "பளபளப்பான தோல்",
+    "why": "natural way to say glowing fresh skin; literal 'dew' is wrong"
+  },
+  {
+    "term": "dry skin",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "रूखी त्वचा",
+    "tamil": "வறண்ட தோல்",
+    "why": "natural native phrase for skin type; commonly said"
+  },
+  {
+    "term": "exfoliate",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "मृत त्वचा हटाना",
+    "tamil": "செத்த தோலை நீக்குதல்",
+    "why": "real native phrase for removing dead skin; MT just transliterates"
+  },
+  {
+    "term": "face pack",
+    "domain": "beauty",
+    "recommendation": "keep_english",
+    "hindi": "फेस पैक",
+    "tamil": "ஃபேஸ் பேக்",
+    "why": "established product term; everyday spoken word even in vernacular"
+  },
+  {
+    "term": "face wash",
+    "domain": "beauty",
+    "recommendation": "keep_english",
+    "hindi": "फेस वॉश",
+    "tamil": "ஃபேஸ் வாஷ்",
+    "why": "genericized product name; literal 'face washing' loses the product meaning"
+  },
+  {
+    "term": "fairness",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "गोरापन",
+    "tamil": "வெண்மை",
+    "why": "everyday native word in skincare marketing; English term unnatural in speech"
+  },
+  {
+    "term": "foundation",
+    "domain": "beauty",
+    "recommendation": "loanword_ok",
+    "hindi": "फाउंडेशन",
+    "tamil": "ஃபவுண்டேஷன்",
+    "why": "standard makeup loanword used as-is by speakers"
+  },
+  {
+    "term": "fragrance",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "खुशबू",
+    "tamil": "நறுமணம்",
+    "why": "everyday native word for scent; very natural in speech"
+  },
+  {
+    "term": "glow",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "निखार",
+    "tamil": "பொலிவு",
+    "why": "natural native word for radiance; widely used in beauty talk"
+  },
+  {
+    "term": "hair fall",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "बाल झड़ना",
+    "tamil": "முடி உதிர்தல்",
+    "why": "natural native phrase for hair loss; very commonly said"
+  },
+  {
+    "term": "hair serum",
+    "domain": "beauty",
+    "recommendation": "keep_english",
+    "hindi": "हेयर सीरम",
+    "tamil": "ஹேர் சீரம்",
+    "why": "product name; both words are naturalized loanwords, literal translation is wrong"
+  },
+  {
+    "term": "highlighter",
+    "domain": "beauty",
+    "recommendation": "loanword_ok",
+    "hindi": "हाइलाइटर",
+    "tamil": "ஹைலைட்டர்",
+    "why": "naturalized makeup loanword spoken as-is"
+  },
+  {
+    "term": "hydrate",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "नमी देना",
+    "tamil": "ஈரப்பதம் தருதல்",
+    "why": "natural native phrase for adding moisture; MT transliterates"
+  },
+  {
+    "term": "lip balm",
+    "domain": "beauty",
+    "recommendation": "keep_english",
+    "hindi": "लिप बाम",
+    "tamil": "லிப் பாம்",
+    "why": "fixed product term; no natural native word, literal phrase is unnatural"
+  },
+  {
+    "term": "lotion",
+    "domain": "beauty",
+    "recommendation": "loanword_ok",
+    "hindi": "लोशन",
+    "tamil": "லோஷன்",
+    "why": "fully naturalized everyday word in both languages"
+  },
+  {
+    "term": "makeup remover",
+    "domain": "beauty",
+    "recommendation": "keep_english",
+    "hindi": "मेकअप रिमूवर",
+    "tamil": "மேக்அப் ரிமூவர்",
+    "why": "fixed product name; literal calque is clumsy and not what people say"
+  },
+  {
+    "term": "mascara",
+    "domain": "beauty",
+    "recommendation": "loanword_ok",
+    "hindi": "मस्कारा",
+    "tamil": "மஸ்காரா",
+    "why": "universal makeup loanword; same word everywhere"
+  },
+  {
+    "term": "moisturizer",
+    "domain": "beauty",
+    "recommendation": "loanword_ok",
+    "hindi": "मॉइस्चराइज़र",
+    "tamil": "மாய்ஸ்சரைசர்",
+    "why": "everyday spoken loanword; native phrasings are uncommon for the product"
+  },
+  {
+    "term": "oil massage",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "तेल मालिश",
+    "tamil": "எண்ணெய் தடவுதல்",
+    "why": "deeply rooted native phrase; English calque would feel foreign"
+  },
+  {
+    "term": "oily skin",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "तैलीय त्वचा",
+    "tamil": "எண்ணெய் பசை தோல்",
+    "why": "natural native phrase for skin type; widely used"
+  },
+  {
+    "term": "peel",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "त्वचा छीलना",
+    "tamil": "தோல் உரித்தல்",
+    "why": "natural native phrase for the skin treatment action; MT misreads as fruit peel"
+  },
+  {
+    "term": "pimple",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "फुंसी",
+    "tamil": "பரு",
+    "why": "common native word; spoken naturally in everyday speech"
+  },
+  {
+    "term": "pores",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "रोमछिद्र",
+    "tamil": "தோல் துளைகள்",
+    "why": "established native word for skin pores; commonly said"
+  },
+  {
+    "term": "primer",
+    "domain": "beauty",
+    "recommendation": "loanword_ok",
+    "hindi": "प्राइमर",
+    "tamil": "பிரைமர்",
+    "why": "naturalized makeup loanword spoken as-is"
+  },
+  {
+    "term": "scrub",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "रगड़ना",
+    "tamil": "தேய்த்தல்",
+    "why": "natural native word for the action of scrubbing skin"
+  },
+  {
+    "term": "serum",
+    "domain": "beauty",
+    "recommendation": "loanword_ok",
+    "hindi": "सीरम",
+    "tamil": "சீரம்",
+    "why": "naturalized beauty loanword; no native equivalent in common use"
+  },
+  {
+    "term": "shampoo",
+    "domain": "beauty",
+    "recommendation": "loanword_ok",
+    "hindi": "शैम्पू",
+    "tamil": "ஷாம்பு",
+    "why": "fully naturalized everyday word in both languages"
+  },
+  {
+    "term": "sheet mask",
+    "domain": "beauty",
+    "recommendation": "keep_english",
+    "hindi": "शीट मास्क",
+    "tamil": "ஷீட் மாஸ்க்",
+    "why": "product format name; literal translation is meaningless to listeners"
+  },
+  {
+    "term": "split ends",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "दोमुंहे बाल",
+    "tamil": "பிளவுபட்ட முடி",
+    "why": "natural native phrase for damaged hair tips; widely said"
+  },
+  {
+    "term": "sunscreen",
+    "domain": "beauty",
+    "recommendation": "loanword_ok",
+    "hindi": "सनस्क्रीन",
+    "tamil": "சன்ஸ்கிரீன்",
+    "why": "common spoken loanword; native calque is rarely said"
+  },
+  {
+    "term": "toner",
+    "domain": "beauty",
+    "recommendation": "loanword_ok",
+    "hindi": "टोनर",
+    "tamil": "டோனர்",
+    "why": "everyday naturalized word; native coinage would not be understood"
+  },
+  {
+    "term": "wrinkles",
+    "domain": "beauty",
+    "recommendation": "localize",
+    "hindi": "झुर्रियां",
+    "tamil": "சுருக்கங்கள்",
+    "why": "common everyday native word for skin wrinkles"
+  },
+  {
+    "term": "EMI",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "ईएमआई",
+    "tamil": "ஈஎம்ஐ",
+    "why": "Universally spoken acronym (Equated Monthly Installment); expanding or translating it would confuse listeners who only know 'EMI'."
+  },
+  {
+    "term": "amortization",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "अमॉर्टाइज़ेशन",
+    "tamil": "அமார்டைசேஷன்",
+    "why": "Loan-payoff schedule term; native ऋण परिशोधन/கடன் தணிப்பு are obscure formal coinages, so the English term is what is actually used."
+  },
+  {
+    "term": "asset",
+    "domain": "finance",
+    "recommendation": "localize",
+    "hindi": "संपत्ति",
+    "tamil": "சொத்து",
+    "why": "संपत्ति and சொத்து are the natural, ubiquitous native words for an asset/property in both languages."
+  },
+  {
+    "term": "benchmark",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "बेंचमार्क",
+    "tamil": "பெஞ்ச்மார்க்",
+    "why": "Reference standard/index term spoken in English; literal मानक/அளவுகோல் shift to 'standard/yardstick' and lose the index sense."
+  },
+  {
+    "term": "brokerage",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "ब्रोकरेज",
+    "tamil": "ப்ரோக்கரேஜ்",
+    "why": "The trading-fee and broking-firm sense is said as 'brokerage'; native दलाली/தரகு carry a negative haggling connotation, so keep English."
+  },
+  {
+    "term": "budget",
+    "domain": "finance",
+    "recommendation": "loanword_ok",
+    "hindi": "बजट",
+    "tamil": "பட்ஜெட்",
+    "why": "'Budget' is a fully naturalized everyday loanword in both languages, used for household and government planning alike."
+  },
+  {
+    "term": "capital",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "कैपिटल",
+    "tamil": "கேப்பிட்டல்",
+    "why": "In the investing 'funds/principal' sense it is spoken as 'capital'; पूंजी/மூலதனம் exist but the English term is standard in market talk."
+  },
+  {
+    "term": "collateral",
+    "domain": "finance",
+    "recommendation": "localize",
+    "hindi": "गिरवी",
+    "tamil": "பிணையம்",
+    "why": "गिरवी (pledged security) and பிணையம்/அடகு are genuine native words for loan collateral, more natural than the transliteration."
+  },
+  {
+    "term": "compounding",
+    "domain": "finance",
+    "recommendation": "localize",
+    "hindi": "चक्रवृद्धि",
+    "tamil": "கூட்டு வளர்ச்சி",
+    "why": "चक्रवृद्धि (ब्याज) is the standard, genuinely-used native term for compound growth; Tamil கூட்டு வட்டி for compound interest is also natural."
+  },
+  {
+    "term": "credit score",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "क्रेडिट स्कोर",
+    "tamil": "கிரெடிட் ஸ்கோர்",
+    "why": "Fixed product/metric name (CIBIL-style); any literal translation is unintelligible, so it is always said in English."
+  },
+  {
+    "term": "default",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "डिफॉल्ट",
+    "tamil": "டிஃபால்ட்",
+    "why": "Loan-non-payment sense is said as 'default'; native words for failure don't carry the precise credit meaning, so keep English."
+  },
+  {
+    "term": "depreciation",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "डेप्रिसिएशन",
+    "tamil": "டெப்ரிசியேஷன்",
+    "why": "Accounting term for asset value decline; native मूल्यह्रास/தேய்மானம் exist but are technical and rarely spoken aloud, so English is natural."
+  },
+  {
+    "term": "diversify",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "डायवर्सिफाई करना",
+    "tamil": "டைவர்சிஃபை செய்தல்",
+    "why": "As an investing instruction it is spoken in English; a literal 'make varied' verb sounds clinical and is not how advisors actually say it."
+  },
+  {
+    "term": "dividend",
+    "domain": "finance",
+    "recommendation": "localize",
+    "hindi": "लाभांश",
+    "tamil": "பங்காதாயம்",
+    "why": "लाभांश (share of profit) and பங்காதாயம் are real, used native terms; preferred over the transliteration डिविडेंड."
+  },
+  {
+    "term": "equity",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "इक्विटी",
+    "tamil": "ஈக்விட்டி",
+    "why": "In markets it means shares/ownership stake; the dictionary word for 'fairness/justice' (समता/சமத்துவம்) would be absurd, so the spoken form is English."
+  },
+  {
+    "term": "expenditure",
+    "domain": "finance",
+    "recommendation": "localize",
+    "hindi": "व्यय",
+    "tamil": "செலவு",
+    "why": "व्यय/खर्च and செலவு are natural, everyday native words for spending; no need for an English transliteration."
+  },
+  {
+    "term": "hedge",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "हेज",
+    "tamil": "ஹெட்ஜ்",
+    "why": "Risk-offsetting investing term; the literal 'fence/bush' (बाड़/வேலி) would be absurd, so keep English."
+  },
+  {
+    "term": "index fund",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "इंडेक्स फंड",
+    "tamil": "இண்டெக்ஸ் ஃபண்ட்",
+    "why": "Fixed product name; a literal 'list fund' is meaningless, so it is always said in English."
+  },
+  {
+    "term": "inflation",
+    "domain": "finance",
+    "recommendation": "localize",
+    "hindi": "महंगाई",
+    "tamil": "விலைவாசி உயர்வு",
+    "why": "महंगाई and விலைவாசி உயர்வு / பணவீக்கம் are the genuine everyday words for rising prices that ordinary people actually use."
+  },
+  {
+    "term": "installment",
+    "domain": "finance",
+    "recommendation": "localize",
+    "hindi": "किस्त",
+    "tamil": "தவணை",
+    "why": "किस्त and தவணை are deeply rooted everyday native words for a periodic payment, used constantly in commerce."
+  },
+  {
+    "term": "insurance",
+    "domain": "finance",
+    "recommendation": "localize",
+    "hindi": "बीमा",
+    "tamil": "காப்பீடு",
+    "why": "बीमा and காப்பீடு are well-established, everyday native words for insurance used by everyone, not just specialists."
+  },
+  {
+    "term": "interest rate",
+    "domain": "finance",
+    "recommendation": "localize",
+    "hindi": "ब्याज दर",
+    "tamil": "வட்டி விகிதம்",
+    "why": "ब्याज/வட்டி are the true native words for interest; 'rate' adds दर/விகிதம், both natural and widely spoken."
+  },
+  {
+    "term": "leverage",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "लेवरेज",
+    "tamil": "லீவரேஜ்",
+    "why": "Borrowing-to-amplify-returns concept; literal 'lever force' (उत्तोलन/நெம்புகோல்) translations miss the financial meaning entirely."
+  },
+  {
+    "term": "liability",
+    "domain": "finance",
+    "recommendation": "localize",
+    "hindi": "देनदारी",
+    "tamil": "பொறுப்பு",
+    "why": "देनदारी (what is owed) is the natural accounting term and கடன் பொறுப்பு works in Tamil; both are genuinely spoken, unlike the transliteration."
+  },
+  {
+    "term": "liquidity",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "लिक्विडिटी",
+    "tamil": "லிக்விடிட்டி",
+    "why": "Financial 'ease of converting to cash'; the literal 'liquid-ness' (तरलता/நீர்மை) reads as physics, not finance, so keep English."
+  },
+  {
+    "term": "loan",
+    "domain": "finance",
+    "recommendation": "loanword_ok",
+    "hindi": "लोन",
+    "tamil": "லோன்",
+    "why": "'Loan' is the everyday spoken word in both languages; native कर्ज़/கடன் also exist but 'loan' is the common conversational form."
+  },
+  {
+    "term": "market",
+    "domain": "finance",
+    "recommendation": "loanword_ok",
+    "hindi": "मार्केट",
+    "tamil": "மார்க்கெட்",
+    "why": "'Market' is a fully naturalized everyday loanword; both languages also have बाज़ार/சந்தை, but 'market' is freely used in finance speech."
+  },
+  {
+    "term": "mortgage",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "मॉर्गेज",
+    "tamil": "மார்ட்கேஜ்",
+    "why": "Modern home-loan product spoken as 'mortgage'; बंधक/அடமானம் exist but read as archaic legal pledges, not today's product."
+  },
+  {
+    "term": "mutual fund",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "म्यूचुअल फंड",
+    "tamil": "மியூச்சுவல் ஃபண்ட்",
+    "why": "Fixed product name; a literal 'mutual collection' (पारस्परिक निधि) is unrecognizable to listeners who only know it as 'mutual fund'."
+  },
+  {
+    "term": "portfolio",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "पोर्टफोलियो",
+    "tamil": "போர்ட்ஃபோலியோ",
+    "why": "Investing term of art for one's collection of holdings; the literal 'briefcase/folder' sense is wrong, and निवेश संग्रह sounds bookish, so English is the natural spoken form."
+  },
+  {
+    "term": "premium",
+    "domain": "finance",
+    "recommendation": "loanword_ok",
+    "hindi": "प्रीमियम",
+    "tamil": "பிரீமியம்",
+    "why": "Everyday loanword for an insurance/payment amount; both languages use 'premium' naturally in spoken finance talk."
+  },
+  {
+    "term": "profit",
+    "domain": "finance",
+    "recommendation": "localize",
+    "hindi": "मुनाफ़ा",
+    "tamil": "லாபம்",
+    "why": "मुनाफ़ा/लाभ and லாபம் are the genuine, everyday native words for profit, used by shopkeepers and businesses alike."
+  },
+  {
+    "term": "recession",
+    "domain": "finance",
+    "recommendation": "localize",
+    "hindi": "मंदी",
+    "tamil": "பொருளாதார மந்தநிலை",
+    "why": "मंदी is the natural, common Hindi word for an economic downturn; Tamil மந்தநிலை is the standard native term."
+  },
+  {
+    "term": "revenue",
+    "domain": "finance",
+    "recommendation": "localize",
+    "hindi": "राजस्व",
+    "tamil": "வருவாய்",
+    "why": "राजस्व and வருவாய் are real, natural native words for income/turnover used in business and government speech."
+  },
+  {
+    "term": "savings",
+    "domain": "finance",
+    "recommendation": "localize",
+    "hindi": "बचत",
+    "tamil": "சேமிப்பு",
+    "why": "बचत and சேமிப்பு are the genuine, common native words people use for money set aside."
+  },
+  {
+    "term": "share",
+    "domain": "finance",
+    "recommendation": "loanword_ok",
+    "hindi": "शेयर",
+    "tamil": "ஷேர்",
+    "why": "'Share' is the dominant everyday word for equity ownership in both languages; Tamil பங்கு is native, but 'share' is freely used in speech."
+  },
+  {
+    "term": "stock market",
+    "domain": "finance",
+    "recommendation": "localize",
+    "hindi": "शेयर बाज़ार",
+    "tamil": "பங்குச் சந்தை",
+    "why": "शेयर बाज़ार and பங்குச் சந்தை are the standard, natural localized forms; far more common than transliterating 'stock market'."
+  },
+  {
+    "term": "tax",
+    "domain": "finance",
+    "recommendation": "localize",
+    "hindi": "कर",
+    "tamil": "வரி",
+    "why": "कर and வரி are fully native and standard for tax; the टैक्स loanword is also common, but the native words are universally understood."
+  },
+  {
+    "term": "valuation",
+    "domain": "finance",
+    "recommendation": "keep_english",
+    "hindi": "वैल्यूएशन",
+    "tamil": "வேல்யுவேஷன்",
+    "why": "Business term for a company's assessed worth; native मूल्यांकन/மதிப்பீடு mean general 'assessment' and miss the deal/market sense, so English is spoken."
+  },
+  {
+    "term": "volatility",
+    "domain": "finance",
+    "recommendation": "localize",
+    "hindi": "उतार-चढ़ाव",
+    "tamil": "ஏற்ற இறக்கம்",
+    "why": "उतार-चढ़ाव (ups and downs) and ஏற்ற இறக்கம் are the natural, widely-spoken market terms for price swings."
+  },
+  {
+    "term": "assignment",
+    "domain": "general",
+    "recommendation": "loanword_ok",
+    "hindi": "assignment",
+    "tamil": "assignment",
+    "why": "Students and offices say 'assignment'; literal renders feel academic and unnatural for homework/tasks."
+  },
+  {
+    "term": "attendance",
+    "domain": "general",
+    "recommendation": "loanword_ok",
+    "hindi": "attendance",
+    "tamil": "attendance",
+    "why": "School/office speech uses 'attendance'; 'upasthiti'/'varuhai' are formal-register and rarely spoken casually."
+  },
+  {
+    "term": "attitude",
+    "domain": "general",
+    "recommendation": "loanword_ok",
+    "hindi": "attitude",
+    "tamil": "attitude",
+    "why": "'Attitude' is widely spoken as-is (esp. youth/colloquial); 'rawaiya'/'manappaanmai' are formal and don't carry the casual sense."
+  },
+  {
+    "term": "awareness",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "जागरूकता",
+    "tamil": "விழிப்புணர்வு",
+    "why": "Both are real, widely-used words, especially in public-message contexts."
+  },
+  {
+    "term": "behaviour",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "व्यवहार",
+    "tamil": "நடத்தை",
+    "why": "व्यवहार/நடத்தை are everyday native words for conduct/behaviour."
+  },
+  {
+    "term": "calendar",
+    "domain": "general",
+    "recommendation": "loanword_ok",
+    "hindi": "calendar",
+    "tamil": "calendar",
+    "why": "Universal everyday loanword; 'panchang'/'naatkaati' carry traditional-almanac connotations, not the wall/phone calendar."
+  },
+  {
+    "term": "class",
+    "domain": "general",
+    "recommendation": "loanword_ok",
+    "hindi": "class",
+    "tamil": "class",
+    "why": "Everyday loanword for a lesson/grade; 'kaksha'/'vakuppu' are formal-register."
+  },
+  {
+    "term": "college",
+    "domain": "general",
+    "recommendation": "loanword_ok",
+    "hindi": "college",
+    "tamil": "college",
+    "why": "Spoken default everywhere; native coinages are rarely used casually."
+  },
+  {
+    "term": "comparison",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "तुलना",
+    "tamil": "ஒப்பீடு",
+    "why": "तुलना/ஒப்பீடு are natural and commonly used for comparison."
+  },
+  {
+    "term": "concept",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "अवधारणा",
+    "tamil": "கருத்து",
+    "why": "अवधारणा/கருத்து carry the idea/concept sense naturally in explanatory speech; native words read well."
+  },
+  {
+    "term": "confidence",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "आत्मविश्वास",
+    "tamil": "தன்னம்பிக்கை",
+    "why": "आत्मविश्वास/தன்னம்பிக்கை are standard, natural self-confidence words."
+  },
+  {
+    "term": "curiosity",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "जिज्ञासा",
+    "tamil": "ஆர்வம்",
+    "why": "जिज्ञासा and ஆர்வம் (eagerness/curiosity) are natural spoken words."
+  },
+  {
+    "term": "deadline",
+    "domain": "general",
+    "recommendation": "keep_english",
+    "hindi": "deadline",
+    "tamil": "deadline",
+    "why": "Everyone says 'deadline'; literal Hindi 'antim tithi'/Tamil 'kadaisi theethi' sounds bureaucratic and unnatural in speech."
+  },
+  {
+    "term": "decision",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "फ़ैसला",
+    "tamil": "முடிவு",
+    "why": "फ़ैसला and முடிவு are the natural spoken words for a decision."
+  },
+  {
+    "term": "discipline",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "अनुशासन",
+    "tamil": "ஒழுக்கம்",
+    "why": "अनुशासन/ஒழுக்கம் are real, widely-used words for self-discipline."
+  },
+  {
+    "term": "document",
+    "domain": "general",
+    "recommendation": "loanword_ok",
+    "hindi": "document",
+    "tamil": "document",
+    "why": "Everyone says 'document'; 'dastavez' is okay but the loan dominates office/everyday speech, Tamil 'aavanam' is formal."
+  },
+  {
+    "term": "effort",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "मेहनत",
+    "tamil": "முயற்சி",
+    "why": "मेहनत (hard work) and முயற்சி (effort/attempt) are the natural spoken words."
+  },
+  {
+    "term": "environment",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "माहौल",
+    "tamil": "சூழல்",
+    "why": "माहौल (atmosphere/surroundings) and சூழல் are natural; pick the social-environment sense over technical 'paryavaran'."
+  },
+  {
+    "term": "exam",
+    "domain": "general",
+    "recommendation": "loanword_ok",
+    "hindi": "exam",
+    "tamil": "exam",
+    "why": "'Exam'/'pareeksha'/'thervu' coexist but 'exam' is the casual spoken default among students."
+  },
+  {
+    "term": "experience",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "अनुभव",
+    "tamil": "அனுபவம்",
+    "why": "अनुभव/அனுபவம் are natural and universal for lived experience."
+  },
+  {
+    "term": "feedback",
+    "domain": "general",
+    "recommendation": "keep_english",
+    "hindi": "feedback",
+    "tamil": "feedback",
+    "why": "Standard spoken term; 'pratikriya'/'karutthu' shift meaning and feel formal/translated."
+  },
+  {
+    "term": "goal",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "लक्ष्य",
+    "tamil": "இலக்கு",
+    "why": "लक्ष्य/இலக்கு are natural, common words for an aim/goal in motivational and everyday speech."
+  },
+  {
+    "term": "knowledge",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "ज्ञान",
+    "tamil": "அறிவு",
+    "why": "ज्ञान/அறிவு are everyday native words for knowledge."
+  },
+  {
+    "term": "meeting",
+    "domain": "general",
+    "recommendation": "loanword_ok",
+    "hindi": "meeting",
+    "tamil": "meeting",
+    "why": "Universal everyday loanword in office speech; no one says 'baithak'/'kootam' casually for a work meeting."
+  },
+  {
+    "term": "motivation",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "प्रेरणा",
+    "tamil": "ஊக்கம்",
+    "why": "प्रेरणा/ஊக்கம் are everyday natural words for motivation/inspiration in speech."
+  },
+  {
+    "term": "office",
+    "domain": "general",
+    "recommendation": "loanword_ok",
+    "hindi": "office",
+    "tamil": "office",
+    "why": "Universal loanword; 'karyalay'/'aluvalagam' are formal-register and 'office' dominates speech."
+  },
+  {
+    "term": "opportunity",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "मौका",
+    "tamil": "வாய்ப்பு",
+    "why": "मौका and வாய்ப்பு are the natural spoken words; far more common than the English loan."
+  },
+  {
+    "term": "perspective",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "नज़रिया",
+    "tamil": "பார்வை",
+    "why": "नज़रिया and பார்வை (viewpoint) are the natural conversational choices over loaning 'perspective'."
+  },
+  {
+    "term": "presentation",
+    "domain": "general",
+    "recommendation": "keep_english",
+    "hindi": "presentation",
+    "tamil": "presentation",
+    "why": "Fixed term for the deliverable; 'prastuti'/'vazhanguthal' don't map to the slide-deck meaning naturally."
+  },
+  {
+    "term": "productivity",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "उत्पादकता",
+    "tamil": "உற்பத்தித்திறன்",
+    "why": "Genuine native words exist and are used in earnest/motivational contexts; reads naturally."
+  },
+  {
+    "term": "project",
+    "domain": "general",
+    "recommendation": "loanword_ok",
+    "hindi": "project",
+    "tamil": "project",
+    "why": "Office/student speech uses 'project' universally; 'pariyojana'/'thittam' feel formal or shift meaning."
+  },
+  {
+    "term": "reminder",
+    "domain": "general",
+    "recommendation": "loanword_ok",
+    "hindi": "reminder",
+    "tamil": "reminder",
+    "why": "Phone/app culture made 'reminder' the spoken default; 'anusmaarak'/'gnaabakam' feel literary."
+  },
+  {
+    "term": "report",
+    "domain": "general",
+    "recommendation": "loanword_ok",
+    "hindi": "report",
+    "tamil": "report",
+    "why": "'Report' is the spoken default in office/news contexts; 'prativedan'/'arikkai' are formal-register."
+  },
+  {
+    "term": "responsibility",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "ज़िम्मेदारी",
+    "tamil": "பொறுப்பு",
+    "why": "ज़िम्मेदारी/பொறுப்பு are core everyday native words; clearly localize."
+  },
+  {
+    "term": "revision",
+    "domain": "general",
+    "recommendation": "loanword_ok",
+    "hindi": "revision",
+    "tamil": "revision",
+    "why": "In study context 'revision' is the spoken default; 'punaravalokan'/'thiruppi padithal' are clunky."
+  },
+  {
+    "term": "salary",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "तनख़्वाह",
+    "tamil": "சம்பளம்",
+    "why": "तनख़्वाह/சம்பளம் are natural everyday words for salary, used more than the English loan."
+  },
+  {
+    "term": "schedule",
+    "domain": "general",
+    "recommendation": "keep_english",
+    "hindi": "schedule",
+    "tamil": "schedule",
+    "why": "Spoken Hindi/Tamil both use 'schedule'; 'samay-saarini'/'kala attavanai' are written-register and stiff in dub."
+  },
+  {
+    "term": "school",
+    "domain": "general",
+    "recommendation": "loanword_ok",
+    "hindi": "school",
+    "tamil": "school",
+    "why": "Everyday loanword; 'vidyalay'/'palli' exist but spoken default is 'school'."
+  },
+  {
+    "term": "signature",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "दस्तख़त",
+    "tamil": "கையெழுத்து",
+    "why": "दस्तख़त and கையெழுத்து are the natural everyday words for a signature, used more than 'signature'."
+  },
+  {
+    "term": "summary",
+    "domain": "general",
+    "recommendation": "localize",
+    "hindi": "सारांश",
+    "tamil": "சுருக்கம்",
+    "why": "सारांश/சுருக்கம் are real, naturally-used words for a summary/gist."
+  },
+  {
+    "term": "syllabus",
+    "domain": "general",
+    "recommendation": "loanword_ok",
+    "hindi": "syllabus",
+    "tamil": "syllabus",
+    "why": "Everyday education loanword; 'paathyakram'/'paadathittam' exist but speech defaults to 'syllabus'."
+  },
+  {
+    "term": "antioxidant",
+    "domain": "health",
+    "recommendation": "keep_english",
+    "hindi": "एंटीऑक्सीडेंट",
+    "tamil": "ஆன்ட்டிஆக்சிடன்ட்",
+    "why": "Technical product/marketing loanword spoken in English; native coinages exist in textbooks but are never used in everyday wellness speech."
+  },
+  {
+    "term": "blood pressure",
+    "domain": "health",
+    "recommendation": "keep_english",
+    "hindi": "ब्लड प्रेशर (बीपी)",
+    "tamil": "ரத்த அழுத்தம் / பிபி",
+    "why": "Commonly kept as ब्लड प्रेशर/BP in speech; native रक्तचाप / ரத்த அழுத்தம் exist but the English/BP form dominates clinical and casual conversation."
+  },
+  {
+    "term": "calories",
+    "domain": "health",
+    "recommendation": "loanword_ok",
+    "hindi": "कैलोरी",
+    "tamil": "கலோரி",
+    "why": "Standard naturalized loanword in both languages; no native word competes in everyday diet and fitness speech."
+  },
+  {
+    "term": "cardio",
+    "domain": "health",
+    "recommendation": "loanword_ok",
+    "hindi": "कार्डियो",
+    "tamil": "கார்டியோ",
+    "why": "Everyday gym loanword used as-is by speakers; the native heart-exercise phrase reads textbook-formal and the literal heart translation is wrong for the exercise sense."
+  },
+  {
+    "term": "cholesterol",
+    "domain": "health",
+    "recommendation": "keep_english",
+    "hindi": "कोलेस्ट्रॉल",
+    "tamil": "கொலஸ்ட்ரால்",
+    "why": "Clinical loanword spoken in English by doctors and patients; no native equivalent is in everyday use."
+  },
+  {
+    "term": "deficiency",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "कमी",
+    "tamil": "குறைபாடு",
+    "why": "कमी (e.g. विटामिन की कमी) and குறைபாடு are the natural words; a transliteration डेफिशियेंसी is awkward."
+  },
+  {
+    "term": "detox",
+    "domain": "health",
+    "recommendation": "loanword_ok",
+    "hindi": "डिटॉक्स",
+    "tamil": "டிடாக்ஸ்",
+    "why": "Everyday wellness/marketing loanword; the literal toxin-removal phrase (विषहरण / நச்சு நீக்கம்) sounds clinical and is not how people refer to detox routines."
+  },
+  {
+    "term": "diabetes",
+    "domain": "health",
+    "recommendation": "keep_english",
+    "hindi": "डायबिटीज (शुगर)",
+    "tamil": "சர்க்கரை நோய் / டயாபடிஸ்",
+    "why": "Spoken as डायबिटीज/शुगर in Hindi and சர்க்கரை நோய்/diabetes in Tamil; the English/sugar form is the everyday clinical usage even though मधुमेह / நீரிழிவு exist."
+  },
+  {
+    "term": "digestion",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "पाचन",
+    "tamil": "செரிமானம்",
+    "why": "पाचन and செரிமானம் are everyday native words for digestion, natural in food and gut-health talk."
+  },
+  {
+    "term": "dumbbell",
+    "domain": "health",
+    "recommendation": "keep_english",
+    "hindi": "डंबल",
+    "tamil": "டம்பெல்",
+    "why": "Equipment name kept as-is; there is no practical native word and a coined translation would be unrecognizable in a gym."
+  },
+  {
+    "term": "endurance",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "सहनशक्ति",
+    "tamil": "சகிப்புத்தன்மை",
+    "why": "सहनशक्ति and சகிப்புத்தன்மை (also தாங்கும் திறன்) are the natural native words for stamina/endurance."
+  },
+  {
+    "term": "exercise",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "व्यायाम",
+    "tamil": "உடற்பயிற்சி",
+    "why": "व्यायाम (also कसरत) and உடற்பயிற்சி are strong, natural native words used everywhere; transliteration एक्सरसाइज़ is colloquial but not proper localization."
+  },
+  {
+    "term": "fatigue",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "थकान",
+    "tamil": "சோர்வு",
+    "why": "थकान and சோர்வு / களைப்பு are everyday native words for tiredness/fatigue in health and fitness talk."
+  },
+  {
+    "term": "flexibility",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "लचीलापन",
+    "tamil": "நெகிழ்வுத்தன்மை",
+    "why": "लचीलापन and நெகிழ்வுத்தன்மை are genuine natural words for bodily flexibility in fitness content."
+  },
+  {
+    "term": "hydration",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "जलयोजन",
+    "tamil": "நீரேற்றம்",
+    "why": "Tamil நீரேற்றம் is natural; in Hindi the idea is spoken as शरीर में पानी की मात्रा with जलयोजन as the single-word equivalent. A bare transliteration हाइड्रेशन is unnatural outside lab labels."
+  },
+  {
+    "term": "immunity",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "रोग प्रतिरोधक क्षमता",
+    "tamil": "நோய் எதிர்ப்பு சக்தி",
+    "why": "Strong native phrases used constantly in Indian wellness content; the transliteration इम्यूनिटी reads as marketing-English rather than proper localization."
+  },
+  {
+    "term": "inflammation",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "सूजन",
+    "tamil": "வீக்கம்",
+    "why": "सूजन and வீக்கம் are the natural spoken words for swelling/inflammation; widely understood colloquially."
+  },
+  {
+    "term": "joints",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "जोड़",
+    "tamil": "மூட்டுகள்",
+    "why": "जोड़ and மூட்டு are the natural anatomy words used in pain and mobility content; a transliteration जॉइंट्स is not proper localization."
+  },
+  {
+    "term": "metabolism",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "चयापचय",
+    "tamil": "வளர்சிதை மாற்றம்",
+    "why": "चयापचय and வளர்சிதை மாற்றம் are the established native biology terms taught in schools and natural in wellness content; a phonetic transliteration (मेटाबॉलिज़म) sounds foreign."
+  },
+  {
+    "term": "muscle",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "मांसपेशी",
+    "tamil": "தசை",
+    "why": "मांसपेशी and தசை are strong, natural native words; Hindi gym register borrows मसल but मांसपेशी is the correct localization."
+  },
+  {
+    "term": "nutrients",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "पोषक तत्व",
+    "tamil": "ஊட்டச்சத்துக்கள்",
+    "why": "पोषक तत्व and ஊட்டச்சத்து are the natural everyday words in food and diet content; a transliteration like न्यूट्रिएंट्स sounds clinical."
+  },
+  {
+    "term": "obesity",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "मोटापा",
+    "tamil": "உடல் பருமன்",
+    "why": "मोटापा and உடல் பருமன் are the everyday native words for obesity/being overweight, natural in health talk."
+  },
+  {
+    "term": "posture",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "मुद्रा",
+    "tamil": "உடல் நிலை",
+    "why": "मुद्रा (body posture, also yoga) and உடல் நிலை are natural native terms; the transliteration पोस्चर is reel-speak, not proper localization."
+  },
+  {
+    "term": "pre-workout",
+    "domain": "health",
+    "recommendation": "keep_english",
+    "hindi": "प्री-वर्कआउट",
+    "tamil": "ப்ரீ-வொர்க்அவுட்",
+    "why": "Fixed supplement-product term used as-is in gyms; a literal before-exercise translation would not be recognized as the product."
+  },
+  {
+    "term": "protein",
+    "domain": "health",
+    "recommendation": "loanword_ok",
+    "hindi": "प्रोटीन",
+    "tamil": "புரதம்",
+    "why": "Hindi uses प्रोटीन as a fully naturalized everyday loanword; Tamil has the genuine native புரதம், both natural in diet talk."
+  },
+  {
+    "term": "recovery",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "रिकवरी (शरीर का ठीक होना)",
+    "tamil": "மீட்பு",
+    "why": "Tamil மீட்பு / மீட்சி is a genuine native term; in Hindi the idea is spoken as शरीर का ठीक होना / आराम, with रिकवरी also common in gym register. The native sense is clearly expressible."
+  },
+  {
+    "term": "reps",
+    "domain": "health",
+    "recommendation": "keep_english",
+    "hindi": "रेप्स",
+    "tamil": "ரெப்ஸ்",
+    "why": "Fixed gym jargon; the literal repetition translation (पुनरावृत्ति / மறுபடி எண்ணிக்கை) is never said while training and would confuse."
+  },
+  {
+    "term": "sets",
+    "domain": "health",
+    "recommendation": "keep_english",
+    "hindi": "सेट",
+    "tamil": "செட்",
+    "why": "Fixed gym jargon ('three sets of ten') used as-is; a literal group translation (समूह / தொகுப்பு) would be absurd in a workout instruction."
+  },
+  {
+    "term": "six pack",
+    "domain": "health",
+    "recommendation": "keep_english",
+    "hindi": "सिक्स पैक",
+    "tamil": "சிக்ஸ் பேக்",
+    "why": "Fixed fitness slang for abdominal definition; a literal six-package translation would be absurd, so the English term is kept."
+  },
+  {
+    "term": "stamina",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "दमखम",
+    "tamil": "சகிப்புத்தன்மை",
+    "why": "दमखम / सहनशक्ति and சகிப்புத்தன்மை are natural native words for stamina; the स्टैमिना loanword is also common but the native forms read naturally."
+  },
+  {
+    "term": "stretching",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "खिंचाव (स्ट्रेचिंग)",
+    "tamil": "நீட்சி பயிற்சி",
+    "why": "Tamil நீட்சி / நீட்டிப்பு பயிற்சி is a real native phrase and खिंचाव conveys the stretch naturally; स्ट्रेचिंग loanword is also common in Hindi gyms."
+  },
+  {
+    "term": "supplement",
+    "domain": "health",
+    "recommendation": "keep_english",
+    "hindi": "सप्लीमेंट",
+    "tamil": "சப்ளிமெண்ட்",
+    "why": "Product/nutrition-store term used as-is; literal additive translations (पूरक / நிரப்பி) sound clinical and aren't used for protein or vitamin supplements."
+  },
+  {
+    "term": "treadmill",
+    "domain": "health",
+    "recommendation": "keep_english",
+    "hindi": "ट्रेडमिल",
+    "tamil": "ட்ரெட்மில்",
+    "why": "Product/equipment name used as-is universally; native paraphrases are never spoken and any literal coinage would be absurd."
+  },
+  {
+    "term": "vitamin",
+    "domain": "health",
+    "recommendation": "loanword_ok",
+    "hindi": "विटामिन",
+    "tamil": "வைட்டமின்",
+    "why": "Universal everyday loanword for vitamins; no native word competes in common speech."
+  },
+  {
+    "term": "warm-up",
+    "domain": "health",
+    "recommendation": "loanword_ok",
+    "hindi": "वार्म-अप",
+    "tamil": "வார்ம்-அப்",
+    "why": "Naturalized gym loanword in both languages; the literal heat-up phrase (शरीर गरम करना) sounds odd as a fitness instruction."
+  },
+  {
+    "term": "weight loss",
+    "domain": "health",
+    "recommendation": "localize",
+    "hindi": "वज़न घटाना",
+    "tamil": "எடை குறைப்பு",
+    "why": "वज़न घटाना and எடை குறைப்பு are completely natural native phrases used universally in diet and fitness conversation."
+  },
+  {
+    "term": "workout",
+    "domain": "health",
+    "recommendation": "loanword_ok",
+    "hindi": "वर्कआउट",
+    "tamil": "வொர்க்அவுட்",
+    "why": "Universal everyday fitness loanword; native व्यायाम/கசரत and உடற்பயிற்சி exist but workout is what gym culture actually says."
+  },
+  {
+    "term": "accessories",
+    "domain": "lifestyle",
+    "recommendation": "loanword_ok",
+    "hindi": "एक्सेसरीज़",
+    "tamil": "அக்சஸரீஸ்",
+    "why": "Standard spoken fashion term; no concise native word covers bags/jewellery/belts as one category."
+  },
+  {
+    "term": "accommodation",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "ठहरने की व्यवस्था",
+    "tamil": "தங்குமிடம்",
+    "why": "Natural native expressions: thaharne ki vyavastha / rehne ka intezaam (Hindi) and thangumidam (Tamil) are everyday travel words."
+  },
+  {
+    "term": "appetizer",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "स्टार्टर",
+    "tamil": "தொடக்க உணவு",
+    "why": "Hindi menu speech uses 'starter' (accepted loan); Tamil thodakka-unavu (starting food) works natively. Formal क्षुधावर्धक is too literary."
+  },
+  {
+    "term": "backpacking",
+    "domain": "lifestyle",
+    "recommendation": "keep_english",
+    "hindi": "बैकपैकिंग",
+    "tamil": "பேக்பேக்கிங்",
+    "why": "Specific budget/independent-travel concept; a literal 'carrying a bag on the back' misses the meaning, so kept as the loan in travel content."
+  },
+  {
+    "term": "batter",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "घोल",
+    "tamil": "மாவு",
+    "why": "Genuine native words: Hindi ghol (a pourable mix) and Tamil maavu (batter, as in dosa maavu)."
+  },
+  {
+    "term": "beverage",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "पेय पदार्थ",
+    "tamil": "பானம்",
+    "why": "Genuine native umbrella words: Hindi peya/pey-padaarth and Tamil paanam naturally mean a drink."
+  },
+  {
+    "term": "boarding pass",
+    "domain": "lifestyle",
+    "recommendation": "keep_english",
+    "hindi": "बोर्डिंग पास",
+    "tamil": "போர்டிங் பாஸ்",
+    "why": "Fixed airline-document term; any literal translation is absurd and unrecognizable at the airport. Universally said in English."
+  },
+  {
+    "term": "cake",
+    "domain": "lifestyle",
+    "recommendation": "loanword_ok",
+    "hindi": "केक",
+    "tamil": "கேக்",
+    "why": "Everyday loanword for the baked item; no native word exists or is sought."
+  },
+  {
+    "term": "casual",
+    "domain": "lifestyle",
+    "recommendation": "loanword_ok",
+    "hindi": "कैज़ुअल",
+    "tamil": "காஷுவல்",
+    "why": "Used directly in everyday dress-code talk; no natural one-word native equivalent in the fashion register."
+  },
+  {
+    "term": "checklist",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "सूची",
+    "tamil": "பட்டியல்",
+    "why": "Native list words soochi/jaanch-soochi (Hindi) and pattiyal (Tamil) are clear and natural."
+  },
+  {
+    "term": "decor",
+    "domain": "lifestyle",
+    "recommendation": "loanword_ok",
+    "hindi": "डेकोर",
+    "tamil": "டெக்கோர்",
+    "why": "Common spoken loanword in home/interior contexts; native सजावट/அலங்காரம் are also natural but 'decor' is the prevailing register word."
+  },
+  {
+    "term": "dough",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "आटा",
+    "tamil": "மாவு",
+    "why": "Hindi aata / guundha hua aata and Tamil maavu are the genuine everyday words for kneaded dough."
+  },
+  {
+    "term": "embroidery",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "कढ़ाई",
+    "tamil": "எம்பிராய்டரி",
+    "why": "Hindi kadhaai is the genuine everyday word; Tamil commonly keeps the loan 'embroidery' in speech (நூல் வேலை is the native alternative)."
+  },
+  {
+    "term": "fabric",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "कपड़ा",
+    "tamil": "துணி",
+    "why": "Genuine everyday native words: kapdaa (Hindi) and thuni (Tamil) are the natural way to refer to cloth/material."
+  },
+  {
+    "term": "fashion",
+    "domain": "lifestyle",
+    "recommendation": "loanword_ok",
+    "hindi": "फ़ैशन",
+    "tamil": "ஃபேஷன்",
+    "why": "Established everyday loanword; native phrasing for 'trend in dress' doesn't carry the style connotation people mean."
+  },
+  {
+    "term": "fast food",
+    "domain": "lifestyle",
+    "recommendation": "keep_english",
+    "hindi": "फास्ट फूड",
+    "tamil": "ஃபாஸ்ட் ஃபுட்",
+    "why": "Fixed product/category term; a literal 'तेज़ खाना/fast (speed) food' is absurd. Universally kept in English."
+  },
+  {
+    "term": "formal",
+    "domain": "lifestyle",
+    "recommendation": "loanword_ok",
+    "hindi": "फॉर्मल",
+    "tamil": "ஃபார்மல்",
+    "why": "Everyday loanword for dress code; native औपचारिक/முறையான sound bureaucratic and aren't used for clothing."
+  },
+  {
+    "term": "frosting",
+    "domain": "lifestyle",
+    "recommendation": "keep_english",
+    "hindi": "फ्रॉस्टिंग",
+    "tamil": "ஃப்ராஸ்டிங்",
+    "why": "Western-baking product term (interchangeable with icing); no native equivalent and a literal 'cover/परत' translation is misleading."
+  },
+  {
+    "term": "garnish",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "सजाना",
+    "tamil": "அலங்கரித்தல்",
+    "why": "Natural native verbs for topping/decorating a dish: sajaana (Hindi) and alangarithal (Tamil)."
+  },
+  {
+    "term": "hotel",
+    "domain": "lifestyle",
+    "recommendation": "loanword_ok",
+    "hindi": "होटल",
+    "tamil": "ஹோட்டல்",
+    "why": "Fully naturalized everyday word (in Tamil it also colloquially means eatery). No native substitute is used."
+  },
+  {
+    "term": "ingredients",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "सामग्री",
+    "tamil": "தேவையான பொருட்கள்",
+    "why": "Native words saamagri (Hindi) and thevaiyaana porutkal (Tamil) appear in every recipe in both languages."
+  },
+  {
+    "term": "itinerary",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "यात्रा कार्यक्रम",
+    "tamil": "பயணத் திட்டம்",
+    "why": "Native travel-plan terms yatra-karyakram (Hindi) and payana-thittam (Tamil) are genuine and understood; the English word is hard for general audiences."
+  },
+  {
+    "term": "landscape",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "नज़ारा",
+    "tamil": "நிலக்காட்சி",
+    "why": "Genuine native scenery words: Hindi nazaara (view/scene) and Tamil nilakkaatchi (land-view)."
+  },
+  {
+    "term": "leftovers",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "बचा हुआ खाना",
+    "tamil": "மீதம் உள்ள உணவு",
+    "why": "Natural native phrasing for 'remaining food': bacha hua khaana (Hindi) and meedham ulla unavu (Tamil)."
+  },
+  {
+    "term": "marinate",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "मसाले में डुबोकर रखना",
+    "tamil": "ஊறவைத்தல்",
+    "why": "Tamil oora-vaithal (to steep/soak in spices) is the genuine native cooking term; Hindi naturally describes it as steeping in spices."
+  },
+  {
+    "term": "outfit",
+    "domain": "lifestyle",
+    "recommendation": "loanword_ok",
+    "hindi": "आउटफिट",
+    "tamil": "அவுட்ஃபிட்",
+    "why": "Everyday spoken word in urban fashion talk; native पहनावा/உடை exist but 'outfit' is what people actually say for a put-together look."
+  },
+  {
+    "term": "preheat",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "पहले से गरम करना",
+    "tamil": "முன்கூட்டியே சூடாக்குதல்",
+    "why": "Native compounds for 'heat beforehand' are natural and clear in oven instructions."
+  },
+  {
+    "term": "recipe",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "विधि",
+    "tamil": "செய்முறை",
+    "why": "Genuine native words: Hindi vidhi/pakaane ki vidhi/nuskha and Tamil seimurai (method) are standard in cooking content."
+  },
+  {
+    "term": "restaurant",
+    "domain": "lifestyle",
+    "recommendation": "loanword_ok",
+    "hindi": "रेस्टोरेंट",
+    "tamil": "ரெஸ்டாரண்ட்",
+    "why": "Everyday loanword; native भोजनालय sounds archaic and is not used in casual speech."
+  },
+  {
+    "term": "silhouette",
+    "domain": "lifestyle",
+    "recommendation": "keep_english",
+    "hindi": "सिल्हूट",
+    "tamil": "சில்ஹவுட்",
+    "why": "Fashion-technical term; a literal 'shadow shape / परछाई आकार' is absurd and loses the garment-outline meaning."
+  },
+  {
+    "term": "simmer",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "धीमी आँच पर पकाना",
+    "tamil": "குறைந்த தீயில் வேகவைத்தல்",
+    "why": "Described naturally as 'cook on low flame'; this is the actual instruction Indian cooks use, no loanword needed."
+  },
+  {
+    "term": "souvenir",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "यादगार वस्तु",
+    "tamil": "நினைவுப் பரிசு",
+    "why": "Native keepsake words: Hindi yaadgaar/nishaani and Tamil ninaivup-parisu (memory gift) convey it genuinely and avoid the hard French loan."
+  },
+  {
+    "term": "stitching",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "सिलाई",
+    "tamil": "தையல்",
+    "why": "Silaai and thaiyal are the natural, universally used words for stitching/sewing."
+  },
+  {
+    "term": "street food",
+    "domain": "lifestyle",
+    "recommendation": "keep_english",
+    "hindi": "स्ट्रीट फूड",
+    "tamil": "ஸ்ட்ரீட் ஃபுட்",
+    "why": "Fixed category label; literal सड़क का खाना reads oddly while the English term is the marketing-standard phrase now widely used."
+  },
+  {
+    "term": "style",
+    "domain": "lifestyle",
+    "recommendation": "loanword_ok",
+    "hindi": "स्टाइल",
+    "tamil": "ஸ்டைல்",
+    "why": "Fully naturalized casual word ('uska style accha hai'); native शैली/பாணி are literary and not used conversationally."
+  },
+  {
+    "term": "tailor",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "दर्ज़ी",
+    "tamil": "தையல்காரர்",
+    "why": "Genuine everyday occupational words: Hindi darzi and Tamil thaiyalkaarar are exactly what people call a tailor."
+  },
+  {
+    "term": "ticket",
+    "domain": "lifestyle",
+    "recommendation": "loanword_ok",
+    "hindi": "टिकट",
+    "tamil": "டிக்கெட்",
+    "why": "Long-naturalized everyday word for travel/entry; no native equivalent is in spoken use."
+  },
+  {
+    "term": "trendy",
+    "domain": "lifestyle",
+    "recommendation": "loanword_ok",
+    "hindi": "ट्रेंडी",
+    "tamil": "ட்ரெண்டி",
+    "why": "Common spoken word; native phrasing like चलन में is stiff and not how people describe fashionable items."
+  },
+  {
+    "term": "vintage",
+    "domain": "lifestyle",
+    "recommendation": "keep_english",
+    "hindi": "विंटेज",
+    "tamil": "வின்டேஜ்",
+    "why": "Style label with a desirable retro/period connotation; literal 'पुराना/old' loses the classic-aesthetic nuance."
+  },
+  {
+    "term": "wardrobe",
+    "domain": "lifestyle",
+    "recommendation": "loanword_ok",
+    "hindi": "वॉर्डरोब",
+    "tamil": "வார்ட்ரோப்",
+    "why": "Used as-is for both the furniture and one's clothing collection; अलमारी covers only the cupboard, not the collection sense."
+  },
+  {
+    "term": "whisk",
+    "domain": "lifestyle",
+    "recommendation": "localize",
+    "hindi": "फेंटना",
+    "tamil": "கடைதல்",
+    "why": "Real everyday cooking verbs: phentnaa (Hindi, to beat/whisk) and kadaithal (Tamil, to beat)."
+  },
+  {
+    "term": "algorithm",
+    "domain": "tech",
+    "recommendation": "localize",
+    "hindi": "एल्गोरिद्म",
+    "tamil": "நெறிமுறை",
+    "why": "Tamil நெறிமுறை is a real natural native term; Hindi everyday usage is the loan एल्गोरिद्म"
+  },
+  {
+    "term": "app",
+    "domain": "tech",
+    "recommendation": "loanword_ok",
+    "hindi": "ऐप",
+    "tamil": "ஆப்",
+    "why": "the loanword is the everyday word for a mobile application"
+  },
+  {
+    "term": "app store",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "ऐप स्टोर",
+    "tamil": "ஆப் ஸ்டோர்",
+    "why": "branded product/UI name; literal 'shop' translation is wrong"
+  },
+  {
+    "term": "bandwidth",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "बैंडविड्थ",
+    "tamil": "பேண்ட்விட்த்",
+    "why": "no natural everyday native word; literal calques sound absurd, so the English term is kept"
+  },
+  {
+    "term": "browser",
+    "domain": "tech",
+    "recommendation": "loanword_ok",
+    "hindi": "ब्राउज़र",
+    "tamil": "பிரவுசர்",
+    "why": "the loanword is the everyday word"
+  },
+  {
+    "term": "bug",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "बग",
+    "tamil": "பக்",
+    "why": "software bug is a fixed term; the literal word for insect (कीड़ा/பூச்சி) is absurd in tech context"
+  },
+  {
+    "term": "cache",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "कैश",
+    "tamil": "கேஷ்",
+    "why": "fixed tech term; native words for hidden-store are wrong in computing context"
+  },
+  {
+    "term": "charging",
+    "domain": "tech",
+    "recommendation": "loanword_ok",
+    "hindi": "चार्जिंग",
+    "tamil": "சார்ஜிங்",
+    "why": "the loanword is the everyday word for charging a device"
+  },
+  {
+    "term": "cloud",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "क्लाउड",
+    "tamil": "கிளவுட்",
+    "why": "in cloud-computing sense the literal sky-cloud word (बादल/மேகம்) is wrong; keep the tech term"
+  },
+  {
+    "term": "dashboard",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "डैशबोर्ड",
+    "tamil": "டாஷ்போர்டு",
+    "why": "UI/product term; literal 'control panel' translations are not what users actually say"
+  },
+  {
+    "term": "database",
+    "domain": "tech",
+    "recommendation": "localize",
+    "hindi": "डेटाबेस",
+    "tamil": "தரவுத்தளம்",
+    "why": "Tamil தரவுத்தளம் is the natural standard term; Hindi everyday usage is the loan डेटाबेस"
+  },
+  {
+    "term": "debugging",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "डीबगिंग",
+    "tamil": "டிபக்கிங்",
+    "why": "fixed dev term; literal 'removing insects' is absurd, so the English word is kept"
+  },
+  {
+    "term": "deployment",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "डिप्लॉयमेंट",
+    "tamil": "டிப்ளாய்மென்ட்",
+    "why": "in software context literal native words mean troop/army deployment and are absurd; keep English"
+  },
+  {
+    "term": "download",
+    "domain": "tech",
+    "recommendation": "loanword_ok",
+    "hindi": "डाउनलोड",
+    "tamil": "டவுன்லோடு",
+    "why": "the loanword is the everyday word"
+  },
+  {
+    "term": "encryption",
+    "domain": "tech",
+    "recommendation": "localize",
+    "hindi": "कूटलेखन",
+    "tamil": "மறையாக்கம்",
+    "why": "real native term exists and is used in technical speech"
+  },
+  {
+    "term": "feed",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "फ़ीड",
+    "tamil": "ஃபீட்",
+    "why": "the app feed is a product term; the literal word for feeding/food is absurd here"
+  },
+  {
+    "term": "firewall",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "फ़ायरवॉल",
+    "tamil": "ஃபயர்வால்",
+    "why": "fixed security term; literal 'fire wall' translation is wrong in computing"
+  },
+  {
+    "term": "framework",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "फ्रेमवर्क",
+    "tamil": "ஃபிரேம்வொர்க்",
+    "why": "software framework is a fixed dev term; literal 'frame structure' translations are wrong"
+  },
+  {
+    "term": "interface",
+    "domain": "tech",
+    "recommendation": "localize",
+    "hindi": "इंटरफेस",
+    "tamil": "இடைமுகம்",
+    "why": "Tamil இடைமுகம் is a real natural term used in localized UIs; Hindi everyday usage is the loan इंटरफेस"
+  },
+  {
+    "term": "internet",
+    "domain": "tech",
+    "recommendation": "loanword_ok",
+    "hindi": "इंटरनेट",
+    "tamil": "இணையம்",
+    "why": "Tamil இணையம் is widely used and natural; Hindi everyday usage is the loan इंटरनेट"
+  },
+  {
+    "term": "latency",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "लेटेंसी",
+    "tamil": "லேட்டன்சி",
+    "why": "no everyday native word; literal 'delay' calques are imprecise, so the English term is used"
+  },
+  {
+    "term": "link",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "लिंक",
+    "tamil": "லிங்க்",
+    "why": "a URL link is a fixed term; literal 'connection/chain' calques are unnatural for users"
+  },
+  {
+    "term": "login",
+    "domain": "tech",
+    "recommendation": "loanword_ok",
+    "hindi": "लॉगिन",
+    "tamil": "லாகின்",
+    "why": "the loanword is the everyday word"
+  },
+  {
+    "term": "mobile",
+    "domain": "tech",
+    "recommendation": "loanword_ok",
+    "hindi": "मोबाइल",
+    "tamil": "மொபைல்",
+    "why": "the loanword is the everyday word for a phone"
+  },
+  {
+    "term": "notification",
+    "domain": "tech",
+    "recommendation": "loanword_ok",
+    "hindi": "नोटिफिकेशन",
+    "tamil": "நோட்டிஃபிகேஷன்",
+    "why": "the loanword is the everyday word for an app notification"
+  },
+  {
+    "term": "online",
+    "domain": "tech",
+    "recommendation": "loanword_ok",
+    "hindi": "ऑनलाइन",
+    "tamil": "ஆன்லைன்",
+    "why": "the loanword is the everyday word"
+  },
+  {
+    "term": "password",
+    "domain": "tech",
+    "recommendation": "loanword_ok",
+    "hindi": "पासवर्ड",
+    "tamil": "பாஸ்வேர்டு",
+    "why": "the loanword is the everyday word"
+  },
+  {
+    "term": "post",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "पोस्ट",
+    "tamil": "போஸ்ட்",
+    "why": "the social-media post is a fixed term; literal native words mean mail/pole and are wrong"
+  },
+  {
+    "term": "processor",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "प्रोसेसर",
+    "tamil": "புராசசர்",
+    "why": "the loan is the everyday word for the chip; native calques sound forced"
+  },
+  {
+    "term": "reel",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "रील",
+    "tamil": "ரீல்",
+    "why": "product/feature name; literal native translation is absurd"
+  },
+  {
+    "term": "repository",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "रिपॉज़िटरी",
+    "tamil": "ரெப்போசிட்டரி",
+    "why": "code repo is a fixed dev term; literal 'storehouse' translations are wrong in context"
+  },
+  {
+    "term": "resolution",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "रेज़ोल्यूशन",
+    "tamil": "ரெசல்யூஷன்",
+    "why": "screen resolution is a fixed term; literal native words mean 'resolve/decision' and are wrong"
+  },
+  {
+    "term": "scalability",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "स्केलेबिलिटी",
+    "tamil": "ஸ்கேலபிலிட்டி",
+    "why": "no natural everyday native word; literal calques are clumsy, so the English term is used"
+  },
+  {
+    "term": "screenshot",
+    "domain": "tech",
+    "recommendation": "loanword_ok",
+    "hindi": "स्क्रीनशॉट",
+    "tamil": "ஸ்க்ரீன்ஷாட்",
+    "why": "the loanword is the everyday word"
+  },
+  {
+    "term": "server",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "सर्वर",
+    "tamil": "சர்வர்",
+    "why": "fixed technical term; literal 'serving machine' calques are unnatural in speech"
+  },
+  {
+    "term": "startup",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "स्टार्टअप",
+    "tamil": "ஸ்டார்ட்அப்",
+    "why": "the business-sense startup is a fixed term; literal 'beginning' calques miss the meaning"
+  },
+  {
+    "term": "story",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "स्टोरी",
+    "tamil": "ஸ்டோரி",
+    "why": "the social-media feature is a product term; the literal word for story (कहानी/கதை) is wrong here"
+  },
+  {
+    "term": "streaming",
+    "domain": "tech",
+    "recommendation": "keep_english",
+    "hindi": "स्ट्रीमिंग",
+    "tamil": "ஸ்ட்ரீமிங்",
+    "why": "fixed media term; literal 'flowing' calques are wrong, so the English word is kept"
+  },
+  {
+    "term": "update",
+    "domain": "tech",
+    "recommendation": "loanword_ok",
+    "hindi": "अपडेट",
+    "tamil": "அப்டேட்",
+    "why": "the loanword is the everyday word"
+  },
+  {
+    "term": "website",
+    "domain": "tech",
+    "recommendation": "loanword_ok",
+    "hindi": "वेबसाइट",
+    "tamil": "வெப்சைட்",
+    "why": "the loanword is the everyday word"
+  },
+  {
+    "term": "wireless",
+    "domain": "tech",
+    "recommendation": "localize",
+    "hindi": "वायरलेस",
+    "tamil": "கம்பியில்லா",
+    "why": "Tamil கம்பியில்லா (wireless) is natural; Hindi everyday usage is the loan वायरलेस"
+  }
+]

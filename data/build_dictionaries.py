@@ -133,17 +133,51 @@ def build_cultural() -> list[dict]:
     return out
 
 
+_RECS = {"localize", "keep_english", "loanword_ok"}
+
+
+def build_glossary() -> list[dict]:
+    """Localization-decision glossary: term -> recommendation + recommended form."""
+    by_term, dropped = {}, 0
+    for path in sorted(glob.glob(os.path.join(BUILD_DIR, "loan_*.json"))):
+        with open(path, encoding="utf-8") as f:
+            batch = json.load(f)
+        for e in batch:
+            term = (e.get("term") or "").strip()
+            key = term.lower()
+            rec = str(e.get("recommendation", "")).strip().lower()
+            if not term or key in by_term or rec not in _RECS:
+                dropped += 1
+                continue
+            by_term[key] = {
+                "term": term,
+                "domain": (e.get("domain") or "general").strip(),
+                "recommendation": rec,
+                "hindi": (e.get("hindi") or "").strip(),
+                "tamil": (e.get("tamil") or "").strip(),
+                "why": (e.get("why") or "").strip(),
+            }
+    out = sorted(by_term.values(), key=lambda x: (x["domain"], x["term"]))
+    print(f"  glossary: kept {len(out)}, dropped {dropped} (dupes/empty/bad-rec)")
+    return out
+
+
 def main() -> None:
     print("Building dictionaries from", BUILD_DIR)
     idioms = build_idioms()
     cultural = build_cultural()
+    glossary = build_glossary()
     with open(os.path.join(ROOT, "data", "hinglish_idioms.json"), "w",
               encoding="utf-8") as f:
         json.dump(idioms, f, ensure_ascii=False, indent=2)
     with open(os.path.join(ROOT, "data", "cultural_references.json"), "w",
               encoding="utf-8") as f:
         json.dump(cultural, f, ensure_ascii=False, indent=2)
-    print(f"Wrote {len(idioms)} idioms and {len(cultural)} cultural references.")
+    with open(os.path.join(ROOT, "data", "loanword_glossary.json"), "w",
+              encoding="utf-8") as f:
+        json.dump(glossary, f, ensure_ascii=False, indent=2)
+    print(f"Wrote {len(idioms)} idioms, {len(cultural)} cultural references, "
+          f"{len(glossary)} glossary terms.")
 
 
 if __name__ == "__main__":
