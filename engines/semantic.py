@@ -13,12 +13,13 @@ happens in the source language; the multilingual model embeds all three.
 """
 from __future__ import annotations
 
+import re
 from typing import Callable
 
 from engines.translate import SARVAM_LANG_CODES, translate as sarvam_translate
 
-CHUNK_WORDS = 150          # smaller chunks => more reliable MT
 DEFAULT_SLEEP = 0.3        # gap between Sarvam translate calls (be gentle on limits)
+MAX_CHUNKS = 16            # per-clip cap on sentence chunks (bounds translate calls)
 
 # A faithful back-translation never returns a perfect match: benign paraphrase
 # and register shifts cost a little similarity with zero real meaning loss. So we
@@ -50,9 +51,19 @@ def _calibrated_loss(raw_loss: float, floor: float) -> float:
     return max(0.0, min(1.0, (raw_loss - floor) / (1 - floor)))
 
 
-def _chunk_text(text: str, size: int = CHUNK_WORDS) -> list[str]:
-    words = text.split()
-    return [" ".join(words[i:i + size]) for i in range(0, len(words), size)] or [""]
+def _chunk_text(text: str) -> list[str]:
+    """Split into SENTENCES, not fixed word-blocks, so the round-trip can flag the
+    specific lines that break (a garbled sentence stands out instead of being
+    averaged away across 150 words). Very short fragments glue onto the previous
+    line. Capped at MAX_CHUNKS to bound translate calls / cost on long clips."""
+    parts = [s.strip() for s in re.split(r"(?<=[.!?।॥…])\s+", text.strip()) if s.strip()]
+    merged: list[str] = []
+    for s in parts:
+        if merged and (len(s.split()) < 4 or len(merged[-1].split()) < 4):
+            merged[-1] = (merged[-1] + " " + s).strip()
+        else:
+            merged.append(s)
+    return (merged or [text.strip()])[:MAX_CHUNKS]
 
 
 def analyze(transcript: str, model, source_lang: str, targets: list[str],
@@ -114,6 +125,7 @@ def analyze(transcript: str, model, source_lang: str, targets: list[str],
                 "loss": round(cal, 3),          # calibrated meaning loss
                 "raw_loss": round(1 - sim, 3),  # before benign-drift floor
                 "original": chunk,
+                "forward": fwd,                 # what Sarvam translated this line to
                 "back_translated": back,
             })
 

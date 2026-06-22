@@ -630,13 +630,20 @@ def render_transcript(res):
 
     worst = res["semantic"].get("worst_chunks", [])
     if worst:
-        st.markdown("<div class='bd-head'>Where meaning slipped most "
-                    "(back-translation)</div>", unsafe_allow_html=True)
-        for w in worst[:3]:
-            with st.expander(f"{w['language']} · {int(w['loss']*100)}% meaning lost"):
+        st.markdown("<div class='bd-head'>Lines with the most round-trip drift</div>",
+                    unsafe_allow_html=True)
+        st.caption("Scored line by line. These lost the most meaning on a round trip, "
+                   "so they're worth a human check. Honest limit: this catches broad "
+                   "drift, not every error (a garble that keeps the key words can still "
+                   "slip), so read the full translation above too.")
+        for w in worst[:4]:
+            with st.expander(f"{w['language']} · {int(w['loss']*100)}% drift on this line"):
                 st.markdown(
-                    f"<div class='bt-orig'>Original: {html.escape(w['original'][:400])}</div>"
-                    f"<div class='bt-back'>Round-tripped: {html.escape(w['back_translated'][:400])}</div>",
+                    f"<div class='bt-orig'>Said: {html.escape(w['original'][:400])}</div>"
+                    f"<div class='bt-back'>Sarvam → {html.escape(w['language'])}: "
+                    f"{html.escape((w.get('forward') or '—')[:400])}</div>"
+                    f"<div class='bt-back'>Round-tripped back: "
+                    f"{html.escape(w['back_translated'][:400])}</div>",
                     unsafe_allow_html=True)
 
 
