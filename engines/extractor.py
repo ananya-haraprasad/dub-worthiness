@@ -116,19 +116,56 @@ def _download_youtube_audio(url: str, workdir: str) -> str:
 
 
 def _estimate_gender(audio: AudioSegment) -> str:
-    """Rough male/female from median pitch (F0), so the dub voice can match.
+    """Male/female from voiced pitch (F0), so the dub voice can match the speaker.
 
-    Cepstral pitch over voiced 50ms frames of the first 30s. Cepstrum measures
-    the *spacing* of harmonics, so it recovers the true F0 even when the
-    fundamental itself is missing — which is common in YouTube/compressed audio
-    that rolls off low frequencies (that rolloff is exactly what made a simple
-    autocorrelation read a male voice an octave too high). Median F0 below
-    ~165 Hz reads male, above reads female. 'unknown' on anything odd.
+    Primary path is CREPE, a small neural pitch tracker. Two reasons it beats a
+    hand-rolled estimator on real (compressed, noisy) YouTube audio:
+      - it doesn't make the octave errors a plain autocorrelation does when
+        compression rolls off the fundamental, and
+      - it returns a per-frame confidence, so we keep only clearly-voiced frames
+        and drop music, applause and silence — the contamination that was
+        dragging a male median up into female range.
+    Median confident F0 below ~165 Hz reads male, above reads female. If CREPE
+    isn't installed (e.g. a minimal deploy) we fall back to a cepstral estimate.
+    """
+    try:
+        import numpy as np
+        import torch
+        import torchcrepe
+
+        sr = TARGET_SAMPLE_RATE
+        clip = audio.set_channels(1).set_frame_rate(sr)[:30_000]
+        samples = np.array(clip.get_array_of_samples()).astype(np.float32)
+        peak = float(np.abs(samples).max())
+        if peak == 0:
+            return "unknown"
+        samples /= peak
+        tensor = torch.tensor(samples).unsqueeze(0)
+        pitch, periodicity = torchcrepe.predict(
+            tensor, sr, hop_length=160, fmin=65, fmax=350,
+            model="tiny", return_periodicity=True, batch_size=512, device="cpu")
+        p = pitch.squeeze().numpy()
+        conf = periodicity.squeeze().numpy()
+        voiced = p[conf > 0.5]
+        if len(voiced) >= 5:
+            return "male" if float(np.median(voiced)) < 165 else "female"
+    except Exception:
+        pass
+    return _estimate_gender_cepstral(audio)
+
+
+def _estimate_gender_cepstral(audio: AudioSegment) -> str:
+    """Fallback pitch estimate (no torch): cepstral F0, keyed off the pitch floor.
+
+    Cepstrum measures harmonic *spacing*, so it recovers F0 even when the
+    fundamental is rolled off. We read the low percentile (the speaker's pitch
+    floor) rather than the median, because contamination only adds high F0
+    estimates and would otherwise push a male voice into female range.
     """
     try:
         import numpy as np
         sr = audio.frame_rate
-        clip = audio[:30_000]  # first 30s is plenty for gender
+        clip = audio[:30_000]
         samples = np.array(clip.get_array_of_samples()).astype(np.float32)
         if clip.channels == 2:
             samples = samples.reshape(-1, 2).mean(axis=1)
@@ -151,16 +188,11 @@ def _estimate_gender(audio: AudioSegment) -> str:
             if not len(seg):
                 continue
             peak = int(np.argmax(seg)) + lo
-            # require the rahmonic to stand clearly above the local average
             if cepstrum[peak] < 2.5 * np.abs(seg).mean():
                 continue
             f0s.append(sr / peak)
         if len(f0s) < 5:
             return "unknown"
-        # Use a LOW percentile (the speaker's pitch FLOOR), not the median.
-        # Contamination (music, crowd, reverb, octave errors) only adds HIGH F0
-        # estimates, so a median gets dragged up and reads a male voice as female.
-        # The genuine low pitch of a male speaker still shows at the low end.
         floor = float(np.percentile(f0s, 20))
         return "male" if floor < 140 else "female"
     except Exception:

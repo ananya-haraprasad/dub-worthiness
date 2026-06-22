@@ -6,7 +6,6 @@ nltk.download("punkt_tab", quiet=True)
 
 import hashlib
 import html
-import json
 import math
 import os
 import re
@@ -644,36 +643,34 @@ def render_footer(res):
     delta = your - bench["avg_score"]
     dcolor, arrow = ("#15803d", "▲") if delta >= 0 else ("#b91c1c", "▼")
 
-    c1, c2 = st.columns([3, 1])
-    with c1:
-        with st.expander(f"Benchmark: your {your} vs. a typical {cat} clip ({bench['avg_score']})"):
-            st.markdown(
-                f"<p class='small-muted'>Your best-language score is <b>{your}</b>. "
-                f"Typical <b>{html.escape(cat)}</b> content averages "
-                f"<b>{bench['avg_score']}</b> "
-                f"<span style='color:{dcolor};font-weight:700'>({arrow} {abs(delta)})</span>. "
-                f"{html.escape(bench['note'])}</p>", unsafe_allow_html=True)
-            rows = "".join(
-                f"<tr style='background:{'#eef2ff' if k==cat else 'transparent'}'>"
-                f"<td style='padding:5px 12px'>{html.escape(k)}</td>"
-                f"<td style='padding:5px 12px;font-weight:700'>{v['avg_score']}</td>"
-                f"<td style='padding:5px 12px;color:#64748b'>{html.escape(v['note'])}</td></tr>"
-                for k, v in BENCHMARKS.items() if k != "General")
-            st.markdown(
-                f"<table style='border-collapse:collapse;font-size:.86rem;width:100%'>"
-                f"<tr style='text-align:left;color:#64748b;border-bottom:1px solid #e5e7eb'>"
-                f"<th style='padding:5px 12px'>Category</th><th style='padding:5px 12px'>Avg</th>"
-                f"<th style='padding:5px 12px'>Note</th></tr>{rows}</table>",
-                unsafe_allow_html=True)
-        with st.expander("How the Travel Score is calculated"):
-            st.markdown(
-                """
+    with st.expander(f"Benchmark: your {your} vs. a typical {cat} clip ({bench['avg_score']})"):
+        st.markdown(
+            f"<p class='small-muted'>Your best-language score is <b>{your}</b>. "
+            f"Typical <b>{html.escape(cat)}</b> content averages "
+            f"<b>{bench['avg_score']}</b> "
+            f"<span style='color:{dcolor};font-weight:700'>({arrow} {abs(delta)})</span>. "
+            f"{html.escape(bench['note'])}</p>", unsafe_allow_html=True)
+        rows = "".join(
+            f"<tr style='background:{'#eef2ff' if k==cat else 'transparent'}'>"
+            f"<td style='padding:5px 12px'>{html.escape(k)}</td>"
+            f"<td style='padding:5px 12px;font-weight:700'>{v['avg_score']}</td>"
+            f"<td style='padding:5px 12px;color:#64748b'>{html.escape(v['note'])}</td></tr>"
+            for k, v in BENCHMARKS.items() if k != "General")
+        st.markdown(
+            f"<table style='border-collapse:collapse;font-size:.86rem;width:100%'>"
+            f"<tr style='text-align:left;color:#64748b;border-bottom:1px solid #e5e7eb'>"
+            f"<th style='padding:5px 12px'>Category</th><th style='padding:5px 12px'>Avg</th>"
+            f"<th style='padding:5px 12px'>Note</th></tr>{rows}</table>",
+            unsafe_allow_html=True)
+    with st.expander("How the Travel Score is calculated"):
+        st.markdown(
+            """
 The Travel Score starts at 100 and subtracts a capped penalty for six signals.
 The numbers are the most each can take off:
 
 | Signal | Max | What it measures |
 |---|---|---|
-| Semantic loss | 40 | Meaning lost on a translate then back-translate round trip. |
+| Semantic loss | 58 | Meaning lost on a translate then back-translate round trip. |
 | Localization | 30 | Common terms machine translation mishandles for this language. |
 | Idiomatic density | 20 | Slang and idioms that need adapting, not translating. |
 | Cultural risk | 16 | References an audience may not recognise. |
@@ -695,44 +692,11 @@ translation in production). The Localization panel above shows that gap directly
 Idiom matching is tuned for Roman and code-mixed text, so for native-script
 (Devanagari or Tamil) sources the score leans more on semantic loss and
 localization. Back-translation uses Google Translate and can rate-limit.
-                """)
-            st.caption(f"Idioms: {res['idiomatic']['dictionary_size']} · "
-                       f"Cultural base: {res['cultural']['dictionary_size']} · "
-                       f"STT: Sarvam saarika:v2.5 · TTS: Sarvam bulbul:v3 · "
-                       f"Embeddings: MiniLM-L12-v2 · Dub text: Google Translate")
-    with c2:
-        st.markdown('<div class="eyebrow">Export</div>', unsafe_allow_html=True)
-        report = {
-            "source_language": res["source_lang"],
-            "targets": res["targets"],
-            "content_type": res["scores"]["detected_category"],
-            "duration_seconds": res["transcript"].get("duration_seconds"),
-            "detected_voice": res["transcript"].get("voice_gender"),
-            "results": {
-                lang: {
-                    "travel_score": s["dub_quality_score"],
-                    "grade": s["grade"],
-                    "recommendation": s["recommendation"],
-                    "top_risks": s["top_risks"],
-                }
-                for lang, s in res["scores"]["by_language"].items()
-            },
-            "localization_gap": {
-                lang: [
-                    {"term": r["term"], "machine_translation": r["mt_current"],
-                     "should_be": r["recommended"], "right_call": r["recommendation"],
-                     "mt_correct": r["correct"]}
-                    for r in rows
-                ]
-                for lang, rows in res.get("localization", {}).get("by_language", {}).items()
-                if rows
-            },
-        }
-        st.download_button(
-            "⬇  Download report (JSON)",
-            data=json.dumps(report, ensure_ascii=False, indent=2),
-            file_name="will-it-travel-report.json",
-            mime="application/json", use_container_width=True)
+            """)
+        st.caption(f"Idioms: {res['idiomatic']['dictionary_size']} · "
+                   f"Cultural base: {res['cultural']['dictionary_size']} · "
+                   f"STT: Sarvam saarika:v2.5 · TTS: Sarvam bulbul:v3 · "
+                   f"Embeddings: MiniLM-L12-v2 · Dub text: Google Translate")
 
 
 def render_dashboard(res, api_key):

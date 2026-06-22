@@ -17,6 +17,12 @@ sentence-transformers>=2.7.0
 langdetect>=1.0.9
 nltk>=3.8.1
 
+# CREPE neural pitch tracker — detects the speaker's gender so the sample dub
+# picks a matching voice. Reuses the torch above; the 'tiny' model is a few MB
+# and downloads on first use. Robust to the octave errors and background noise
+# that broke the simple pitch estimator on real YouTube audio.
+torchcrepe>=0.0.22
+
 # Romanises Devanagari in the transcript so the (Roman) Hinglish idiom/cultural
 # dictionaries can match Hindi spoken content that Sarvam returns in Devanagari.
 # Imported defensively in the engines, so the app still runs if it's absent.
