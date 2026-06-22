@@ -27,15 +27,21 @@ TRANSLATE_RETRIES = 2
 #   2. Code-mixing — a Hinglish speaker says "इंपॉर्टेंट ऑप्शन चूज करना", and the
 #      round trip normalizes the English loanwords to formal Hindi
 #      ("महत्वपूर्ण विकल्प चुनना"). Same meaning, different surface form.
-# The embedding reads both as lower similarity. A measured clean Hinglish
-# monologue round-trips at ~0.72 similarity (0.28 raw "loss") with ZERO real
-# meaning loss; a colloquial street-vendor clip, whose slang genuinely doesn't
-# survive, lands far lower (~0.58, 0.42 loss). So we subtract a benign-drift
-# floor and rescale the remainder to 0..1. The floor sits a little BELOW the
-# clean baseline on purpose: a faithful translation then reads as near-clean
-# (small penalty, still "travels cleanly"), while a clip with real loss is still
-# clearly penalised. Tuned so those two measured clips land on opposite sides.
-BENIGN_LOSS_FLOOR = 0.20
+# The embedding reads both as lower similarity, so we subtract a benign-drift
+# floor and rescale the remainder to 0..1.
+#
+# The floor MUST depend on the source language (the round trip is compared in the
+# source). English embeds strongly and round-trips with very little drift, so its
+# floor is low — a clean English clip still earns a small, honest semantic signal
+# instead of a flat 100. Hindi and Tamil embed more loosely, and the loanword
+# normalization above inflates their drift: a measured clean Hinglish monologue
+# round-trips at ~0.28 raw loss with ZERO real meaning loss, while a colloquial
+# clip whose slang genuinely collapses lands far lower (~0.42). So the Indic
+# floors sit just below that clean baseline: faithful clips read near-clean, real
+# loss is still penalised. A single global floor can't do both — set high enough
+# for Hinglish it zeros out all English clips (everything scored 100).
+BENIGN_LOSS_FLOOR = {"English": 0.08, "Hindi": 0.22, "Tamil": 0.22}
+DEFAULT_LOSS_FLOOR = 0.12
 
 ProgressCb = Callable[[float, str], None]
 
@@ -44,9 +50,9 @@ def _noop(_frac: float, _msg: str) -> None:
     pass
 
 
-def _calibrated_loss(raw_loss: float) -> float:
-    """Subtract the benign round-trip floor, then rescale to 0..1."""
-    return max(0.0, min(1.0, (raw_loss - BENIGN_LOSS_FLOOR) / (1 - BENIGN_LOSS_FLOOR)))
+def _calibrated_loss(raw_loss: float, floor: float) -> float:
+    """Subtract the source-language benign-drift floor, then rescale to 0..1."""
+    return max(0.0, min(1.0, (raw_loss - floor) / (1 - floor)))
 
 
 def _chunk_text(text: str, size: int = CHUNK_WORDS) -> list[str]:
@@ -91,6 +97,8 @@ def analyze(transcript: str, model, source_lang: str, targets: list[str],
     # Encode originals (in the source language) once; reused across targets.
     orig_emb = model.encode(chunks, convert_to_tensor=True, normalize_embeddings=True)
 
+    floor = BENIGN_LOSS_FLOOR.get(source_lang, DEFAULT_LOSS_FLOOR)
+
     by_language: dict[str, dict] = {}
     all_chunk_records: list[dict] = []
     translations: dict[str, str] = {}    # full forward translation per target
@@ -118,7 +126,7 @@ def analyze(transcript: str, model, source_lang: str, targets: list[str],
             back_emb = model.encode(back, convert_to_tensor=True,
                                     normalize_embeddings=True)
             sim = max(0.0, min(1.0, float(util.cos_sim(orig_emb[ci], back_emb).item())))
-            cal = _calibrated_loss(1 - sim)
+            cal = _calibrated_loss(1 - sim, floor)
             sims.append(sim)
             losses.append(cal)
             all_chunk_records.append({
