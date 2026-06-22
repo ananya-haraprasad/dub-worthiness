@@ -1,0 +1,716 @@
+[
+  {
+    "reference": "JEE",
+    "aliases": ["JEE Main", "JEE Advanced", "IIT-JEE", "IIT entrance", "Joint Entrance Examination"],
+    "category": "exams",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "North-India obsession (engineering aspiration). Tamil aspirants exist but the engineering pipeline there leans more on TNEA/state counselling; JEE-hype rated medium"
+  },
+  {
+    "reference": "JEE Main",
+    "aliases": ["Main exam", "JEE Mains", "NTA JEE"],
+    "category": "exams",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "First-tier national engineering test conducted by NTA; gateway to NITs/IIITs and JEE Advanced eligibility"
+  },
+  {
+    "reference": "JEE Advanced",
+    "aliases": ["Advanced", "JEE Adv", "IIT exam"],
+    "category": "exams",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "Second-tier test purely for IIT admission; the apex prize in the North-Indian engineering imagination"
+  },
+  {
+    "reference": "NEET",
+    "aliases": ["NEET-UG", "NEET UG", "National Eligibility cum Entrance Test", "medical entrance"],
+    "category": "exams",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Medical entrance; rare case of symmetry but politically explosive in Tamil Nadu (anti-NEET movement) vs purely aspirational in the North"
+  },
+  {
+    "reference": "NEET-PG",
+    "aliases": ["NEET PG", "PG medical entrance"],
+    "category": "exams",
+    "familiarity": {"Hindi": "medium", "Tamil": "medium"},
+    "note": "Postgraduate medical entrance; known mainly within medical circles, lower lay recognition than NEET-UG"
+  },
+  {
+    "reference": "anti-NEET movement",
+    "aliases": ["NEET exemption", "NEET ban Tamil Nadu", "anti-NEET bill", "NEET exemption bill", "Tamil Nadu NEET"],
+    "category": "politics-education",
+    "familiarity": {"Hindi": "low", "Tamil": "high"},
+    "note": "DMK-led legal/political fight to exempt TN from NEET; President withheld assent. Deeply charged in TN, near-invisible to a Hindi audience"
+  },
+  {
+    "reference": "Anitha",
+    "aliases": ["S. Anitha", "Anitha NEET", "NEET suicide"],
+    "category": "politics-education",
+    "familiarity": {"Hindi": "low", "Tamil": "high"},
+    "note": "Dalit Tamil student who topped state boards but died by suicide after NEET; a symbol of the anti-NEET cause in TN, unknown in the North"
+  },
+  {
+    "reference": "UPSC",
+    "aliases": ["Union Public Service Commission", "Civil Services Exam", "CSE", "IAS exam"],
+    "category": "exams",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Civil services exam; high prestige nationwide, though the coaching-industrial obsession (Old Rajinder Nagar) is a North-Indian phenomenon"
+  },
+  {
+    "reference": "IAS",
+    "aliases": ["Indian Administrative Service", "collector", "DM"],
+    "category": "careers",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Top civil service; the District Collector/DM is an aspirational icon across India"
+  },
+  {
+    "reference": "IPS",
+    "aliases": ["Indian Police Service", "SP", "Superintendent of Police"],
+    "category": "careers",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Police arm of civil services; widely recognized via films and news"
+  },
+  {
+    "reference": "IFS",
+    "aliases": ["Indian Foreign Service", "Indian Forest Service"],
+    "category": "careers",
+    "familiarity": {"Hindi": "medium", "Tamil": "medium"},
+    "note": "Ambiguous acronym (Foreign vs Forest); known but less iconic than IAS/IPS"
+  },
+  {
+    "reference": "Civil Services",
+    "aliases": ["civil services", "sarkari afsar", "government officer"],
+    "category": "careers",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Umbrella term for IAS/IPS/IFS etc.; carries strong social-status weight in both regions"
+  },
+  {
+    "reference": "SSC",
+    "aliases": ["Staff Selection Commission"],
+    "category": "exams",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "Central government clerical/group-B recruitment; huge in the Hindi belt's job-seeker culture, less central in TN where state recruitment (TNPSC) dominates"
+  },
+  {
+    "reference": "SSC CGL",
+    "aliases": ["CGL", "Combined Graduate Level"],
+    "category": "exams",
+    "familiarity": {"Hindi": "high", "Tamil": "low"},
+    "note": "Flagship SSC graduate-level exam; a North-Indian government-job staple, low salience in TN"
+  },
+  {
+    "reference": "CAT",
+    "aliases": ["Common Admission Test", "MBA entrance"],
+    "category": "exams",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "IIM/MBA gateway; aspirational nationwide but the management-coaching frenzy skews North/metro"
+  },
+  {
+    "reference": "XAT",
+    "aliases": ["Xavier Aptitude Test"],
+    "category": "exams",
+    "familiarity": {"Hindi": "medium", "Tamil": "medium"},
+    "note": "XLRI's MBA entrance; known to management aspirants, niche to a lay audience"
+  },
+  {
+    "reference": "GATE",
+    "aliases": ["Graduate Aptitude Test in Engineering"],
+    "category": "exams",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Engineering postgraduate/PSU-recruitment exam; salient among engineering grads in both regions (TN has a large engineering-college base)"
+  },
+  {
+    "reference": "GMAT",
+    "aliases": ["Graduate Management Admission Test"],
+    "category": "exams",
+    "familiarity": {"Hindi": "medium", "Tamil": "medium"},
+    "note": "International MBA test; recognized in urban/aspirational-abroad circles in both regions"
+  },
+  {
+    "reference": "GRE",
+    "aliases": ["Graduate Record Examination"],
+    "category": "exams",
+    "familiarity": {"Hindi": "medium", "Tamil": "high"},
+    "note": "US grad-school entrance; especially salient in TN/South due to the strong MS-in-US (Telugu/Tamil) pipeline"
+  },
+  {
+    "reference": "CLAT",
+    "aliases": ["Common Law Admission Test", "law entrance"],
+    "category": "exams",
+    "familiarity": {"Hindi": "medium", "Tamil": "medium"},
+    "note": "National law schools entrance; known among aspirants, moderate lay recognition"
+  },
+  {
+    "reference": "NDA",
+    "aliases": ["National Defence Academy", "NDA exam"],
+    "category": "exams",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "Armed-forces officer entry after 12th; strong recruitment culture in the North/Haryana/UP belt"
+  },
+  {
+    "reference": "CDS",
+    "aliases": ["Combined Defence Services", "CDS exam"],
+    "category": "exams",
+    "familiarity": {"Hindi": "medium", "Tamil": "low"},
+    "note": "Graduate-level defence officer entry; less mainstream than NDA, lower TN salience"
+  },
+  {
+    "reference": "CBSE",
+    "aliases": ["Central Board of Secondary Education", "CBSE board"],
+    "category": "education",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "National school board; dominant in the North, present but secondary to the state board in TN"
+  },
+  {
+    "reference": "ICSE",
+    "aliases": ["Indian Certificate of Secondary Education", "ISC", "CISCE"],
+    "category": "education",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "Private English-medium board; metro/elite-school association, less penetration in TN"
+  },
+  {
+    "reference": "board exams",
+    "aliases": ["board exam", "boards", "10th boards", "12th boards", "board pariksha"],
+    "category": "education",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "10th/12th public exams; a near-universal high-stakes rite of passage in both regions"
+  },
+  {
+    "reference": "12th board",
+    "aliases": ["12th", "Class 12", "plus two", "+2", "HSC", "intermediate"],
+    "category": "education",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "TN calls it 'plus two'/HSC; the North uses 12th/intermediate; both treat 12th marks as life-defining"
+  },
+  {
+    "reference": "10th board",
+    "aliases": ["10th", "Class 10", "matric", "matriculation", "SSLC"],
+    "category": "education",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "TN term is SSLC; North uses 10th/matric; the equivalence is itself a localization trap"
+  },
+  {
+    "reference": "SSLC",
+    "aliases": ["Secondary School Leaving Certificate", "TN 10th"],
+    "category": "education",
+    "familiarity": {"Hindi": "low", "Tamil": "high"},
+    "note": "TN/Karnataka term for the Class-10 certificate; a Hindi audience would not parse 'SSLC' on its own"
+  },
+  {
+    "reference": "Tamil Nadu State Board",
+    "aliases": ["TN state board", "Samacheer Kalvi", "state board syllabus"],
+    "category": "education",
+    "familiarity": {"Hindi": "low", "Tamil": "high"},
+    "note": "TN's state curriculum (Samacheer Kalvi = uniform education); central to TN schooling, invisible to the North"
+  },
+  {
+    "reference": "Samacheer Kalvi",
+    "aliases": ["uniform education system", "TN uniform syllabus"],
+    "category": "education",
+    "familiarity": {"Hindi": "low", "Tamil": "high"},
+    "note": "TN's uniform-syllabus scheme; a strongly Tamil-coded term with no Hindi-side equivalent"
+  },
+  {
+    "reference": "state board",
+    "aliases": ["state boards", "state syllabus"],
+    "category": "education",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Generic term for non-CBSE/ICSE boards; understood everywhere though the specific board differs by state"
+  },
+  {
+    "reference": "Kota",
+    "aliases": ["Kota Rajasthan", "Kota coaching", "coaching hub"],
+    "category": "places-education",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "Rajasthan coaching city; an emotional touchstone in the North (pressure, suicides). Tamil audiences know of it but feel it as someone else's story"
+  },
+  {
+    "reference": "Kota Factory",
+    "aliases": ["Kota Factory web series", "TVF Kota Factory"],
+    "category": "media-education",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "TVF web series about JEE coaching in Kota; a North-coded cultural artifact, watched but less resonant in TN"
+  },
+  {
+    "reference": "Allen",
+    "aliases": ["Allen Career Institute", "Allen Kota"],
+    "category": "institutions-coaching",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "Major JEE/NEET coaching chain (Kota-origin); brand-famous in the North, present but less iconic in TN"
+  },
+  {
+    "reference": "Aakash",
+    "aliases": ["Aakash Institute", "Aakash BYJU'S", "Aakash Byjus"],
+    "category": "institutions-coaching",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "NEET-focused coaching chain with strong South/TN footprint; arguably more salient to Tamil aspirants than Allen"
+  },
+  {
+    "reference": "FIITJEE",
+    "aliases": ["FIIT JEE"],
+    "category": "institutions-coaching",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "Premier JEE coaching brand; North/metro-coded, recent financial collapse made news"
+  },
+  {
+    "reference": "Resonance",
+    "aliases": ["Resonance Kota", "Resonance Eduventures"],
+    "category": "institutions-coaching",
+    "familiarity": {"Hindi": "medium", "Tamil": "low"},
+    "note": "Kota JEE/NEET coaching brand; recognized within the aspirant ecosystem, low lay salience especially in TN"
+  },
+  {
+    "reference": "BYJU'S",
+    "aliases": ["Byjus", "Byju's", "BYJUS"],
+    "category": "institutions-coaching",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Ed-tech giant turned cautionary tale (collapse); nationally famous brand in both regions"
+  },
+  {
+    "reference": "Unacademy",
+    "aliases": ["Unacademy app"],
+    "category": "institutions-coaching",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Online coaching platform spanning UPSC/JEE/NEET; nationally known, advertising-heavy"
+  },
+  {
+    "reference": "Physics Wallah",
+    "aliases": ["PW", "Physics Wallah app", "Alakh Pandey"],
+    "category": "institutions-coaching",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "Alakh Pandey's affordable ed-tech; a Hindi-belt phenomenon (much of his early content is in Hindi), lower TN resonance"
+  },
+  {
+    "reference": "Vedantu",
+    "aliases": ["Vedantu app"],
+    "category": "institutions-coaching",
+    "familiarity": {"Hindi": "medium", "Tamil": "medium"},
+    "note": "Online tutoring ed-tech; moderate brand recognition nationwide"
+  },
+  {
+    "reference": "IIT",
+    "aliases": ["Indian Institute of Technology", "IIT Bombay", "IIT Delhi", "IIT Madras", "IITian"],
+    "category": "institutions",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Apex engineering institutes; universally prestigious, and IIT Madras is a point of TN pride"
+  },
+  {
+    "reference": "NIT",
+    "aliases": ["National Institute of Technology", "NIT Trichy", "NITT", "REC"],
+    "category": "institutions",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Tier-two national engineering institutes; NIT Trichy is a flagship TN-located NIT and a regional source of pride"
+  },
+  {
+    "reference": "IIIT",
+    "aliases": ["Indian Institute of Information Technology", "IIIT Hyderabad", "Triple IT"],
+    "category": "institutions",
+    "familiarity": {"Hindi": "medium", "Tamil": "medium"},
+    "note": "IT-focused institutes; known among engineering aspirants, moderate lay recognition"
+  },
+  {
+    "reference": "BITS Pilani",
+    "aliases": ["BITS", "BITSAT", "Birla Institute of Technology and Science"],
+    "category": "institutions",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "Top private engineering school with its own BITSAT entrance; strong North/metro prestige"
+  },
+  {
+    "reference": "IIM",
+    "aliases": ["Indian Institute of Management", "IIM Ahmedabad", "IIM-A", "IIM Bangalore"],
+    "category": "institutions",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Apex management institutes; nationally aspirational MBA destination"
+  },
+  {
+    "reference": "AIIMS",
+    "aliases": ["All India Institute of Medical Sciences", "AIIMS Delhi"],
+    "category": "institutions",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Top public medical institute and hospital; nationally famous as the gold standard in medicine"
+  },
+  {
+    "reference": "ISB",
+    "aliases": ["Indian School of Business", "ISB Hyderabad"],
+    "category": "institutions",
+    "familiarity": {"Hindi": "medium", "Tamil": "medium"},
+    "note": "Elite one-year MBA (Hyderabad/Mohali); known in corporate/aspirational circles"
+  },
+  {
+    "reference": "DU",
+    "aliases": ["Delhi University", "University of Delhi", "DU colleges", "SRCC", "St Stephen's"],
+    "category": "institutions",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "Delhi University; a North-Indian campus-culture institution (cutoffs, college politics), distant for TN"
+  },
+  {
+    "reference": "JNU",
+    "aliases": ["Jawaharlal Nehru University"],
+    "category": "institutions",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "Delhi research university; heavily politically loaded in the North-Indian discourse, less so in TN"
+  },
+  {
+    "reference": "Anna University",
+    "aliases": ["Anna Univ", "CEG Guindy", "College of Engineering Guindy"],
+    "category": "institutions",
+    "familiarity": {"Hindi": "low", "Tamil": "high"},
+    "note": "TN's premier state technical university (affiliates most TN engineering colleges); a major Tamil-coded institution, low Hindi recognition"
+  },
+  {
+    "reference": "VIT",
+    "aliases": ["Vellore Institute of Technology", "VIT Vellore", "VITEEE"],
+    "category": "institutions",
+    "familiarity": {"Hindi": "medium", "Tamil": "high"},
+    "note": "Large private TN university with its own VITEEE entrance; very high TN salience, moderate in the North"
+  },
+  {
+    "reference": "SRM",
+    "aliases": ["SRM University", "SRM Institute", "SRMJEEE", "SRM Chennai"],
+    "category": "institutions",
+    "familiarity": {"Hindi": "medium", "Tamil": "high"},
+    "note": "Major private TN/Chennai university; well-known in TN, recognized but secondary in the North"
+  },
+  {
+    "reference": "TNPSC",
+    "aliases": ["Tamil Nadu Public Service Commission", "Group 1", "Group 2", "Group 4", "TNPSC group exams"],
+    "category": "exams",
+    "familiarity": {"Hindi": "low", "Tamil": "high"},
+    "note": "TN's state government-job exam body; the Tamil equivalent of SSC/UPSC obsession, opaque to a Hindi audience"
+  },
+  {
+    "reference": "TNPSC Group 1",
+    "aliases": ["Group 1", "Group I", "TNPSC Group I"],
+    "category": "exams",
+    "familiarity": {"Hindi": "low", "Tamil": "high"},
+    "note": "Top-tier TN state administrative posts (DSP/DRO etc.); the prestige TNPSC track, Tamil-coded"
+  },
+  {
+    "reference": "TNPSC Group 2",
+    "aliases": ["Group 2", "Group II", "TNPSC Group II"],
+    "category": "exams",
+    "familiarity": {"Hindi": "low", "Tamil": "high"},
+    "note": "Mid-level TN state services posts; a very common TN aspirant target"
+  },
+  {
+    "reference": "TNPSC Group 4",
+    "aliases": ["Group 4", "Group IV", "TNPSC Group IV", "VAO"],
+    "category": "exams",
+    "familiarity": {"Hindi": "low", "Tamil": "high"},
+    "note": "Entry-level TN clerical/VAO posts; the mass-participation TNPSC exam, Tamil-coded"
+  },
+  {
+    "reference": "TNEA",
+    "aliases": ["Tamil Nadu Engineering Admissions", "TN engineering counselling", "TNEA counselling"],
+    "category": "exams",
+    "familiarity": {"Hindi": "low", "Tamil": "high"},
+    "note": "TN's centralized engineering counselling (cutoff-based, no separate exam); how most TN students enter engineering, unknown in the North"
+  },
+  {
+    "reference": "TET",
+    "aliases": ["Teacher Eligibility Test", "TNTET", "CTET"],
+    "category": "exams",
+    "familiarity": {"Hindi": "medium", "Tamil": "medium"},
+    "note": "Teacher recruitment eligibility test (central CTET / state TNTET); known to the teaching-aspirant segment in both regions"
+  },
+  {
+    "reference": "cutoff",
+    "aliases": ["cut-off", "cutoff marks", "cut off", "TNEA cutoff"],
+    "category": "exam-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Qualifying-marks threshold; ubiquitous admissions jargon, though TN's 200-mark TNEA cutoff math is its own subculture"
+  },
+  {
+    "reference": "percentile",
+    "aliases": ["percentile score", "NTA percentile"],
+    "category": "exam-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Normalized score used by JEE Main/CAT; widely understood, a perennial source of confusion vs percentage"
+  },
+  {
+    "reference": "rank",
+    "aliases": ["rank", "exam rank", "merit rank"],
+    "category": "exam-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Position in merit order; central to all Indian exam talk"
+  },
+  {
+    "reference": "AIR",
+    "aliases": ["All India Rank", "All-India Rank"],
+    "category": "exam-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "National rank in JEE/NEET/UPSC etc.; 'AIR 1' is a flex understood everywhere (also collides with All India Radio)"
+  },
+  {
+    "reference": "drop year",
+    "aliases": ["drop", "taking a drop", "drop year student"],
+    "category": "exam-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Year off to re-attempt JEE/NEET; a normalized concept in both regions' aspirant culture"
+  },
+  {
+    "reference": "repeater",
+    "aliases": ["repeater batch", "dropper", "re-attempt"],
+    "category": "exam-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Student re-taking an entrance exam; coaching institutes run dedicated 'repeater'/'dropper' batches"
+  },
+  {
+    "reference": "topper",
+    "aliases": ["exam topper", "board topper", "class topper", "state topper"],
+    "category": "campus-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "The highest scorer; a celebrated archetype, with state-board toppers making local news in both regions"
+  },
+  {
+    "reference": "backbencher",
+    "aliases": ["back bencher", "last bench"],
+    "category": "campus-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Classroom slacker archetype (immortalized by '3 Idiots' / TN school-comedy films); resonant in both regions"
+  },
+  {
+    "reference": "drop-out",
+    "aliases": ["dropout", "college dropout", "school dropout"],
+    "category": "campus-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "One who leaves studies; commonly understood term"
+  },
+  {
+    "reference": "ragging",
+    "aliases": ["ragging", "hostel ragging", "anti-ragging"],
+    "category": "campus-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Hazing of juniors; a serious, widely-discussed campus issue (anti-ragging laws) in both regions"
+  },
+  {
+    "reference": "hostel",
+    "aliases": ["hostel", "boys hostel", "girls hostel", "hosteller"],
+    "category": "campus-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Residential campus accommodation; central to college life everywhere in India"
+  },
+  {
+    "reference": "viva",
+    "aliases": ["viva voce", "viva exam", "oral exam"],
+    "category": "campus-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Oral examination; a feared component of college/board practicals, understood in both regions"
+  },
+  {
+    "reference": "semester",
+    "aliases": ["sem", "semester exam", "sem exams"],
+    "category": "campus-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Academic term; 'sems' are universal college vocabulary"
+  },
+  {
+    "reference": "backlog",
+    "aliases": ["KT", "backlog", "arrear", "supplementary", "supply exam"],
+    "category": "campus-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "A failed subject to be cleared later; called 'KT' in Maharashtra, 'arrear' in TN, 'backlog/supply' in the North — same idea, different regional word"
+  },
+  {
+    "reference": "arrear",
+    "aliases": ["arrears", "history of arrears", "standing arrears"],
+    "category": "campus-jargon",
+    "familiarity": {"Hindi": "low", "Tamil": "high"},
+    "note": "TN/South term for a backlog/failed paper; 'arrear-free' is a TN placement phrase, opaque to a Hindi audience that says 'backlog'"
+  },
+  {
+    "reference": "KT",
+    "aliases": ["keep term", "KT exam"],
+    "category": "campus-jargon",
+    "familiarity": {"Hindi": "medium", "Tamil": "low"},
+    "note": "Maharashtra/North college slang for a backlog ('keep term'); not used in TN where 'arrear' prevails"
+  },
+  {
+    "reference": "placement",
+    "aliases": ["campus placement", "placements", "placement season", "placed"],
+    "category": "campus-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Campus recruitment; an enormous deal at TN engineering colleges (TCS/Infosys mass hiring) and in the North alike"
+  },
+  {
+    "reference": "package",
+    "aliases": ["CTC", "salary package", "LPA", "crore package"],
+    "category": "campus-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Job offer compensation (often quoted in LPA); placement-season bragging metric understood everywhere"
+  },
+  {
+    "reference": "CGPA",
+    "aliases": ["CGPA", "GPA", "grade point average"],
+    "category": "exam-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Cumulative grade metric used by CBSE/colleges; standard academic vocabulary in both regions"
+  },
+  {
+    "reference": "tuition",
+    "aliases": ["tuition", "tuition classes", "private tuition", "tuition master"],
+    "category": "education",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "After-school private coaching; a deeply embedded institution in TN (the 'tuition centre') and the North"
+  },
+  {
+    "reference": "coaching centre",
+    "aliases": ["coaching center", "coaching institute", "coaching class"],
+    "category": "education",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Exam-prep institute; ubiquitous concept, though the brand mix differs by region"
+  },
+  {
+    "reference": "entrance exam",
+    "aliases": ["entrance test", "competitive exam", "entrance"],
+    "category": "exams",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Generic admission test; universally understood framing"
+  },
+  {
+    "reference": "NTA",
+    "aliases": ["National Testing Agency"],
+    "category": "institutions",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Body conducting JEE Main/NEET/UGC-NET; nationally infamous after the 2024 NEET paper-leak scandal"
+  },
+  {
+    "reference": "NEET paper leak",
+    "aliases": ["NEET 2024 leak", "NEET scam", "paper leak"],
+    "category": "politics-education",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "2024 NEET-UG leak/grace-marks controversy; national scandal, with extra political charge in TN's anti-NEET context"
+  },
+  {
+    "reference": "UGC NET",
+    "aliases": ["NET", "National Eligibility Test", "JRF"],
+    "category": "exams",
+    "familiarity": {"Hindi": "medium", "Tamil": "medium"},
+    "note": "Eligibility test for lectureship/JRF; salient to academic/research aspirants in both regions"
+  },
+  {
+    "reference": "bank PO",
+    "aliases": ["IBPS", "bank exam", "SBI PO", "PO exam", "clerk exam"],
+    "category": "exams",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "Bank probationary-officer/clerk recruitment; a major Hindi-belt government-job track, more moderate in TN"
+  },
+  {
+    "reference": "Railway exam",
+    "aliases": ["RRB", "RRB NTPC", "railway recruitment", "Group D"],
+    "category": "exams",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "Indian Railways recruitment; massive in the Hindi belt (Bihar/UP) where lakhs sit the exam, lower TN intensity"
+  },
+  {
+    "reference": "rank holder",
+    "aliases": ["rank holder", "university rank", "gold medalist"],
+    "category": "campus-jargon",
+    "familiarity": {"Hindi": "medium", "Tamil": "high"},
+    "note": "University-rank achiever; 'rank holder' is a notably TN/South-coded honorific at Anna University-affiliated colleges"
+  },
+  {
+    "reference": "convocation",
+    "aliases": ["convocation", "graduation ceremony", "degree day"],
+    "category": "campus-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Degree-conferral ceremony; standard college vocabulary in both regions"
+  },
+  {
+    "reference": "internal marks",
+    "aliases": ["internals", "internal assessment", "internal exam"],
+    "category": "exam-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "College-awarded continuous-assessment marks; a perennial student grievance topic everywhere"
+  },
+  {
+    "reference": "attendance shortage",
+    "aliases": ["attendance", "75 percent attendance", "detained", "attendance shortage"],
+    "category": "campus-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "The 75%-attendance rule and being 'detained'; a universal college pain point"
+  },
+  {
+    "reference": "EAMCET",
+    "aliases": ["EAPCET", "TS EAMCET", "AP EAMCET"],
+    "category": "exams",
+    "familiarity": {"Hindi": "low", "Tamil": "medium"},
+    "note": "Telugu-states engineering/medical entrance; a neighboring-South exam, somewhat known in TN, opaque in the North"
+  },
+  {
+    "reference": "KCET",
+    "aliases": ["Karnataka CET", "KEA CET"],
+    "category": "exams",
+    "familiarity": {"Hindi": "low", "Tamil": "medium"},
+    "note": "Karnataka's engineering/medical entrance; a neighboring-state South exam, low Hindi recognition"
+  },
+  {
+    "reference": "CUET",
+    "aliases": ["Common University Entrance Test", "CUET-UG"],
+    "category": "exams",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "Central-universities admission test (DU et al.); rapidly grown in the North, less central to TN's state-university system"
+  },
+  {
+    "reference": "Old Rajinder Nagar",
+    "aliases": ["Rajinder Nagar", "Mukherjee Nagar", "UPSC coaching hub Delhi"],
+    "category": "places-education",
+    "familiarity": {"Hindi": "high", "Tamil": "low"},
+    "note": "Delhi's UPSC-coaching neighborhoods (Mukherjee Nagar / Old Rajinder Nagar); iconic in the North, near-unknown in TN"
+  },
+  {
+    "reference": "NCERT",
+    "aliases": ["NCERT books", "NCERT textbook"],
+    "category": "education",
+    "familiarity": {"Hindi": "high", "Tamil": "medium"},
+    "note": "National council whose textbooks anchor CBSE and UPSC prep; a North/CBSE staple, secondary in TN's state-board world"
+  },
+  {
+    "reference": "syllabus",
+    "aliases": ["syllabus", "portion", "course"],
+    "category": "education",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Course content to be covered; TN students often say 'portion', the North says 'syllabus' — same meaning"
+  },
+  {
+    "reference": "centum",
+    "aliases": ["centum", "100 marks", "full marks"],
+    "category": "exam-jargon",
+    "familiarity": {"Hindi": "low", "Tamil": "high"},
+    "note": "TN/South term for scoring a perfect 100 in a subject; 'getting centum' is distinctly Tamil-coded school slang"
+  },
+  {
+    "reference": "school topper announcement",
+    "aliases": ["state first", "state rank", "exam results day", "results"],
+    "category": "education",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Board-results day with toppers felicitated; a shared annual ritual, though TN's plus-two results carry specific political/media weight"
+  },
+  {
+    "reference": "free coaching scheme",
+    "aliases": ["Naan Mudhalvan", "free NEET coaching", "government coaching"],
+    "category": "politics-education",
+    "familiarity": {"Hindi": "low", "Tamil": "high"},
+    "note": "TN government's free coaching/skilling initiatives (e.g. Naan Mudhalvan, free NEET coaching for rural students); Tamil-coded policy, unknown in the North"
+  },
+  {
+    "reference": "Pongal bonus marks debate",
+    "aliases": ["7.5 percent reservation", "government school NEET quota", "7.5% NEET reservation"],
+    "category": "politics-education",
+    "familiarity": {"Hindi": "low", "Tamil": "high"},
+    "note": "TN's 7.5% NEET seat reservation for government-school students; a Tamil-specific affirmative-action policy, invisible to the North"
+  },
+  {
+    "reference": "engineering seat",
+    "aliases": ["engineering admission", "engineering college seat", "management quota"],
+    "category": "education",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "Securing a B.E./B.Tech seat (incl. management quota); TN's dense private-engineering market makes this an especially loaded local topic"
+  },
+  {
+    "reference": "fresher",
+    "aliases": ["fresher", "freshers party", "first year"],
+    "category": "campus-jargon",
+    "familiarity": {"Hindi": "high", "Tamil": "high"},
+    "note": "First-year student / new joinee; standard campus and workplace vocabulary in both regions"
+  }
+]

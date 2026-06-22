@@ -1,0 +1,28 @@
+# Secrets — never commit these
+.env
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Audio / temp artifacts
+*.mp3
+*.mp4
+*.wav
+*.m4a
+*.webm
+tmp/
+.cache/
+
+# OS
+.DS_Store
+
+# Dev-only / machine-specific helpers
+run_app.sh
+.claude/
+*.env.local

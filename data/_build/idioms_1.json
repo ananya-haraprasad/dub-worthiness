@@ -1,0 +1,875 @@
+[
+  {
+    "phrase": "scene kya hai",
+    "literal": "what is the scene",
+    "actual_meaning": "what's the plan / what's going on / what's the situation here",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "English 'scene' is borrowed and recoded as 'situation/plan'; Hindi 'kya scene hai' survives but a Tamil dub would need 'enna nadakkudhu' or 'enna plan' and loses the casual swagger of the borrowed word."
+  },
+  {
+    "phrase": "kya scene hai",
+    "literal": "what scene is",
+    "actual_meaning": "what's up / what's the deal",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Greeting-cum-enquiry. Word-for-word into either language reads as a film term, not a casual 'sup'; needs idiomatic substitution."
+  },
+  {
+    "phrase": "scene set hai",
+    "literal": "scene set is",
+    "actual_meaning": "everything's arranged / we're all set / the situation is sorted",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Two English loanwords doing idiomatic work. A literal Hindi/Tamil rendering loses it entirely; needs 'sab set hai' / 'ellam ready' style rewrite."
+  },
+  {
+    "phrase": "scene on hai",
+    "literal": "scene on is",
+    "actual_meaning": "something's happening / the party/action is live",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Slangy 'on' as 'active'. No clean equivalent; dub must paraphrase as 'mazaa chal raha hai' or similar."
+  },
+  {
+    "phrase": "koi scene nahi",
+    "literal": "no scene not",
+    "actual_meaning": "no problem / no big deal / it's chill",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Reassurance idiom. Tamil 'onnum problem illa' works in sense but the breezy 'scene' tone is lost in both targets."
+  },
+  {
+    "phrase": "timepass",
+    "literal": "time pass",
+    "actual_meaning": "a way to kill time / something casual and unserious / mediocre",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Quintessential Indian-English coinage with no single-word equivalent; can be noun, verb or dismissive adjective ('movie was timepass'). Tamil/Hindi both just borrow it."
+  },
+  {
+    "phrase": "timepass kar raha hu",
+    "literal": "time-pass doing am",
+    "actual_meaning": "just killing time / loafing around",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Verbed loanword. A literal Tamil dub has no native verb for this casual idling sense; usually keeps 'timepass'."
+  },
+  {
+    "phrase": "jugaad",
+    "literal": "jugaad",
+    "actual_meaning": "a clever improvised fix / hack / workaround using limited resources",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Culturally loaded, near-untranslatable concept. English 'hack/workaround' undershoots; Tamil has no native single word, often borrows 'jugaad' or paraphrases."
+  },
+  {
+    "phrase": "jugaadu",
+    "literal": "jugaad-y",
+    "actual_meaning": "a resourceful person who improvises fixes",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Adjective/noun form of jugaad. No equivalent in Tamil; even Hindi-to-Tamil dub keeps the word as-is."
+  },
+  {
+    "phrase": "jugaad laga de",
+    "literal": "jugaad apply give",
+    "actual_meaning": "pull some strings / improvise a fix / arrange it somehow",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Collocation 'jugaad lagana' = to wangle/finagle. Whole idiom needs rewrite in Tamil; literal gloss is meaningless."
+  },
+  {
+    "phrase": "setting",
+    "literal": "setting",
+    "actual_meaning": "an arrangement / a fix / an inside deal or romantic involvement",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Polysemous slang: a bribe-arrangement, an understanding, or a couple's affair. English 'setting' means none of these; both Hindi and Tamil use it as slang loan."
+  },
+  {
+    "phrase": "setting ho gayi",
+    "literal": "setting has happened",
+    "actual_meaning": "the deal/arrangement is sorted / it's been fixed (often via influence)",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Implies a quiet fix or romance has clicked. Literal translation loses the conspiratorial wink; Tamil dub paraphrases as 'set aagiduchu'."
+  },
+  {
+    "phrase": "setting karna",
+    "literal": "to do setting",
+    "actual_meaning": "to arrange/fix something through connections or bribery",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Verb collocation with corrupt/underhand undertone. No direct equivalent; needs context-specific rewrite in both languages."
+  },
+  {
+    "phrase": "scope",
+    "literal": "scope",
+    "actual_meaning": "a chance / an opening / potential (often romantic)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "'Scope hai kya' = is there a chance. Diverges from English 'scope'; Tamil keeps the loanword, literal Hindi sense doesn't carry the flirty 'chance' meaning."
+  },
+  {
+    "phrase": "scope nahi hai",
+    "literal": "scope not is",
+    "actual_meaning": "no chance / it's not going to happen",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Dismissive 'no opening'. English literal misses it; both target dubs need 'chance illa / koi chance nahi' rewrite."
+  },
+  {
+    "phrase": "fund",
+    "literal": "fund",
+    "actual_meaning": "money / cash on hand",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Used loosely for personal cash ('fund hai?'), unlike formal English 'funds'. Tamil/Hindi both borrow casually; literal sense is too formal."
+  },
+  {
+    "phrase": "full-on",
+    "literal": "full on",
+    "actual_meaning": "completely / intensely / totally (intensifier)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Intensifier loaned into both languages ('full-on filmy'). Hindi 'poori tarah' / Tamil 'romba' approximate but lose the youthful punch."
+  },
+  {
+    "phrase": "full to",
+    "literal": "full to",
+    "actual_meaning": "totally / fully (slangy intensifier, esp. Mumbai)",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Tapori-flavoured intensifier ('full to paisa vasool'). Regionally marked; no equivalent, Tamil would substitute 'fulla'."
+  },
+  {
+    "phrase": "ekdum",
+    "literal": "one-breath / at once",
+    "actual_meaning": "totally / exactly / absolutely (intensifier or agreement)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Versatile Hindi intensifier; 'ekdum sahi' = spot on. Tamil dub uses 'sema/correct-a' but the snap of 'ekdum' as a standalone agreement is lost."
+  },
+  {
+    "phrase": "ekdum se",
+    "literal": "at-once from",
+    "actual_meaning": "all of a sudden / abruptly",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Distinct from bare 'ekdum'; means suddenly. Tamil 'thideer-nu' covers it but timing/register differs in lip-sync."
+  },
+  {
+    "phrase": "matlab",
+    "literal": "meaning",
+    "actual_meaning": "I mean / like / so basically (discourse filler)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Started as 'meaning' but works as a hesitation filler. Literal 'meaning' is wrong in filler use; Tamil dub uses 'adhaan' or drops it."
+  },
+  {
+    "phrase": "matlab kuch bhi",
+    "literal": "meaning anything",
+    "actual_meaning": "like, that's ridiculous / come on, anything goes now",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Exclamatory disbelief idiom. Word-for-word is nonsense; needs full rewrite to convey the eye-roll in both targets."
+  },
+  {
+    "phrase": "basically",
+    "literal": "basically",
+    "actual_meaning": "essentially / so / in short (overused Indian-English filler)",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "situational",
+    "note": "English loan filler peppering Indian speech. Has equivalents (Hindi 'basically/asal mein', Tamil 'basically/moolama') but its filler frequency is hard to match naturally in dub."
+  },
+  {
+    "phrase": "na",
+    "literal": "na",
+    "actual_meaning": "right? / isn't it? (tag question) or softener",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Tag particle ('chalein na?'). Hindi keeps 'na'; Tamil uses 'illa/la'. Carries emotional softening that a flat tag doesn't reproduce; tricky for lip-sync because it's tiny."
+  },
+  {
+    "phrase": "na na",
+    "literal": "no no",
+    "actual_meaning": "no no / wait, not like that (mild protest)",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "situational",
+    "note": "Reduplicated negation. Mostly translates ('illa illa' in Tamil) but rhythm and tone need care."
+  },
+  {
+    "phrase": "yaar",
+    "literal": "friend",
+    "actual_meaning": "dude / man / buddy (filler of familiarity or exasperation)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "More a tonal filler than 'friend'. Tamil 'da/machan', Hindi keeps 'yaar'. The emotional colour (whining, affection, frustration) shifts with each substitute."
+  },
+  {
+    "phrase": "yaar matlab",
+    "literal": "friend meaning",
+    "actual_meaning": "ugh I mean / dude, like... (frustrated hesitation combo)",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Stacked fillers conveying exasperated searching for words. No literal equivalent; dub must improvise natural filler stacking."
+  },
+  {
+    "phrase": "arrey",
+    "literal": "hey/oh",
+    "actual_meaning": "oh! / hey! / come on! (exclamation of surprise, protest or attention)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Multi-emotion interjection. Tamil 'aiyo/dei' covers parts but not all shades; meaning is entirely tone-dependent, so dub timing matters more than the word."
+  },
+  {
+    "phrase": "arrey yaar",
+    "literal": "hey friend",
+    "actual_meaning": "oh come on / ugh man (mild exasperation)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Fixed exasperation combo. Tamil 'aiyo da' is the nearest but loses the exact register; Hindi keeps it."
+  },
+  {
+    "phrase": "arrey wah",
+    "literal": "hey wow",
+    "actual_meaning": "oh wonderful! / well done! (genuine or sarcastic praise)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Praise interjection that flips sarcastic by tone. Tamil 'super-a' or 'aha' approximate; the sarcasm layer is hard to dub."
+  },
+  {
+    "phrase": "abey",
+    "literal": "hey (rude)",
+    "actual_meaning": "oi! / hey you! (rough, familiar or aggressive address)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Low-register, slightly rude vocative. Tamil 'dei' is close; English 'hey' is too neutral. Register loss is the dub risk."
+  },
+  {
+    "phrase": "abey saale",
+    "literal": "hey brother-in-law",
+    "actual_meaning": "oi you idiot / hey rascal (rough affectionate or abusive address)",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "'Saale' is a mild abuse-cum-endearment; literal 'brother-in-law' is meaningless. Tamil 'dei loosu' style needed; censorship/register a dubbing headache."
+  },
+  {
+    "phrase": "oye",
+    "literal": "oi",
+    "actual_meaning": "hey! / oi! (call for attention, often Punjabi-flavoured)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Attention-grabbing interjection. Tamil 'dei/ey' works but the Punjabi warmth of 'oye' is lost in a Tamil dub."
+  },
+  {
+    "phrase": "oye hoye",
+    "literal": "oi hoi",
+    "actual_meaning": "ooh la la / look at you (teasing admiration)",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Teasing exclamation, often when someone dresses up or flirts. No equivalent; Tamil dub must coin a playful interjection."
+  },
+  {
+    "phrase": "haan toh",
+    "literal": "yes so",
+    "actual_meaning": "so anyway / right then / so as I was saying (resumption marker)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Discourse resumption filler. Literal 'yes so' is clumsy; Tamil 'apparam/seri' resumes but the casual flow differs."
+  },
+  {
+    "phrase": "toh",
+    "literal": "so/then",
+    "actual_meaning": "so / then (discourse connective and emphatic particle)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Tiny but does heavy emphatic work ('main toh jaa raha hu'). Tamil 'naan-aanaa' style emphasis or particle 'thaan'; never a clean one-to-one map."
+  },
+  {
+    "phrase": "chalega",
+    "literal": "it will walk/move",
+    "actual_meaning": "that'll do / it works / acceptable",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Idiomatic 'good enough'. Literal 'it will walk' is wrong; Tamil 'pordhu/aagum' captures sense but loses the shrug-acceptance flavour."
+  },
+  {
+    "phrase": "chal jayega",
+    "literal": "it will walk-go",
+    "actual_meaning": "it'll work out / it'll be fine / we can manage with it",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Reassuring 'it'll do'. Literal motion verb misleads; Tamil 'aaidum/pordhu' needed with a casual tone."
+  },
+  {
+    "phrase": "chalta hai",
+    "literal": "it walks/runs",
+    "actual_meaning": "it's okay / these things happen / we let it slide (resigned acceptance)",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Famous 'chalta hai' attitude of casual tolerance. Literal is meaningless; conveys a whole cultural mindset hard to compress in dub."
+  },
+  {
+    "phrase": "ho jayega",
+    "literal": "it will become/happen",
+    "actual_meaning": "it'll get done / don't worry, it'll happen (often vague reassurance)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Classic non-committal reassurance. Tamil 'aaidum' is close in words but the breezy 'no fixed timeline' undertone is cultural and easy to lose."
+  },
+  {
+    "phrase": "ho gaya",
+    "literal": "it became/happened",
+    "actual_meaning": "done / it's finished / sorted",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "situational",
+    "note": "Fairly translatable ('mudinjuduchu' in Tamil) but used as a one-word filler-announcement; lip-sync of the clipped delivery is the challenge."
+  },
+  {
+    "phrase": "dekhte hain",
+    "literal": "let's see / we'll see",
+    "actual_meaning": "we'll see / let's wait and watch (often a polite non-commitment)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Frequently a soft no/deferral, not a literal 'we will see'. Tamil 'paappom' carries it but the diplomatic dodge is register-sensitive."
+  },
+  {
+    "phrase": "dekha jayega",
+    "literal": "it will be seen",
+    "actual_meaning": "we'll deal with it later / cross that bridge when we get there",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Idiomatic procrastination. Literal passive 'it will be seen' fails; Tamil needs 'apparam paathukalaam' rewrite."
+  },
+  {
+    "phrase": "location",
+    "literal": "location",
+    "actual_meaning": "your current spot / where you are (as in 'send location' or 'kya location hai')",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "situational",
+    "note": "Loanword now also slang for 'where are you'. Tamil/Hindi both borrow it; mostly translatable but the casual 'loc bhej' clipping is colloquial."
+  },
+  {
+    "phrase": "adda",
+    "literal": "perch/haunt",
+    "actual_meaning": "a regular hangout spot / den",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Culturally rich word for a habitual gathering place. English 'hangout' undershoots; Tamil 'adda' is itself borrowed in many contexts."
+  },
+  {
+    "phrase": "light le",
+    "literal": "take light",
+    "actual_meaning": "chill / take it easy / don't take it seriously",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Pure slang from 'take it lightly'. Literal 'take light' is meaningless; Tamil 'cool-a iru' / 'light-a edu' (also borrowed) needed."
+  },
+  {
+    "phrase": "light liya",
+    "literal": "took light",
+    "actual_meaning": "took it lightly / didn't take it seriously / brushed it off",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Past form of 'light lena'. Idiom won't survive literal gloss; Tamil dub usually keeps 'light' as a loan verb."
+  },
+  {
+    "phrase": "light hai",
+    "literal": "it's light",
+    "actual_meaning": "it's chill / no big deal / relax",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Slang reassurance. Literal 'it is light' (weight/lamp) confuses; needs 'cool-a iruku' rewrite in Tamil."
+  },
+  {
+    "phrase": "jhol",
+    "literal": "sag/loop",
+    "actual_meaning": "a glitch / shady mess / something fishy or a clever hack",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Slang for a flaw, scam or sneaky trick depending on context. No equivalent; Tamil dub must pick 'gola' or paraphrase per context."
+  },
+  {
+    "phrase": "jhol hai",
+    "literal": "there is sag",
+    "actual_meaning": "something's fishy / there's a catch / it's messed up",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Suspicion idiom. Literal nonsensical; Tamil 'edho gola iruku' captures it but with different imagery."
+  },
+  {
+    "phrase": "lafda",
+    "literal": "lafda",
+    "actual_meaning": "trouble / a messy quarrel or complication (often Mumbai slang)",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Tapori word for a brawl/entanglement, sometimes a love affair. No equivalent; Tamil 'gola/problem' approximates loosely."
+  },
+  {
+    "phrase": "lafda ho gaya",
+    "literal": "lafda happened",
+    "actual_meaning": "trouble broke out / things got messy",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Whole idiom needs rewrite; Tamil 'problem aaiduchu' loses the streetwise Mumbai colour."
+  },
+  {
+    "phrase": "panga",
+    "literal": "panga",
+    "actual_meaning": "trouble picked deliberately / a beef / a risky confrontation",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Punjabi/Hindi slang; 'panga lena' = to mess with someone. No native Tamil equivalent; dub borrows or rewrites as 'mokka/scene-podu'."
+  },
+  {
+    "phrase": "panga mat le",
+    "literal": "don't take panga",
+    "actual_meaning": "don't mess with (me/them) / don't pick a fight",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Warning idiom. Literal gloss fails entirely; Tamil 'scene podaadhe' style rewrite required."
+  },
+  {
+    "phrase": "fix kar diya",
+    "literal": "fixed (it)",
+    "actual_meaning": "sorted it / arranged it / settled it (sometimes 'dealt with' a person)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "English 'fix' + Hindi verb. Ambiguous between 'arranged' and ominous 'took care of him'. Tamil 'fix panniten' borrows the same loan; tone carries meaning."
+  },
+  {
+    "phrase": "set kar diya",
+    "literal": "set (it) did",
+    "actual_meaning": "arranged it / sorted it / set it up",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "'Set' as loan verb for arranging. Tamil 'set panniten' parallels; literal native-language verb loses the casual borrowed feel."
+  },
+  {
+    "phrase": "set hai",
+    "literal": "set is",
+    "actual_meaning": "all sorted / good to go / sorted (also: someone is comfortably settled)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Versatile 'we're set'. Also slang for a person who's financially/romantically settled. Tamil 'set aagiduchu'; the 'settled life' nuance is hard to dub."
+  },
+  {
+    "phrase": "top class",
+    "literal": "top class",
+    "actual_meaning": "excellent / first-rate / superb",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "situational",
+    "note": "English praise phrase used as exclamation. Tamil 'sema/first class' equivalents exist; mostly translatable but the exclamatory delivery matters."
+  },
+  {
+    "phrase": "first class",
+    "literal": "first class",
+    "actual_meaning": "top-notch / great / excellent (used as praise, not travel)",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "situational",
+    "note": "Common South + North praise term. Tamil keeps 'first class' as is; translatable but idiomatic-praise sense must not be read as a ticket grade."
+  },
+  {
+    "phrase": "ekdum first class",
+    "literal": "totally first class",
+    "actual_meaning": "absolutely top-notch / brilliant",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Intensifier + praise combo. Translatable in parts but the stacked emphatic flavour ('ekdum') resists clean Tamil mapping."
+  },
+  {
+    "phrase": "ekdum mast",
+    "literal": "totally fine/great",
+    "actual_meaning": "absolutely awesome / really nice",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "'Mast' is slang for great/cool/enjoyable with no single equivalent. Tamil 'sema' is close but loses the laid-back 'mast' vibe."
+  },
+  {
+    "phrase": "mast hai",
+    "literal": "it's mast",
+    "actual_meaning": "it's great / it's cool / it's enjoyable",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "'Mast' carries pleasure/coolness/laid-backness at once. Tamil 'super/sema iruku' covers part of it; the carefree connotation is dub-lost."
+  },
+  {
+    "phrase": "bindaas",
+    "literal": "carefree",
+    "actual_meaning": "carefree / chill / bold and unbothered",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Iconic Mumbai slang for fearless nonchalance. English 'chill/carefree' partial; Tamil borrows it or uses 'tension illa', losing the swagger."
+  },
+  {
+    "phrase": "scene banega",
+    "literal": "scene will form",
+    "actual_meaning": "are we on? / will the plan happen? / will it be fun?",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "'Scene banega kya' = will the plan come together. Distinct from other 'scene' uses; literal gloss meaningless, needs Tamil 'plan aaguma' rewrite."
+  },
+  {
+    "phrase": "scene off ho gaya",
+    "literal": "scene off happened",
+    "actual_meaning": "the plan fell through / it got cancelled / mood's spoiled",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Loan 'off' as 'cancelled/dead'. Three-way code-mix; full rewrite needed in both targets."
+  },
+  {
+    "phrase": "kya chal raha hai",
+    "literal": "what is running",
+    "actual_meaning": "what's going on / what's up",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Idiomatic 'what's up'. Literal 'what is running' is wrong; Tamil 'enna nadakkudhu' fits in meaning but not the casual texture."
+  },
+  {
+    "phrase": "scene sorted",
+    "literal": "scene sorted",
+    "actual_meaning": "it's all sorted / situation handled",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Code-mix of slang 'scene' + English 'sorted'. No literal target equivalent; rewrite as 'ellam set' / 'sab sorted'."
+  },
+  {
+    "phrase": "tension nahi lene ka",
+    "literal": "tension not to-take",
+    "actual_meaning": "don't worry / no need to stress (Mumbai construction)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Tapori grammar ('-ne ka' infinitive command). English 'tension' loan + dialect syntax; Tamil 'tension edukkadhe' borrows the word, loses the Bambaiya rhythm."
+  },
+  {
+    "phrase": "tension mat le",
+    "literal": "don't take tension",
+    "actual_meaning": "don't stress / relax",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "'Take tension' is Indian-English collocation. Tamil keeps 'tension'; literal English 'take tension' is non-native, so dub register varies."
+  },
+  {
+    "phrase": "chill maar",
+    "literal": "hit chill",
+    "actual_meaning": "relax / take it easy",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "'Maarna' (to hit) used as 'do/have'. Literal 'hit chill' is absurd; Tamil 'chill-a iru' borrows 'chill' but drops the quirky verb."
+  },
+  {
+    "phrase": "scene dekh ke",
+    "literal": "seeing the scene",
+    "actual_meaning": "depending on the situation / let's read the room first",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "'Scene dekh ke decide karenge' = decide based on circumstances. Slang 'scene' makes literal Tamil gloss fail; rewrite as 'situation paathu'."
+  },
+  {
+    "phrase": "scope hai",
+    "literal": "scope is",
+    "actual_meaning": "there's a chance / there's potential (often romantic)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Affirmative of 'scope nahi'. Loaned 'scope' = chance; literal English/Tamil 'scope' is too technical for the flirty/optimistic sense."
+  },
+  {
+    "phrase": "jugaad ho jayega",
+    "literal": "jugaad will happen",
+    "actual_meaning": "we'll figure out a workaround / something will be arranged",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Combines untranslatable 'jugaad' with vague reassurance 'ho jayega'. Double trouble for dub; full paraphrase needed."
+  },
+  {
+    "phrase": "kaam ho gaya",
+    "literal": "work happened",
+    "actual_meaning": "the job's done / it's sorted",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "situational",
+    "note": "Fairly direct ('vela mudinjuduchu' in Tamil). Translatable but used as a satisfied filler-announcement; clipped delivery is the dub concern."
+  },
+  {
+    "phrase": "kaam ho jayega",
+    "literal": "work will happen",
+    "actual_meaning": "it'll get done / consider it handled (reassurance)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Confident reassurance, often with the vague-timeline 'chalta hai' attitude. Tamil 'vela aaidum' close; the cultural confidence/looseness is dub-sensitive."
+  },
+  {
+    "phrase": "kya bolti tu",
+    "literal": "what do you say",
+    "actual_meaning": "what's up / what do you reckon (tapori greeting)",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Bambaiya street greeting. Gender-marked, dialectal, untranslatable as a fixed expression; Tamil needs a coined street greeting."
+  },
+  {
+    "phrase": "kya re",
+    "literal": "what, hey",
+    "actual_meaning": "what's up? / hey, what? (casual, slightly rough address)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "'Re' is a low-register vocative particle. Tamil 'enna da/di' is the natural equivalent; literal gloss loses the familiarity marker."
+  },
+  {
+    "phrase": "haan na",
+    "literal": "yes no",
+    "actual_meaning": "right? / isn't that so? (seeking agreement)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Confirmation tag. Literal 'yes no' is contradictory; Tamil 'illa/dhane' captures the agreement-seeking but the particle stacking differs."
+  },
+  {
+    "phrase": "aur batao",
+    "literal": "and tell more",
+    "actual_meaning": "so, what else is new / fill me in / how've you been (conversational opener)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Phatic small-talk prompt, not a literal command. Tamil 'apparam sollu' works but the warm 'catch me up' tone is register-bound."
+  },
+  {
+    "phrase": "wo sab chhod",
+    "literal": "leave all that",
+    "actual_meaning": "forget all that / anyway, moving on (topic-shift)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Discourse topic-shift idiom. Literal 'leave all that' is stiff; Tamil 'adhellam vidu' fits semantically, casual flow varies."
+  },
+  {
+    "phrase": "scene heavy hai",
+    "literal": "scene heavy is",
+    "actual_meaning": "the situation's intense / things are serious right now",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Slang 'scene' + slang 'heavy'. Double code-mix; literal Tamil rendering fails, rewrite as 'situation serious-a iruku'."
+  },
+  {
+    "phrase": "full timepass",
+    "literal": "full time-pass",
+    "actual_meaning": "totally a waste of time / purely for casual fun (and not much else)",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Intensified 'timepass', often dismissive of a film/event. Untranslatable coinage; Tamil dub keeps 'full timepass'."
+  },
+  {
+    "phrase": "jugaad system",
+    "literal": "jugaad system",
+    "actual_meaning": "the whole improvise-and-make-do way of doing things",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Refers to a culture of workarounds. No equivalent; English 'workaround culture' is clinical and loses the affectionate pride in 'jugaad'."
+  },
+  {
+    "phrase": "setting hai uski",
+    "literal": "setting is his/hers",
+    "actual_meaning": "they have connections / an inside arrangement / a love interest",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Possessive 'setting' = someone's plug or partner. Ambiguous and slangy; literal gloss meaningless, Tamil needs context-specific rewrite."
+  },
+  {
+    "phrase": "scene clear hai",
+    "literal": "scene clear is",
+    "actual_meaning": "the situation's sorted / the coast is clear / we're good to go",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Slang 'scene' + 'clear' meaning 'sorted/safe'. Literal Tamil fails; rewrite as 'ellam clear' / 'sab clear'."
+  },
+  {
+    "phrase": "panga le liya",
+    "literal": "took panga",
+    "actual_meaning": "(they/I) picked a fight / got into trouble deliberately",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Past of 'panga lena'. Untranslatable noun + light verb; Tamil 'scene-a vaanguanga' style rewrite needed."
+  },
+  {
+    "phrase": "lag gayi",
+    "literal": "it got applied/stuck",
+    "actual_meaning": "we're in trouble now / we're done for",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Elliptical idiom ('ab lag gayi' = now we're screwed). Literal gloss meaningless; Tamil 'mudinjom' / 'aaiduchu' with despairing tone."
+  },
+  {
+    "phrase": "ho hi jayega",
+    "literal": "it will indeed just happen",
+    "actual_meaning": "it'll definitely work out / it's bound to happen, relax",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Emphatic 'hi' adds certainty to vague reassurance. Tamil 'aagidum-le' close; the particle 'hi' doing emphatic work is hard to mirror."
+  },
+  {
+    "phrase": "dekha jaye toh",
+    "literal": "if it is seen then",
+    "actual_meaning": "if you think about it / actually / on reflection (discourse hedge)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Reflective discourse marker, not literal. Tamil 'paathaa' captures the hedge; the contemplative register is subtle for dub."
+  },
+  {
+    "phrase": "kuch toh scene hai",
+    "literal": "something at-least scene is",
+    "actual_meaning": "something's definitely going on / something fishy here",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Suspicion idiom built on slang 'scene'. Whole phrase needs rewrite; Tamil 'edho scene iruku' (with borrowed scene) is the natural dub."
+  },
+  {
+    "phrase": "no scene",
+    "literal": "no scene",
+    "actual_meaning": "no problem / no drama / it's fine",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "English-flavoured slang for 'no issue'. Tamil 'onnum scene illa' borrows it; literal 'no scene' reads as theatre talk to a non-Indian ear."
+  },
+  {
+    "phrase": "scene pe scene",
+    "literal": "scene upon scene",
+    "actual_meaning": "drama after drama / one problem after another",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Reduplicative slang for cascading trouble. Untranslatable structure; Tamil needs a fresh idiom like 'problem mela problem'."
+  },
+  {
+    "phrase": "set ho ja",
+    "literal": "become set",
+    "actual_meaning": "settle in / get comfortable / get yourself sorted",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "'Set' loan verb as imperative for settling down. Tamil 'set aagidu' parallels; the casual life-advice tone is register-bound."
+  },
+  {
+    "phrase": "scope dekho",
+    "literal": "see scope",
+    "actual_meaning": "look at the possibility / check if there's a chance",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Loan 'scope' = chance/opening. Literal Tamil/Hindi 'scope' too technical; needs 'chance paaru' rewrite for the casual sense."
+  },
+  {
+    "phrase": "matlab samajh gaya",
+    "literal": "meaning I understood",
+    "actual_meaning": "you get what I'm saying / I catch your drift (knowing acknowledgement)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Often said with a wink to imply unspoken meaning. Tamil 'puriyudhu-le' close; the implicature/wink is the dubbing difficulty."
+  },
+  {
+    "phrase": "wahi toh",
+    "literal": "that very, so",
+    "actual_meaning": "exactly! / that's the thing / precisely my point",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "situational",
+    "note": "Strong agreement filler. Literal 'that very so' is opaque; Tamil 'adhaan-le' is the natural equivalent, particle work differs."
+  },
+  {
+    "phrase": "bas yahi scene hai",
+    "literal": "just this scene is",
+    "actual_meaning": "that's basically the whole situation / that's all there is to it",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "situational",
+    "note": "Wrap-up filler with slang 'scene'. Full rewrite needed; Tamil 'idhuthaan scene' (borrowed) is the natural dub."
+  }
+]

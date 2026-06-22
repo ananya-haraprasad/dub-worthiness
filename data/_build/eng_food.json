@@ -1,0 +1,406 @@
+[
+  {
+    "reference": "Aadi",
+    "English": "low"
+  },
+  {
+    "reference": "Adai",
+    "English": "low"
+  },
+  {
+    "reference": "Amarnath",
+    "English": "medium"
+  },
+  {
+    "reference": "Amman",
+    "English": "low"
+  },
+  {
+    "reference": "Andal",
+    "English": "low"
+  },
+  {
+    "reference": "Annamalaiyar / Tiruvannamalai",
+    "English": "low"
+  },
+  {
+    "reference": "Appam",
+    "English": "medium"
+  },
+  {
+    "reference": "Ayudha Puja",
+    "English": "low"
+  },
+  {
+    "reference": "Banana-leaf meals",
+    "English": "medium"
+  },
+  {
+    "reference": "Bharatanatyam",
+    "English": "medium"
+  },
+  {
+    "reference": "Butter Chicken",
+    "English": "high"
+  },
+  {
+    "reference": "Carnatic Music",
+    "English": "medium"
+  },
+  {
+    "reference": "Chai",
+    "English": "high"
+  },
+  {
+    "reference": "Char Dham",
+    "English": "medium"
+  },
+  {
+    "reference": "Chettinad Cuisine",
+    "English": "medium"
+  },
+  {
+    "reference": "Chhath Puja",
+    "English": "medium"
+  },
+  {
+    "reference": "Chidambaram Nataraja",
+    "English": "low"
+  },
+  {
+    "reference": "Chole Bhature",
+    "English": "medium"
+  },
+  {
+    "reference": "Curd Rice",
+    "English": "medium"
+  },
+  {
+    "reference": "Dal Makhani",
+    "English": "high"
+  },
+  {
+    "reference": "Dhoti",
+    "English": "medium"
+  },
+  {
+    "reference": "Diwali",
+    "English": "high"
+  },
+  {
+    "reference": "Dosa",
+    "English": "high"
+  },
+  {
+    "reference": "Dussehra",
+    "English": "high"
+  },
+  {
+    "reference": "Filter Coffee",
+    "English": "medium"
+  },
+  {
+    "reference": "Ganga Aarti",
+    "English": "medium"
+  },
+  {
+    "reference": "Golden Temple",
+    "English": "high"
+  },
+  {
+    "reference": "Golgappa / Pani Puri",
+    "English": "high"
+  },
+  {
+    "reference": "Golu",
+    "English": "low"
+  },
+  {
+    "reference": "Gopuram",
+    "English": "low"
+  },
+  {
+    "reference": "Govinda / Venkateswara chant",
+    "English": "low"
+  },
+  {
+    "reference": "Hindustani Music",
+    "English": "medium"
+  },
+  {
+    "reference": "Holi",
+    "English": "high"
+  },
+  {
+    "reference": "Idiyappam",
+    "English": "low"
+  },
+  {
+    "reference": "Idli",
+    "English": "high"
+  },
+  {
+    "reference": "Jalebi",
+    "English": "high"
+  },
+  {
+    "reference": "Jallikattu",
+    "English": "medium"
+  },
+  {
+    "reference": "Jasmine flowers (hair)",
+    "English": "low"
+  },
+  {
+    "reference": "Jyotirlinga",
+    "English": "low"
+  },
+  {
+    "reference": "Kachori",
+    "English": "medium"
+  },
+  {
+    "reference": "Kanchi Kamakshi",
+    "English": "low"
+  },
+  {
+    "reference": "Karthigai Deepam",
+    "English": "low"
+  },
+  {
+    "reference": "Karva Chauth",
+    "English": "medium"
+  },
+  {
+    "reference": "Karva Chauth Sargi",
+    "English": "low"
+  },
+  {
+    "reference": "Kashi Vishwanath",
+    "English": "medium"
+  },
+  {
+    "reference": "Kathak",
+    "English": "medium"
+  },
+  {
+    "reference": "Kedarnath",
+    "English": "medium"
+  },
+  {
+    "reference": "Kolam",
+    "English": "low"
+  },
+  {
+    "reference": "Kothu Parotta",
+    "English": "low"
+  },
+  {
+    "reference": "Kumbh Mela",
+    "English": "high"
+  },
+  {
+    "reference": "Lassi",
+    "English": "high"
+  },
+  {
+    "reference": "Lohri",
+    "English": "medium"
+  },
+  {
+    "reference": "Madurai Malli",
+    "English": "low"
+  },
+  {
+    "reference": "Makar Sankranti",
+    "English": "medium"
+  },
+  {
+    "reference": "Mango Pachadi",
+    "English": "low"
+  },
+  {
+    "reference": "Margazhi",
+    "English": "low"
+  },
+  {
+    "reference": "Masala Dosa",
+    "English": "high"
+  },
+  {
+    "reference": "Mattu Pongal",
+    "English": "low"
+  },
+  {
+    "reference": "Murugan",
+    "English": "low"
+  },
+  {
+    "reference": "Murugan Idli Shop",
+    "English": "low"
+  },
+  {
+    "reference": "Murukku",
+    "English": "low"
+  },
+  {
+    "reference": "Mysore Pak",
+    "English": "medium"
+  },
+  {
+    "reference": "Naivedyam / Prasadam",
+    "English": "medium"
+  },
+  {
+    "reference": "Navratri",
+    "English": "medium"
+  },
+  {
+    "reference": "Onam",
+    "English": "medium"
+  },
+  {
+    "reference": "Palani",
+    "English": "low"
+  },
+  {
+    "reference": "Pancha Bhoota Sthalam",
+    "English": "low"
+  },
+  {
+    "reference": "Paneer",
+    "English": "high"
+  },
+  {
+    "reference": "Paratha",
+    "English": "high"
+  },
+  {
+    "reference": "Parotta (Tamil)",
+    "English": "low"
+  },
+  {
+    "reference": "Payasam",
+    "English": "medium"
+  },
+  {
+    "reference": "Pesarattu",
+    "English": "low"
+  },
+  {
+    "reference": "Pongal (dish)",
+    "English": "medium"
+  },
+  {
+    "reference": "Pongal (festival)",
+    "English": "medium"
+  },
+  {
+    "reference": "Pongal pot (boiling over)",
+    "English": "low"
+  },
+  {
+    "reference": "Pradosham",
+    "English": "low"
+  },
+  {
+    "reference": "Puthandu",
+    "English": "low"
+  },
+  {
+    "reference": "Rajma Chawal",
+    "English": "medium"
+  },
+  {
+    "reference": "Raksha Bandhan",
+    "English": "medium"
+  },
+  {
+    "reference": "Rameswaram",
+    "English": "medium"
+  },
+  {
+    "reference": "Rangoli",
+    "English": "medium"
+  },
+  {
+    "reference": "Rasam",
+    "English": "medium"
+  },
+  {
+    "reference": "Sabarimala",
+    "English": "medium"
+  },
+  {
+    "reference": "Salna",
+    "English": "low"
+  },
+  {
+    "reference": "Sambar",
+    "English": "medium"
+  },
+  {
+    "reference": "Samosa",
+    "English": "high"
+  },
+  {
+    "reference": "Sappadu",
+    "English": "low"
+  },
+  {
+    "reference": "Saravana Bhavan",
+    "English": "medium"
+  },
+  {
+    "reference": "Srirangam",
+    "English": "low"
+  },
+  {
+    "reference": "Sundal",
+    "English": "low"
+  },
+  {
+    "reference": "Tandoori",
+    "English": "high"
+  },
+  {
+    "reference": "Temple culture (South)",
+    "English": "low"
+  },
+  {
+    "reference": "Thaipusam",
+    "English": "medium"
+  },
+  {
+    "reference": "Thyagaraja Aradhana",
+    "English": "low"
+  },
+  {
+    "reference": "Tirupati Balaji",
+    "English": "high"
+  },
+  {
+    "reference": "Uttapam",
+    "English": "medium"
+  },
+  {
+    "reference": "Vada",
+    "English": "medium"
+  },
+  {
+    "reference": "Vaishno Devi",
+    "English": "medium"
+  },
+  {
+    "reference": "Veshti",
+    "English": "low"
+  },
+  {
+    "reference": "Vibhuti / Thiruneeru",
+    "English": "low"
+  },
+  {
+    "reference": "Vinayaka Chaturthi",
+    "English": "medium"
+  }
+]

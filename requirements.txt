@@ -1,0 +1,27 @@
+# --- PyTorch (CPU-only) -------------------------------------------------------
+# sentence-transformers pulls in torch. The default PyPI torch wheel on Linux is
+# the CUDA build (~2 GB) which blows past Streamlit Community Cloud's ~1 GB tier.
+# This extra index serves the much smaller CPU-only build on Linux, and the
+# normal CPU/MPS wheel on macOS. Keep this line ABOVE sentence-transformers.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch>=2.2.0
+
+# --- App ----------------------------------------------------------------------
+streamlit>=1.35.0
+yt-dlp>=2024.5.0
+pydub>=0.25.1
+requests>=2.31.0
+python-dotenv>=1.0.0
+deep-translator>=1.11.4
+sentence-transformers>=2.7.0
+langdetect>=1.0.9
+nltk>=3.8.1
+
+# Romanises Devanagari in the transcript so the (Roman) Hinglish idiom/cultural
+# dictionaries can match Hindi spoken content that Sarvam returns in Devanagari.
+# Imported defensively in the engines, so the app still runs if it's absent.
+indic-transliteration>=2.3.0
+
+# pydub imports the stdlib `audioop` module, which was REMOVED in Python 3.13.
+# This backport keeps the app working if the host runs 3.13. (No-op on <=3.12.)
+audioop-lts; python_version >= "3.13"

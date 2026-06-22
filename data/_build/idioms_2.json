@@ -1,0 +1,1028 @@
+[
+  {
+    "phrase": "jhakaas",
+    "literal": "(onomatopoeic; no literal English)",
+    "actual_meaning": "excellent / fantastic / first-class",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Bollywood-coded intensifier popularised by Anil Kapoor; Tamil would need a culture-specific equivalent like 'semma' or 'mass'"
+  },
+  {
+    "phrase": "mast",
+    "literal": "intoxicated / carefree",
+    "actual_meaning": "great / awesome / enjoyable",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Very common approval word; Tamil 'super'/'jolly' covers it but loses the laid-back undertone"
+  },
+  {
+    "phrase": "ekdum mast",
+    "literal": "completely intoxicated",
+    "actual_meaning": "absolutely brilliant / totally great",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Intensified 'mast'; 'ekdum' adds emphasis, dubbing keeps meaning but stacking feels colloquial"
+  },
+  {
+    "phrase": "bakwaas",
+    "literal": "nonsense / babble",
+    "actual_meaning": "rubbish / worthless / talking trash",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Dismissive; Tamil 'mokka' or 'kandapadi' is a close attitudinal match"
+  },
+  {
+    "phrase": "faltu",
+    "literal": "extra / surplus / useless",
+    "actual_meaning": "pointless / good-for-nothing / a waste",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Tamil 'waste' (used as adjective) is the natural equivalent"
+  },
+  {
+    "phrase": "bekaar",
+    "literal": "without work / idle",
+    "actual_meaning": "useless / bad / no good",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Tamil 'waste' / 'mokka' depending on context"
+  },
+  {
+    "phrase": "ghatiya",
+    "literal": "low / inferior grade",
+    "actual_meaning": "cheap / shoddy / disgustingly bad",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Carries contempt; Tamil 'mokka'/'kevalam' captures the disdain"
+  },
+  {
+    "phrase": "jhand ho gayi",
+    "literal": "the flag has gone (slang for genitals went)",
+    "actual_meaning": "it got ruined / we're screwed / total flop",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Crude north-Indian college slang; no clean Tamil/Hindi-formal equivalent, needs paraphrase"
+  },
+  {
+    "phrase": "lukkha",
+    "literal": "(no literal; vagrant/loafer)",
+    "actual_meaning": "idle good-for-nothing / aimless loafer",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Regional (Bihar/UP) slang for a jobless wastrel; Tamil 'thimiru' loafer or 'loose' approximates"
+  },
+  {
+    "phrase": "senti",
+    "literal": "(clipped from 'sentimental')",
+    "actual_meaning": "overly emotional / mushy / soppy",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Campus clipping of 'sentimental'; the truncation itself is the joke, hard to carry over"
+  },
+  {
+    "phrase": "senti ho gaya",
+    "literal": "became sentimental",
+    "actual_meaning": "got all emotional / choked up",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Often teasing; Tamil 'sentiment aayiduchu' actually mirrors this code-mix usage"
+  },
+  {
+    "phrase": "emotional atyachaar",
+    "literal": "emotional atrocity / torture",
+    "actual_meaning": "emotional manipulation / melodramatic guilt-tripping",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Dev D film coinage now idiomatic; the Hindi-English collision is the punch, untranslatable wholesale"
+  },
+  {
+    "phrase": "dil garden garden",
+    "literal": "heart garden garden",
+    "actual_meaning": "heart blooming with joy / feeling delighted",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Reduplicated metaphor of a blossoming heart; needs imagery rebuild in Tamil, no stock phrase"
+  },
+  {
+    "phrase": "mood off",
+    "literal": "mood off",
+    "actual_meaning": "in a bad mood / spirits dampened",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Indian-English staple; spoken identically in Tamil ('mood off aayiduchu'), so largely portable"
+  },
+  {
+    "phrase": "mood bana",
+    "literal": "mood was made",
+    "actual_meaning": "got in the mood / feeling up for it",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Idiomatic 'feeling like doing something'; Tamil 'mood vandhuduchu' parallels it"
+  },
+  {
+    "phrase": "vibe high",
+    "literal": "vibe high",
+    "actual_meaning": "energy/atmosphere is great",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "English loanwords already; both Hindi and Tamil speakers say 'vibe' untranslated"
+  },
+  {
+    "phrase": "kadak",
+    "literal": "hard / crisp / strong",
+    "actual_meaning": "impressively strong / striking / top-notch",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Praise for boldness (kadak chai, kadak look); Tamil 'strong'/'mass' nearby but loses crispness"
+  },
+  {
+    "phrase": "solid",
+    "literal": "solid",
+    "actual_meaning": "excellent / impressive / hard-hitting",
+    "translatable": true,
+    "translatability_score": 3,
+    "category": "emotional",
+    "note": "English loan used identically across Hindi and Tamil ('solid-a irukku')"
+  },
+  {
+    "phrase": "hatke",
+    "literal": "moved aside / shifted away",
+    "actual_meaning": "different / offbeat / out of the ordinary",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Positive 'refreshingly different'; Tamil 'thani maari' captures it but the breezy clip is lost"
+  },
+  {
+    "phrase": "paisa vasool",
+    "literal": "money recovered",
+    "actual_meaning": "worth every rupee / great value",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Box-office idiom of full satisfaction; Tamil 'kaasu vasool' is an exact regional mirror"
+  },
+  {
+    "phrase": "maza aa gaya",
+    "literal": "fun has come",
+    "actual_meaning": "that was a blast / thoroughly enjoyed it",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Idiomatic delight; Tamil 'kalakkita' / 'jolly-a irundhuchu' approximates the satisfaction"
+  },
+  {
+    "phrase": "maza nahi aaya",
+    "literal": "fun did not come",
+    "actual_meaning": "didn't enjoy it / it fell flat",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Negative of the above; structure 'fun came/didn't come' has no direct English idiom"
+  },
+  {
+    "phrase": "dimaag kharab",
+    "literal": "brain spoiled",
+    "actual_meaning": "going crazy / driven up the wall / lost it",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Frustration idiom; Tamil 'mandai kaaminju' / 'mandai pochu' is a tight equivalent"
+  },
+  {
+    "phrase": "dimaag ki dahi",
+    "literal": "curd of the brain",
+    "actual_meaning": "brain turned to mush / mentally exhausted by nagging",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "emotional",
+    "note": "Vivid 'brain churned into curd' metaphor; wholly culture-bound, needs full reinvention"
+  },
+  {
+    "phrase": "sir dard",
+    "literal": "head pain / headache",
+    "actual_meaning": "a headache / a nuisance (literal or figurative)",
+    "translatable": true,
+    "translatability_score": 3,
+    "category": "emotional",
+    "note": "Both literal and figurative 'headache' map cleanly to Tamil 'thalavali'"
+  },
+  {
+    "phrase": "tension mat le",
+    "literal": "don't take tension",
+    "actual_meaning": "don't worry / relax",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "'Take tension' is Indian-English; Tamil 'tension pannaadhe' mirrors the loanword construction"
+  },
+  {
+    "phrase": "chill maar",
+    "literal": "hit chill",
+    "actual_meaning": "chill out / take it easy",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Verb 'maar' (hit) + English 'chill'; Tamil 'chill pannu' is the regional code-mix twin"
+  },
+  {
+    "phrase": "full josh",
+    "literal": "full zeal",
+    "actual_meaning": "full of energy / pumped up",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "'Josh' (zeal) Persian-origin; 'full' English; the blend is idiomatic, paraphrase in Tamil"
+  },
+  {
+    "phrase": "josh high hai",
+    "literal": "the zeal is high",
+    "actual_meaning": "morale/spirits are sky-high",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Echoes the Uri film 'Josh high hai' meme; pop-culture loading makes it untranslatable cleanly"
+  },
+  {
+    "phrase": "dhinchak",
+    "literal": "(onomatopoeia of a brassy beat)",
+    "actual_meaning": "flashy / gaudy-cool / over-the-top fancy",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "emotional",
+    "note": "Sound-symbolic word mimicking loud band music; no equivalent, often half-mocking"
+  },
+  {
+    "phrase": "bindaas",
+    "literal": "(no literal; carefree)",
+    "actual_meaning": "carefree / chill / no-worries",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Mumbai slang for laid-back boldness; Tamil 'jolly'/'free-a' approximates the attitude"
+  },
+  {
+    "phrase": "lit",
+    "literal": "lit / illuminated",
+    "actual_meaning": "exciting / awesome / hyped",
+    "translatable": true,
+    "translatability_score": 3,
+    "category": "emotional",
+    "note": "English Gen-Z loan used identically in Hindi and Tamil reels"
+  },
+  {
+    "phrase": "fire",
+    "literal": "fire",
+    "actual_meaning": "amazing / top-tier",
+    "translatable": true,
+    "translatability_score": 3,
+    "category": "emotional",
+    "note": "English slang adopted wholesale; 'fire-a irukku' in Tamil too"
+  },
+  {
+    "phrase": "kya baat hai",
+    "literal": "what a thing it is",
+    "actual_meaning": "wow / well said / how wonderful",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Appreciative exclamation; tone-dependent (can be sarcastic); Tamil 'enna scene' or 'super' adapts"
+  },
+  {
+    "phrase": "wah",
+    "literal": "(interjection of admiration)",
+    "actual_meaning": "wow / bravo",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Classic appreciation (esp. for poetry/music); Tamil 'aahaa'/'besh besh' is the cultural twin"
+  },
+  {
+    "phrase": "uff",
+    "literal": "(sigh interjection)",
+    "actual_meaning": "ugh / phew / oof (exasperation or longing)",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Polysemous sigh — frustration or swoon by context; Tamil 'aiyo'/'cheh' shift with intent"
+  },
+  {
+    "phrase": "oof",
+    "literal": "(exhale interjection)",
+    "actual_meaning": "ouch / phew / that hit hard",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Overlaps English 'oof'; mostly portable but Indian usage also signals being smitten"
+  },
+  {
+    "phrase": "halka feel",
+    "literal": "light feel",
+    "actual_meaning": "feeling light / unburdened / relaxed",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Hindi 'halka' + English 'feel'; Tamil 'lite-a iru' parallels the casual code-mix"
+  },
+  {
+    "phrase": "bhaari",
+    "literal": "heavy",
+    "actual_meaning": "intense / weighty / a lot to handle",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Figurative 'heavy/intense'; Tamil 'bhaaram'/'heavy-a irukku' carries it"
+  },
+  {
+    "phrase": "heavy",
+    "literal": "heavy",
+    "actual_meaning": "emotionally intense / overwhelming",
+    "translatable": true,
+    "translatability_score": 3,
+    "category": "emotional",
+    "note": "English loan used identically across languages for emotional weight"
+  },
+  {
+    "phrase": "deep",
+    "literal": "deep",
+    "actual_meaning": "profound / emotionally heavy / meaningful",
+    "translatable": true,
+    "translatability_score": 3,
+    "category": "emotional",
+    "note": "English loan; 'romba deep-a irukku' in Tamil works the same"
+  },
+  {
+    "phrase": "halka feel mat le",
+    "literal": "don't take light feel",
+    "actual_meaning": "don't feel bad / don't take it to heart",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Reassurance idiom blending 'feel' as verb; Tamil 'feel pannaadhe' is the equivalent"
+  },
+  {
+    "phrase": "feel aa gaya",
+    "literal": "feel has come",
+    "actual_meaning": "got into the mood / felt the emotion of it",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "'Feel' as a countable that 'arrives'; Tamil 'feel vandhuduchu' mirrors exactly"
+  },
+  {
+    "phrase": "dil khush ho gaya",
+    "literal": "heart became happy",
+    "actual_meaning": "my heart was gladdened / felt heartwarmed",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Warm-fuzzy idiom; Tamil 'manasu santhosham aayiduchu' carries the sentiment"
+  },
+  {
+    "phrase": "dil toot gaya",
+    "literal": "heart broke",
+    "actual_meaning": "heartbroken / crushed",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Heartbreak metaphor shared with English; Tamil 'manasu odanjiduchu' is close"
+  },
+  {
+    "phrase": "dil baag baag",
+    "literal": "heart garden garden (Persian baag = garden)",
+    "actual_meaning": "heart overflowing with delight",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "emotional",
+    "note": "Persian-rooted reduplication of joy; ornate register with no Tamil stock equivalent"
+  },
+  {
+    "phrase": "rongta khade ho gaye",
+    "literal": "the body-hairs stood up",
+    "actual_meaning": "got goosebumps / thrilled or moved",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Goosebumps idiom; Tamil 'mayir koochariyudhu' is a direct parallel"
+  },
+  {
+    "phrase": "rula diya",
+    "literal": "made (me) cry",
+    "actual_meaning": "it moved me to tears / so touching",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Causative 'made me cry'; Tamil 'azha vachiduchu' maps cleanly"
+  },
+  {
+    "phrase": "hasi nahi ruki",
+    "literal": "laughter did not stop",
+    "actual_meaning": "couldn't stop laughing / hilarious",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Tamil 'siri adangale' conveys the same uncontrollable-laughter idea"
+  },
+  {
+    "phrase": "pet phat gaya hasi se",
+    "literal": "stomach burst from laughing",
+    "actual_meaning": "laughed so hard it hurt",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Hyperbolic 'stomach burst'; English 'split my sides' is nearest, Tamil needs rebuild"
+  },
+  {
+    "phrase": "rasta lag gaya",
+    "literal": "got onto the road / journey set in",
+    "actual_meaning": "got thoroughly exhausted / worn out",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "emotional",
+    "note": "Slangy 'utterly drained'; opaque even to many Hindi speakers, no Tamil match"
+  },
+  {
+    "phrase": "thak gaya",
+    "literal": "got tired",
+    "actual_meaning": "exhausted / fed up",
+    "translatable": true,
+    "translatability_score": 3,
+    "category": "emotional",
+    "note": "Plain 'tired'; Tamil 'kalaichiduchu' is direct"
+  },
+  {
+    "phrase": "pak gaya",
+    "literal": "got cooked / ripened",
+    "actual_meaning": "thoroughly fed up / sick of it",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "'Cooked' = exasperated; Tamil 'pochu'/'thalai kaaminchiduchu' approximates the irritation"
+  },
+  {
+    "phrase": "dimaag ghoom gaya",
+    "literal": "the brain spun around",
+    "actual_meaning": "got dizzy with shock / mind-blown",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Could be awe or fury by tone; Tamil 'thala suthudhu' parallels the spinning-head image"
+  },
+  {
+    "phrase": "phadu",
+    "literal": "(slang; tearing/ripping)",
+    "actual_meaning": "killer / outstanding / fantastic",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Youth slang for 'rips it up'; Tamil 'mass'/'kalakkal' is the attitude equivalent"
+  },
+  {
+    "phrase": "bawaal",
+    "literal": "uproar / commotion",
+    "actual_meaning": "amazing / banging (positive) or a ruckus (context)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Recently flipped to a Gen-Z compliment; the positive sense is the harder one to carry"
+  },
+  {
+    "phrase": "jabardast",
+    "literal": "powerful / forceful (Persian zabardast)",
+    "actual_meaning": "superb / terrific",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Strong praise; Tamil 'super'/'mass' works, but the Persian flavour is lost"
+  },
+  {
+    "phrase": "lajawaab",
+    "literal": "without a reply / answerless (Persian)",
+    "actual_meaning": "matchless / unbeatable / superb",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Literally 'leaves you speechless'; ornate praise, Tamil 'adabuthamana' nearest"
+  },
+  {
+    "phrase": "shaandaar",
+    "literal": "splendid / glorious",
+    "actual_meaning": "magnificent / grand",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Formal praise; Tamil 'arumai'/'adei' adapt"
+  },
+  {
+    "phrase": "tagda",
+    "literal": "strong / sturdy",
+    "actual_meaning": "powerful / robust / impressive",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Praise for strength/quality; Tamil 'strong'/'kettiya' approximates"
+  },
+  {
+    "phrase": "zabardast scene",
+    "literal": "powerful scene",
+    "actual_meaning": "an awesome situation / great vibe",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "'Scene' as situation/vibe is Indian-English; Tamil 'scene' used identically helps"
+  },
+  {
+    "phrase": "scene on hai",
+    "literal": "scene is on",
+    "actual_meaning": "something exciting is happening / it's lively",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Code-mix 'scene' = happening; Tamil 'scene irukku' parallels closely"
+  },
+  {
+    "phrase": "scene off",
+    "literal": "scene off",
+    "actual_meaning": "it's a dud / nothing happening / mood killed",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Counterpart to 'scene on'; Tamil 'scene illa' mirrors it"
+  },
+  {
+    "phrase": "vella",
+    "literal": "(slang; jobless)",
+    "actual_meaning": "idle / free with nothing to do",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Delhi slang for aimless idleness; Tamil 'loose'/'fre-a' approximates"
+  },
+  {
+    "phrase": "bore ho gaya",
+    "literal": "became bore",
+    "actual_meaning": "got bored",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "'Bore' used as state; Tamil 'bore aagiduchu' is the same code-mix"
+  },
+  {
+    "phrase": "boring tha",
+    "literal": "was boring",
+    "actual_meaning": "it was dull",
+    "translatable": true,
+    "translatability_score": 3,
+    "category": "emotional",
+    "note": "English loan adjective; fully portable"
+  },
+  {
+    "phrase": "ghabra gaya",
+    "literal": "got flustered",
+    "actual_meaning": "panicked / got anxious",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Tamil 'bayandhuduchu'/'thadumaariduchu' depending on shade"
+  },
+  {
+    "phrase": "darr gaya",
+    "literal": "got scared",
+    "actual_meaning": "frightened",
+    "translatable": true,
+    "translatability_score": 3,
+    "category": "emotional",
+    "note": "Plain fear; Tamil 'bayandhuduchu' direct"
+  },
+  {
+    "phrase": "gussa aa gaya",
+    "literal": "anger has come",
+    "actual_meaning": "got angry",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Anger that 'arrives'; Tamil 'kovam vandhuduchu' matches the construction"
+  },
+  {
+    "phrase": "khoon khaul gaya",
+    "literal": "the blood boiled",
+    "actual_meaning": "blood boiled with rage",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Shared boiling-blood metaphor; Tamil 'rattam kothichudhu' parallels"
+  },
+  {
+    "phrase": "halki halki khushi",
+    "literal": "light light happiness",
+    "actual_meaning": "a gentle quiet joy / softly happy",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Reduplication softens intensity; Tamil 'lite-a santhosham' is a code-mix approximation"
+  },
+  {
+    "phrase": "dil dhadak raha hai",
+    "literal": "the heart is pounding",
+    "actual_meaning": "heart racing with nerves or excitement",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Universal heart-pounding image; Tamil 'nenju padaikkudhu' is close"
+  },
+  {
+    "phrase": "haath paaon phool gaye",
+    "literal": "hands and feet swelled up",
+    "actual_meaning": "froze in panic / went numb with fear",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Body-based panic idiom; English 'paralysed with fear' adapts, Tamil needs paraphrase"
+  },
+  {
+    "phrase": "saans ruk gayi",
+    "literal": "breath stopped",
+    "actual_meaning": "took my breath away / heart-stopping",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Breath-stopping image shared with English; Tamil 'moochu ninnuduchu' close"
+  },
+  {
+    "phrase": "kya scene hai",
+    "literal": "what scene is it",
+    "actual_meaning": "what's the situation / what's up",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Casual probe of mood/situation; Tamil 'enna scene' is the exact regional twin"
+  },
+  {
+    "phrase": "mood swing",
+    "literal": "mood swing",
+    "actual_meaning": "sudden mood shift",
+    "translatable": true,
+    "translatability_score": 3,
+    "category": "emotional",
+    "note": "English loan used as-is in both Hindi and Tamil speech"
+  },
+  {
+    "phrase": "mood kharab",
+    "literal": "mood spoiled",
+    "actual_meaning": "in a foul mood / mood ruined",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Tamil 'mood kethuduchu' is a direct equivalent"
+  },
+  {
+    "phrase": "mast hai yaar",
+    "literal": "it's great, friend",
+    "actual_meaning": "this is awesome, dude",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "'Yaar' tag adds chumminess; Tamil 'super da/machi' carries the warmth"
+  },
+  {
+    "phrase": "ekdum bekaar",
+    "literal": "completely useless",
+    "actual_meaning": "absolutely terrible / total waste",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Intensified dismissal; Tamil 'total waste' code-mix works"
+  },
+  {
+    "phrase": "chhaa gaya",
+    "literal": "spread over / covered everything",
+    "actual_meaning": "stole the show / killed it / dominated",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "'Overshadowed everyone'; Tamil 'kalakkita'/'mass panniteenga' approximates"
+  },
+  {
+    "phrase": "aag laga di",
+    "literal": "set fire (to it)",
+    "actual_meaning": "set the place on fire / gave a blazing performance",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Praise via 'lit it up'; overlaps English 'on fire' but the causative phrasing is idiomatic"
+  },
+  {
+    "phrase": "halla machaya",
+    "literal": "made a noise / raised a din",
+    "actual_meaning": "created a buzz / made a splash",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Positive 'made waves'; Tamil 'sancalanam'/'hype panniduchu' adapts"
+  },
+  {
+    "phrase": "tashan",
+    "literal": "(no literal; style/attitude)",
+    "actual_meaning": "swagger / stylish attitude / flair",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Punjabi-origin swagger; Tamil 'thimiru'/'style' partly overlaps but loses the cool"
+  },
+  {
+    "phrase": "swag",
+    "literal": "swag",
+    "actual_meaning": "cool confident style",
+    "translatable": true,
+    "translatability_score": 3,
+    "category": "emotional",
+    "note": "English loan used identically in both languages"
+  },
+  {
+    "phrase": "sahi hai",
+    "literal": "it is correct",
+    "actual_meaning": "cool / nice / sounds good",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Approval 'right on'; Tamil 'sari'/'nalla irukku' adapts, tone-dependent"
+  },
+  {
+    "phrase": "ekdum sahi",
+    "literal": "completely correct",
+    "actual_meaning": "spot on / absolutely right / perfect",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Emphatic agreement; Tamil 'perfect-a sari' adapts"
+  },
+  {
+    "phrase": "tight",
+    "literal": "tight",
+    "actual_meaning": "cool / great / sounds good",
+    "translatable": true,
+    "translatability_score": 3,
+    "category": "emotional",
+    "note": "English slang adopted by Indian Gen-Z; portable as-is"
+  },
+  {
+    "phrase": "cringe",
+    "literal": "cringe",
+    "actual_meaning": "embarrassing / awkward / second-hand shame",
+    "translatable": true,
+    "translatability_score": 3,
+    "category": "emotional",
+    "note": "English loan used untranslated in Hindi and Tamil reels"
+  },
+  {
+    "phrase": "chhod na",
+    "literal": "leave it (then)",
+    "actual_meaning": "let it go / forget about it",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Dismissive de-escalation; Tamil 'vittudu' is the natural equivalent"
+  },
+  {
+    "phrase": "dil par le liya",
+    "literal": "took it onto the heart",
+    "actual_meaning": "took it personally / to heart",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Tamil 'manasula vechukita' mirrors 'taking to heart'"
+  },
+  {
+    "phrase": "halchal mach gayi",
+    "literal": "a stir broke out",
+    "actual_meaning": "caused a commotion / set tongues wagging",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Tamil 'pugar'/'kalabalam' or English 'caused a stir' adapt"
+  },
+  {
+    "phrase": "rom rom",
+    "literal": "every pore / each hair",
+    "actual_meaning": "with every fibre of one's being / wholly thrilled",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "emotional",
+    "note": "Devotional-register 'every pore'; deeply idiomatic, no Tamil one-liner"
+  },
+  {
+    "phrase": "man mein laddoo phoota",
+    "literal": "a laddoo burst in the mind",
+    "actual_meaning": "fluttering with secret joy / butterflies of delight",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "emotional",
+    "note": "Sweet-bursting-inside idiom; the laddoo image is wholly culture-bound"
+  },
+  {
+    "phrase": "hosh udd gaye",
+    "literal": "the senses flew away",
+    "actual_meaning": "was stunned / lost my wits in shock",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "'Senses flew off'; English 'lost my mind' adapts, Tamil 'mayakkam vandhuduchu' nearby"
+  },
+  {
+    "phrase": "kaleja thanda ho gaya",
+    "literal": "the liver became cool",
+    "actual_meaning": "felt deep satisfaction / inner peace at last",
+    "translatable": false,
+    "translatability_score": 0,
+    "category": "emotional",
+    "note": "Liver-as-seat-of-emotion idiom; culturally opaque, demands full reinvention"
+  },
+  {
+    "phrase": "seeti maar di",
+    "literal": "blew a whistle",
+    "actual_meaning": "whistle-worthy / brought the house down",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Cinema-hall whistle of approval; Tamil mass-cinema 'silu-silu/whistle' culture maps well"
+  },
+  {
+    "phrase": "goosebumps aa gaye",
+    "literal": "goosebumps came",
+    "actual_meaning": "got goosebumps / thrilled",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "English 'goosebumps' + Hindi verb; Tamil 'goosebumps vandhuruchu' is the same code-mix"
+  },
+  {
+    "phrase": "vibe check",
+    "literal": "vibe check",
+    "actual_meaning": "gauging the mood/energy of a person or place",
+    "translatable": true,
+    "translatability_score": 3,
+    "category": "emotional",
+    "note": "English Gen-Z phrase used untranslated across Indian languages"
+  },
+  {
+    "phrase": "mann nahi lag raha",
+    "literal": "the mind is not settling",
+    "actual_meaning": "can't focus / feeling restless or unsettled",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "'Mind won't settle' restlessness; Tamil 'manasu okkaaraadhu' approximates"
+  },
+  {
+    "phrase": "andar se khush",
+    "literal": "happy from inside",
+    "actual_meaning": "genuinely happy deep down",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "'Inner happiness'; Tamil 'ullukulla santhosham' is parallel"
+  },
+  {
+    "phrase": "dil garden",
+    "literal": "heart garden",
+    "actual_meaning": "heart blooming with joy (clipped form)",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Shortened meme form of 'dil garden garden'; the clipping itself is the in-joke"
+  },
+  {
+    "phrase": "full power",
+    "literal": "full power",
+    "actual_meaning": "at peak energy / going all out",
+    "translatable": true,
+    "translatability_score": 3,
+    "category": "emotional",
+    "note": "English loan; 'full power-a' in Tamil too, fully portable"
+  },
+  {
+    "phrase": "high feel ho raha",
+    "literal": "high feel is happening",
+    "actual_meaning": "feeling exhilarated / on a high",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Stacked English loans with Hindi grammar; Tamil 'high-a feel aaguthu' mirrors"
+  },
+  {
+    "phrase": "down feel ho raha",
+    "literal": "down feel is happening",
+    "actual_meaning": "feeling low / down in the dumps",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Counterpart of 'high feel'; Tamil 'down-a iruken' is the code-mix twin"
+  },
+  {
+    "phrase": "dimag mat kha",
+    "literal": "don't eat my brain",
+    "actual_meaning": "stop pestering me / quit nagging",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "'Eating someone's brain' = pestering; Tamil 'mandaiya saappidaadhe' is a direct mirror"
+  },
+  {
+    "phrase": "set hai",
+    "literal": "it is set",
+    "actual_meaning": "all good / sorted / fine",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Reassuring 'all sorted'; Tamil 'set aaidu'/'sari aaidu' code-mix parallels"
+  },
+  {
+    "phrase": "jhakaas feeling",
+    "literal": "fantastic feeling",
+    "actual_meaning": "an awesome feeling",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "'Jhakaas' + English 'feeling'; the Bollywood intensifier stays untranslatable"
+  },
+  {
+    "phrase": "kya mast scene hai",
+    "literal": "what a great scene it is",
+    "actual_meaning": "what an awesome vibe/situation",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Stacks 'mast' + 'scene' (situation); Tamil 'enna mass scene' approximates"
+  },
+  {
+    "phrase": "tu toh chha gaya",
+    "literal": "you have spread over (everything)",
+    "actual_meaning": "you absolutely nailed it / you're a star",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Personal praise form of 'chha gaya'; Tamil 'nee kalakita da' carries the cheer"
+  },
+  {
+    "phrase": "mazaa double ho gaya",
+    "literal": "the fun became double",
+    "actual_meaning": "doubled the fun / twice as enjoyable",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "'Maza' as quantifiable fun; Tamil 'jolly double aaiduchu' adapts"
+  },
+  {
+    "phrase": "rooh khush ho gayi",
+    "literal": "the soul became happy",
+    "actual_meaning": "soul-satisfying / felt it in my soul",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Persian 'rooh' (soul) register; ornate, Tamil 'aathma thrupti' nearest"
+  },
+  {
+    "phrase": "halka mood",
+    "literal": "light mood",
+    "actual_meaning": "in a light, easy mood",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Tamil 'lite mood' code-mix parallels; portable with adaptation"
+  },
+  {
+    "phrase": "bhaari mann se",
+    "literal": "with a heavy heart",
+    "actual_meaning": "reluctantly / heavy-heartedly",
+    "translatable": true,
+    "translatability_score": 2,
+    "category": "emotional",
+    "note": "Shared 'heavy heart' image; Tamil 'kanamana manasoda' is close"
+  },
+  {
+    "phrase": "dimaag ki nas phat gayi",
+    "literal": "a brain vein burst",
+    "actual_meaning": "blew a fuse / lost it completely",
+    "translatable": false,
+    "translatability_score": 1,
+    "category": "emotional",
+    "note": "Vivid 'vein burst' fury; English 'blew a gasket' adapts, Tamil needs paraphrase"
+  }
+]

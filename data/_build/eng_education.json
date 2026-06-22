@@ -1,0 +1,394 @@
+[
+  {
+    "reference": "12th board",
+    "English": "medium"
+  },
+  {
+    "reference": "AIIMS",
+    "English": "high"
+  },
+  {
+    "reference": "Aakash",
+    "English": "medium"
+  },
+  {
+    "reference": "Allen",
+    "English": "medium"
+  },
+  {
+    "reference": "Anna University",
+    "English": "low"
+  },
+  {
+    "reference": "BITS Pilani",
+    "English": "medium"
+  },
+  {
+    "reference": "BYJU'S",
+    "English": "medium"
+  },
+  {
+    "reference": "CBSE",
+    "English": "medium"
+  },
+  {
+    "reference": "Civil Services",
+    "English": "medium"
+  },
+  {
+    "reference": "DU",
+    "English": "medium"
+  },
+  {
+    "reference": "FIITJEE",
+    "English": "medium"
+  },
+  {
+    "reference": "IAS",
+    "English": "high"
+  },
+  {
+    "reference": "ICSE",
+    "English": "medium"
+  },
+  {
+    "reference": "IFS",
+    "English": "medium"
+  },
+  {
+    "reference": "IIM",
+    "English": "high"
+  },
+  {
+    "reference": "IIT",
+    "English": "high"
+  },
+  {
+    "reference": "IPS",
+    "English": "medium"
+  },
+  {
+    "reference": "ISB",
+    "English": "medium"
+  },
+  {
+    "reference": "JNU",
+    "English": "medium"
+  },
+  {
+    "reference": "KT",
+    "English": "low"
+  },
+  {
+    "reference": "Kota",
+    "English": "medium"
+  },
+  {
+    "reference": "Kota Factory",
+    "English": "medium"
+  },
+  {
+    "reference": "NCERT",
+    "English": "medium"
+  },
+  {
+    "reference": "NIT",
+    "English": "medium"
+  },
+  {
+    "reference": "NTA",
+    "English": "medium"
+  },
+  {
+    "reference": "Old Rajinder Nagar",
+    "English": "low"
+  },
+  {
+    "reference": "Physics Wallah",
+    "English": "medium"
+  },
+  {
+    "reference": "Resonance",
+    "English": "low"
+  },
+  {
+    "reference": "SRM",
+    "English": "low"
+  },
+  {
+    "reference": "SSLC",
+    "English": "low"
+  },
+  {
+    "reference": "Samacheer Kalvi",
+    "English": "low"
+  },
+  {
+    "reference": "Tamil Nadu State Board",
+    "English": "low"
+  },
+  {
+    "reference": "Unacademy",
+    "English": "medium"
+  },
+  {
+    "reference": "VIT",
+    "English": "low"
+  },
+  {
+    "reference": "Vedantu",
+    "English": "medium"
+  },
+  {
+    "reference": "arrear",
+    "English": "low"
+  },
+  {
+    "reference": "attendance shortage",
+    "English": "medium"
+  },
+  {
+    "reference": "backbencher",
+    "English": "medium"
+  },
+  {
+    "reference": "backlog",
+    "English": "medium"
+  },
+  {
+    "reference": "board exams",
+    "English": "medium"
+  },
+  {
+    "reference": "coaching centre",
+    "English": "medium"
+  },
+  {
+    "reference": "convocation",
+    "English": "high"
+  },
+  {
+    "reference": "drop-out",
+    "English": "high"
+  },
+  {
+    "reference": "engineering seat",
+    "English": "medium"
+  },
+  {
+    "reference": "fresher",
+    "English": "high"
+  },
+  {
+    "reference": "hostel",
+    "English": "high"
+  },
+  {
+    "reference": "package",
+    "English": "medium"
+  },
+  {
+    "reference": "placement",
+    "English": "medium"
+  },
+  {
+    "reference": "ragging",
+    "English": "medium"
+  },
+  {
+    "reference": "rank holder",
+    "English": "medium"
+  },
+  {
+    "reference": "school topper announcement",
+    "English": "low"
+  },
+  {
+    "reference": "semester",
+    "English": "high"
+  },
+  {
+    "reference": "state board",
+    "English": "medium"
+  },
+  {
+    "reference": "syllabus",
+    "English": "high"
+  },
+  {
+    "reference": "topper",
+    "English": "medium"
+  },
+  {
+    "reference": "tuition",
+    "English": "high"
+  },
+  {
+    "reference": "viva",
+    "English": "high"
+  },
+  {
+    "reference": "AIR",
+    "English": "medium"
+  },
+  {
+    "reference": "Anitha",
+    "English": "low"
+  },
+  {
+    "reference": "CAT",
+    "English": "high"
+  },
+  {
+    "reference": "CDS",
+    "English": "medium"
+  },
+  {
+    "reference": "CGPA",
+    "English": "high"
+  },
+  {
+    "reference": "CLAT",
+    "English": "medium"
+  },
+  {
+    "reference": "CUET",
+    "English": "medium"
+  },
+  {
+    "reference": "EAMCET",
+    "English": "low"
+  },
+  {
+    "reference": "GATE",
+    "English": "high"
+  },
+  {
+    "reference": "GMAT",
+    "English": "high"
+  },
+  {
+    "reference": "GRE",
+    "English": "high"
+  },
+  {
+    "reference": "JEE",
+    "English": "high"
+  },
+  {
+    "reference": "JEE Advanced",
+    "English": "high"
+  },
+  {
+    "reference": "JEE Main",
+    "English": "high"
+  },
+  {
+    "reference": "KCET",
+    "English": "low"
+  },
+  {
+    "reference": "NDA",
+    "English": "medium"
+  },
+  {
+    "reference": "NEET",
+    "English": "high"
+  },
+  {
+    "reference": "NEET paper leak",
+    "English": "medium"
+  },
+  {
+    "reference": "NEET-PG",
+    "English": "medium"
+  },
+  {
+    "reference": "Pongal bonus marks debate",
+    "English": "low"
+  },
+  {
+    "reference": "Railway exam",
+    "English": "medium"
+  },
+  {
+    "reference": "SSC",
+    "English": "medium"
+  },
+  {
+    "reference": "SSC CGL",
+    "English": "medium"
+  },
+  {
+    "reference": "TET",
+    "English": "low"
+  },
+  {
+    "reference": "TNEA",
+    "English": "low"
+  },
+  {
+    "reference": "TNPSC",
+    "English": "low"
+  },
+  {
+    "reference": "TNPSC Group 1",
+    "English": "low"
+  },
+  {
+    "reference": "UGC NET",
+    "English": "medium"
+  },
+  {
+    "reference": "UPSC",
+    "English": "high"
+  },
+  {
+    "reference": "XAT",
+    "English": "medium"
+  },
+  {
+    "reference": "anti-NEET movement",
+    "English": "low"
+  },
+  {
+    "reference": "bank PO",
+    "English": "medium"
+  },
+  {
+    "reference": "centum",
+    "English": "low"
+  },
+  {
+    "reference": "cutoff",
+    "English": "high"
+  },
+  {
+    "reference": "drop year",
+    "English": "medium"
+  },
+  {
+    "reference": "entrance exam",
+    "English": "high"
+  },
+  {
+    "reference": "free coaching scheme",
+    "English": "low"
+  },
+  {
+    "reference": "internal marks",
+    "English": "low"
+  },
+  {
+    "reference": "percentile",
+    "English": "medium"
+  },
+  {
+    "reference": "rank",
+    "English": "high"
+  },
+  {
+    "reference": "repeater",
+    "English": "medium"
+  }
+]
