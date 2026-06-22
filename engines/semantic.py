@@ -20,26 +20,23 @@ from engines.translate import SARVAM_LANG_CODES, translate as sarvam_translate
 CHUNK_WORDS = 150          # smaller chunks => more reliable MT
 DEFAULT_SLEEP = 0.3        # gap between Sarvam translate calls (be gentle on limits)
 
-# A faithful back-translation never returns a perfect match. Two benign reasons:
-#   1. Paraphrase — "I went to the store" round-trips as "I visited the shop".
-#   2. Code-mixing — a Hinglish speaker says "इंपॉर्टेंट ऑप्शन चूज करना", and the
-#      round trip normalizes the English loanwords to formal Hindi
-#      ("महत्वपूर्ण विकल्प चुनना"). Same meaning, different surface form.
-# The embedding reads both as lower similarity, so we subtract a benign-drift
-# floor and rescale the remainder to 0..1.
+# A faithful back-translation never returns a perfect match: benign paraphrase
+# and register shifts cost a little similarity with zero real meaning loss. So we
+# subtract a benign-drift floor and rescale the remainder to 0..1.
 #
-# The floor MUST depend on the source language (the round trip is compared in the
-# source). English embeds strongly and round-trips with very little drift, so its
-# floor is low — a clean English clip still earns a small, honest semantic signal
-# instead of a flat 100. Hindi and Tamil embed more loosely, and the loanword
-# normalization above inflates their drift: a measured clean Hinglish monologue
-# round-trips at ~0.28 raw loss with ZERO real meaning loss, while a colloquial
-# clip whose slang genuinely collapses lands far lower (~0.42). So the Indic
-# floors sit just below that clean baseline: faithful clips read near-clean, real
-# loss is still penalised. A single global floor can't do both — set high enough
-# for Hinglish it zeros out all English clips (everything scored 100).
-BENIGN_LOSS_FLOOR = {"English": 0.08, "Hindi": 0.22, "Tamil": 0.22}
-DEFAULT_LOSS_FLOOR = 0.12
+# The floor is calibrated to the TRANSLATOR'S baseline, and that baseline shifted
+# when we moved from a generic engine to Sarvam Mayura. Measured Sarvam round-trip
+# losses: clean factual ~0.03-0.04, a poem ~0.07, shayari ~0.15, dense idioms
+# ~0.27. So a ~0.05-0.06 floor zeroes clean speech while preserving the real
+# spread: idiom/wordplay-heavy content still registers loss and scores lower.
+# (Sarvam is consistent across languages, so the per-language floors are close.)
+#
+# Honest blind spot this exposes: back-translation measures whether MEANING
+# survives, not FORM. A poem's meaning round-trips fine (~0.07) even though its
+# rhyme and rhythm are destroyed — so it reads "clean" here. Form/prosody loss is
+# documented in the methodology, not captured by this signal.
+BENIGN_LOSS_FLOOR = {"English": 0.05, "Hindi": 0.06, "Tamil": 0.06}
+DEFAULT_LOSS_FLOOR = 0.06
 
 ProgressCb = Callable[[float, str], None]
 
