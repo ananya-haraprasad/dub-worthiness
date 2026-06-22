@@ -26,3 +26,8 @@ tmp/
 run_app.sh
 .claude/
 *.env.local
+
+# Personal interview prep + the off-thesis translation comparison (keep local)
+INTERVIEW_PREP.md
+compare_translation.py
+/tmp/
