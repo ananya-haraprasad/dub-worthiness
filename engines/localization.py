@@ -76,11 +76,15 @@ def _matches(a: str, b: str) -> bool:
 
 def analyze(transcript: str, targets: list[str]) -> dict:
     glossary = _load()
-    found = [e for e in glossary if e["_pat"].search(transcript)]
+    all_found = [e for e in glossary if e["_pat"].search(transcript)]
     # Surface the instructive calls (localize / keep_english) before plain loanwords.
     order = {"localize": 0, "keep_english": 1, "loanword_ok": 2}
-    found.sort(key=lambda e: order.get(e.get("recommendation"), 3))
-    found = found[:MAX_TERMS]
+    all_found.sort(key=lambda e: order.get(e.get("recommendation"), 3))
+    # Full burden (every English term the dub leans on), independent of the
+    # display cap — the score uses this for anglicization density.
+    all_hits = [{"term": e["term"], "recommendation": e.get("recommendation", "localize")}
+                for e in all_found]
+    found = all_found[:MAX_TERMS]   # only these get a live MT call, for the table
 
     by_language: dict[str, list] = {}
     for lang in targets:
@@ -108,6 +112,8 @@ def analyze(transcript: str, targets: list[str]) -> dict:
     return {
         "by_language": by_language,
         "total_found": len(found),
+        "all_matches_count": len(all_found),   # full burden, before the display cap
+        "all_hits": all_hits,
         "dictionary_size": len(glossary),
         "note": ("Common English terms in the source. 'Free MT' is the live machine "
                  "output; 'Right call' is what a good dub should do — localize to a "

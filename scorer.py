@@ -28,7 +28,7 @@ from __future__ import annotations
 # Max penalty each signal can subtract from 100.
 WEIGHTS = {
     "semantic_loss": 58,
-    "localization": 30,
+    "localization": 36,
     "idiomatic_density": 20,
     "cultural_risk": 16,
     "structural_interleave": 8,
@@ -38,25 +38,26 @@ WEIGHTS = {
 _CULTURAL_PENALTY = {"low": 0, "medium": 8, "high": 16}
 _PROSODY_PENALTY = {"low": 0, "medium": 4, "high": 8}
 
-
+# Grade bands: 90+ travels cleanly, 70-89 workable with a pass, below 70 needs
+# real localisation work (not a straight dub).
 def _grade(score: int) -> str:
-    if score >= 85:
+    if score >= 90:
         return "Travels cleanly"
-    if score >= 65:
+    if score >= 70:
         return "Light adaptation needed"
-    if score >= 45:
+    if score >= 50:
         return "Heavy localisation"
     return "Not recommended"
 
 
 def _recommendation(lang: str, score: int) -> str:
     # Thresholds match _grade() so the wording never contradicts the grade.
-    if score >= 85:
+    if score >= 90:
         return f"A strong, low-effort {lang} candidate. You can dub this with confidence."
-    if score >= 65:
-        return f"Worth dubbing into {lang}, with a light pass on the flagged lines."
-    if score >= 45:
-        return f"Dub into {lang} only with a heavy localisation rewrite of the flagged lines."
+    if score >= 70:
+        return f"Workable in {lang} with a light pass on the flagged lines."
+    if score >= 50:
+        return f"Needs a heavy localisation rewrite before it works in {lang}."
     return f"Not a good fit for a straight {lang} dub. It would need a near-rewrite."
 
 
@@ -76,12 +77,24 @@ def compute_language_score(results: dict, lang: str) -> dict:
     interleave = results.get("structural", {}).get("interleave_ratio", 0.0)
     prosody_dep = results.get("prosody", {}).get("prosody_dependency", "low")
 
-    loc_rows = results.get("localization", {}).get("by_language", {}).get(lang, [])
+    loc = results.get("localization", {})
+    loc_rows = loc.get("by_language", {}).get(lang, [])
     loc_wrong = sum(1 for r in loc_rows if not r.get("correct", True))
+    total_hits = loc.get("all_matches_count", 0)
+    words = max((results.get("transcript", {}) or {}).get("word_count", 0) or 1, 1)
+    # Anglicization burden: how much the source leans on English terms that won't
+    # truly localize. A clip dense in English jargon (a skincare routine: serum,
+    # exfoliate, dewy) barely reaches a Hindi/Tamil viewer even when "translated",
+    # because the dub stays mostly English. Length-normalized (per 100 words) so a
+    # short clip isn't unfairly safe; wrong MT calls (a localizable word that gets
+    # transliterated) count double. This, not a count of wrong calls alone, is what
+    # makes a genuinely un-localizable clip score low.
+    loc_burden = (total_hits + loc_wrong) / words * 100
+    localization_penalty = min(loc_burden * 3.2, WEIGHTS["localization"])
 
     penalties = {
         "semantic": eff_loss * 58,
-        "localization": min(loc_wrong, 5) * 6,
+        "localization": localization_penalty,
         "idiomatic": min((idiom_density / 20) * 20, 20),
         "cultural": _CULTURAL_PENALTY.get(cultural_risk, 0),
         "structural": interleave * 8,
@@ -97,9 +110,11 @@ def compute_language_score(results: dict, lang: str) -> dict:
     sentences = {
         "semantic": (f"About {round(loss * 100)}% of the meaning slips on a {lang} "
                      f"round trip. Idioms and wordplay don't survive."),
-        "localization": (f"{loc_wrong} common term(s) don't localise cleanly into "
-                         f"{lang}. Machine translation transliterates or mistranslates "
-                         f"them, so a dub needs hand-fixing."),
+        "localization": (f"Leans heavily on English terms ({total_hits} in {words} "
+                         f"words). A {lang} dub stays mostly English unless they're "
+                         f"localized"
+                         + (f", and MT transliterates {loc_wrong} that have a native "
+                            f"word." if loc_wrong else ".")),
         "idiomatic": (f"Idiom-heavy speech ({idiom_density:.1f} slang hits per 100 "
                       f"words). These need adapting, not translating."),
         "cultural": (f"{n_risky} culture-specific reference(s) may not land with a "
