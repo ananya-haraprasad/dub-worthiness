@@ -19,8 +19,10 @@ from typing import Callable
 from engines.translate import SARVAM_LANG_CODES, translate as sarvam_translate
 
 DEFAULT_SLEEP = 0.0        # Sarvam calls run sequentially; no anti-block delay needed
-MAX_CHUNKS = 8             # per-sentence cap — granular "which line broke" view,
-                           # still bounded so a long clip can't run away on credits
+CHUNK_WORDS = 60           # group sentences up to ~this many words per round-trip
+MAX_CHUNKS = 4             # few round-trips per LIVE clip — keeps credit use low.
+                           # (Pre-baked examples already store the finer per-line
+                           # drift view, so the demo keeps it for free.)
 
 # A faithful back-translation never returns a perfect match: benign paraphrase
 # and register shifts cost a little similarity with zero real meaning loss. So we
@@ -53,17 +55,24 @@ def _calibrated_loss(raw_loss: float, floor: float) -> float:
 
 
 def _chunk_text(text: str) -> list[str]:
-    """Split into SENTENCES so the round-trip flags the specific lines that break
-    (a garbled sentence stands out instead of being averaged away). Very short
-    fragments glue onto the previous line. Capped at MAX_CHUNKS to bound credits."""
+    """Group sentences into chunks of ~CHUNK_WORDS words (respecting sentence
+    boundaries), covering the whole transcript in at most MAX_CHUNKS round-trips.
+    A high-drift chunk still pulls the score down and surfaces in the drift panel,
+    but a clip costs only a few Sarvam calls — not one per sentence."""
     parts = [s.strip() for s in re.split(r"(?<=[.!?।॥…])\s+", text.strip()) if s.strip()]
-    merged: list[str] = []
+    if not parts:
+        return [text.strip() or ""]
+    chunks: list[str] = []
+    cur = ""
     for s in parts:
-        if merged and (len(s.split()) < 4 or len(merged[-1].split()) < 4):
-            merged[-1] = (merged[-1] + " " + s).strip()
+        if cur and len((cur + " " + s).split()) > CHUNK_WORDS:
+            chunks.append(cur)
+            cur = s
         else:
-            merged.append(s)
-    return (merged or [text.strip()])[:MAX_CHUNKS]
+            cur = (cur + " " + s).strip()
+    if cur:
+        chunks.append(cur)
+    return chunks[:MAX_CHUNKS]
 
 
 def analyze(transcript: str, model, source_lang: str, targets: list[str],
