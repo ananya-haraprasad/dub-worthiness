@@ -497,7 +497,10 @@ def render_risk_profile(res):
     st.markdown(html_rows, unsafe_allow_html=True)
 
 
+@st.fragment
 def render_sample_dub(res, api_key):
+    # A fragment so clicking "Voice" reruns only this block, not the whole page
+    # (otherwise Streamlit dims the previous frame and you see ghosted cards).
     st.markdown('<div class="eyebrow">Hear it dubbed · sample</div>', unsafe_allow_html=True)
     st.caption("The opening, translated and voiced with Sarvam TTS so you can actually "
                "hear it. Audio is generated when you click, not on every run.")
