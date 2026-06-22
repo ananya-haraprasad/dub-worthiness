@@ -107,6 +107,7 @@ def analyze(transcript: str, model, source_lang: str, targets: list[str],
             by_language[lang_name] = {
                 "similarity": round(avg, 3),
                 "loss": round(1 - avg, 3),
+                "max_loss": round(1 - min(sims), 3),  # worst single chunk
                 "chunks_scored": len(sims),
             }
         else:
@@ -115,16 +116,18 @@ def analyze(transcript: str, model, source_lang: str, targets: list[str],
                 "note": "Translation unavailable (rate-limited or offline).",
             }
 
-    # Worst chunks overall: lowest similarity, de-duplicated by original text.
-    seen, worst = set(), []
-    for rec in sorted(all_chunk_records, key=lambda r: r["similarity"]):
-        key = rec["original"][:80]
-        if key in seen:
+    # The genuinely worst chunk per target language (only if meaning really
+    # dropped). Avoids surfacing a high-similarity chunk as "where meaning slipped
+    # most", which the old cross-language de-dup could do.
+    worst = []
+    for lang_name, _code in target_items:
+        recs = [r for r in all_chunk_records if r["language"] == lang_name]
+        if not recs:
             continue
-        seen.add(key)
-        worst.append(rec)
-        if len(worst) >= 3:
-            break
+        w = max(recs, key=lambda r: r["loss"])
+        if w["loss"] >= 0.20:
+            worst.append(w)
+    worst.sort(key=lambda r: r["loss"], reverse=True)
 
     return {
         "source_language": source_lang,

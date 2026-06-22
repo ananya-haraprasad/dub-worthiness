@@ -117,9 +117,11 @@ def inject_css():
         .stApp { background: var(--paper); }
         .block-container { max-width: 1060px; padding-top: 2.2rem; }
         h1,h2,h3,h4 { color:var(--ink); font-family:'Fraunces',Georgia,serif; letter-spacing:-0.01em; }
-        /* hide Streamlit dev chrome (toolbar, deploy, menu, footer) */
-        [data-testid="stToolbar"], [data-testid="stDecoration"], [data-testid="stStatusWidget"],
-        #MainMenu, footer, .stDeployButton { display:none !important; }
+        /* hide footer + deploy/menu, but KEEP the sidebar expand/collapse control */
+        footer, [data-testid="stStatusWidget"], #MainMenu, .stDeployButton { display:none !important; }
+        [data-testid="stSidebarCollapsedControl"], [data-testid="collapsedControl"],
+        [data-testid="stSidebarCollapseButton"], [data-testid="stExpandSidebarButton"] {
+            display:flex !important; visibility:visible !important; opacity:1 !important; z-index:999; }
 
         .hero-title { font-family:'Fraunces',Georgia,serif; font-size:3rem; font-weight:600;
                       color:var(--ink); letter-spacing:-0.02em; line-height:1.04; margin-bottom:.2rem; }
@@ -395,9 +397,14 @@ def render_verdict(res):
     best = res["scores"]["quality_priority_order"][0]
     best_s = by[best]
 
-    grades = {l: by[l]["grade"] for l in targets}
-    if len(set(grades.values())) == 1 and best_s["grade"] == "Travels cleanly":
-        head = f"Travels cleanly into both {targets[0]} and {targets[1]}"
+    scores = {l: by[l]["dub_quality_score"] for l in targets}
+    if len(set(scores.values())) == 1:
+        # Genuinely tied: don't imply one is better than the other.
+        g = best_s["grade"]
+        if g == "Travels cleanly":
+            head = f"Travels cleanly into both {targets[0]} and {targets[1]}"
+        else:
+            head = f"{g} for both {targets[0]} and {targets[1]}"
     else:
         head = f"Dub into {best} first. {best_s['grade']} ({best_s['dub_quality_score']})"
 

@@ -65,6 +65,11 @@ def compute_language_score(results: dict, lang: str) -> dict:
     loss = sem.get("loss")
     semantic_available = loss is not None
     loss = loss or 0.0
+    max_loss = sem.get("max_loss")
+    max_loss = max_loss if max_loss is not None else loss
+    # Blend the average loss with the worst single chunk, so one badly-mangled
+    # segment still hurts and two targets with different worst cases score apart.
+    eff_loss = 0.7 * loss + 0.3 * max_loss
 
     idiom_density = results.get("idiomatic", {}).get("idiom_density", 0.0)
     cultural_risk = results.get("cultural", {}).get("risk_by_language", {}).get(lang, "low")
@@ -75,7 +80,7 @@ def compute_language_score(results: dict, lang: str) -> dict:
     loc_wrong = sum(1 for r in loc_rows if not r.get("correct", True))
 
     penalties = {
-        "semantic": loss * 58,
+        "semantic": eff_loss * 58,
         "localization": min(loc_wrong, 5) * 6,
         "idiomatic": min((idiom_density / 20) * 20, 20),
         "cultural": _CULTURAL_PENALTY.get(cultural_risk, 0),
@@ -131,12 +136,12 @@ def compute_scores(results: dict, languages: list[str] | None = None) -> dict:
     languages = languages or ["Hindi", "Tamil"]
     by_language = {lang: compute_language_score(results, lang) for lang in languages}
 
-    # "Where to start": rank by quality, breaking ties with opportunity. This is
-    # a transparent rule, not a blended score that hides the trade-off.
+    # Rank by score; break ties by lower semantic loss (the better round-trip).
+    sem = results.get("semantic", {}).get("by_language", {})
     priority = sorted(
         languages,
         key=lambda l: (by_language[l]["dub_quality_score"],
-                       by_language[l]["opportunity_score"]),
+                       -(sem.get(l, {}).get("loss") or 0.0)),
         reverse=True,
     )
     return {
