@@ -25,13 +25,18 @@ leans more on semantic loss and cultural risk.
 """
 from __future__ import annotations
 
-import re
-
 # Max penalty each signal can subtract from 100.
+#
+# NOTE: an "untranslated words" signal (flagging zero-frequency tokens in the
+# translation) was tried and removed. It could not tell a genuine failure (a
+# colloquial word left transliterated) from a culturally-specific term that
+# CORRECTLY stays as-is (golgappa, dish/place names, people's names) — both are
+# zero-frequency. It false-flagged legitimate content (e.g. "Golgappas"), so it
+# was doing more harm than good. The back-translation signal is what we trust for
+# meaning; it does NOT measure fluency (see the methodology note in app.py).
 WEIGHTS = {
     "semantic_loss": 58,
     "localization": 36,
-    "untranslated": 30,
     "idiomatic_density": 20,
     "cultural_risk": 16,
     "structural_interleave": 8,
@@ -41,39 +46,6 @@ WEIGHTS = {
 _CULTURAL_PENALTY = {"low": 0, "medium": 8, "high": 16}
 _PROSODY_PENALTY = {"low": 0, "medium": 4, "high": 8}
 
-# Split on whitespace + punctuation ONLY, never inside a word. A character class
-# like \w breaks Devanagari/Tamil words at their vowel signs (समझते -> "समझत"),
-# and the fragment then looks untranslated. Keep base letters + combining marks
-# together. (Includes the Devanagari danda ।॥ and common Indic/ASCII punctuation.)
-_TOKEN_SPLIT = re.compile(r"[\s.,!?;:।॥…“”‘’\"'`()\[\]{}<>/\\|@#$%^&*+=~_·–—-]+")
-
-
-def _untranslated_scan(text: str, lang_code: str) -> tuple[list[str], int]:
-    """Find words a translation left UNTRANSLATED — transliterated straight from
-    the source instead of translated (e.g. Tamil புரிஞ்சவங்க -> "Purinjavas").
-
-    These are invisible to the back-translation check, because a transliteration
-    round-trips perfectly. We catch them with word frequencies: a real word (or a
-    real name) has a nonzero frequency in the target language; a transliterated
-    leftover has none. Returns (distinct untranslated words, total words scanned).
-    Degrades to no-op if wordfreq isn't installed.
-    """
-    try:
-        from wordfreq import word_frequency
-    except Exception:
-        return [], 0
-    seen, untranslated, total = set(), [], 0
-    for w in _TOKEN_SPLIT.split(text or ""):
-        if len(w) < 4 or w.isdigit():
-            continue
-        total += 1
-        wl = w.lower()
-        if wl in seen:
-            continue
-        seen.add(wl)
-        if word_frequency(wl, lang_code) == 0:
-            untranslated.append(w)
-    return untranslated, total
 
 # Grade bands: 90+ travels cleanly, 70-89 workable with a pass, below 70 needs
 # real localisation work (not a straight dub).
@@ -129,31 +101,9 @@ def compute_language_score(results: dict, lang: str) -> dict:
     loc_burden = (total_hits + loc_wrong) / words * 100
     localization_penalty = min(loc_burden * 3.2, WEIGHTS["localization"])
 
-    # Untranslated leftovers in the actual translation (e.g. Tamil புரிஞ்சவங்க left
-    # as "Purinjavas"). Invisible to the round-trip — a transliteration round-trips
-    # perfectly — so it needs its own signal. Each leftover is a word the audience
-    # literally can't read: one hurts, several wreck the dub.
-    #
-    # Reliable ONLY for an English target: English wordfreq is comprehensive, so a
-    # zero-frequency word is genuinely foreign, while real words AND international
-    # names/loanwords (jersey, Messi, Bangalore) register. For Hindi/Tamil targets
-    # the same check false-positives, because legitimate loanwords and names in
-    # native script (शर्टें, मेसी) simply aren't in the frequency table — that wrongly
-    # tanked a clean Hindi dub. So skip non-English targets; English-source
-    # anglicization is already covered by the localization signal.
-    if lang == "English":
-        fwd_text = results.get("semantic", {}).get("translations", {}).get(lang, "")
-        untranslated, scanned = _untranslated_scan(fwd_text, "en")
-        untr_ratio = len(untranslated) / max(scanned, 1)
-        untranslated_penalty = min(len(untranslated) * 8 + untr_ratio * 70,
-                                   WEIGHTS["untranslated"])
-    else:
-        untranslated, untranslated_penalty = [], 0.0
-
     penalties = {
         "semantic": eff_loss * 58,
         "localization": localization_penalty,
-        "untranslated": untranslated_penalty,
         "idiomatic": min((idiom_density / 20) * 20, 20),
         "cultural": _CULTURAL_PENALTY.get(cultural_risk, 0),
         "structural": interleave * 8,
@@ -177,11 +127,6 @@ def compute_language_score(results: dict, lang: str) -> dict:
                          f"localized"
                          + (f", and MT transliterates {loc_wrong} that have a native "
                             f"word." if loc_wrong else ".")),
-        "untranslated": (f"The {lang} translation leaves {len(untranslated)} word(s) "
-                         f"untranslated"
-                         + (f" ({', '.join(untranslated[:3])})" if untranslated else "")
-                         + ", transliterated straight from the source. A viewer can't "
-                         f"read them, so the dub needs them fixed by hand."),
         "idiomatic": (f"Idiom-heavy speech ({idiom_density:.1f} slang hits per 100 "
                       f"words). These need adapting, not translating."),
         "cultural": (f"{n_risky} culture-specific reference(s) may not land with a "

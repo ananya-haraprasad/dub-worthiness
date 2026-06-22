@@ -17,13 +17,6 @@ sentence-transformers>=2.7.0
 langdetect>=1.0.9
 nltk>=3.8.1
 
-# Word-frequency tables (English/Hindi/Tamil) used to catch words a translation
-# left UNTRANSLATED -- a transliterated source word (Tamil புரிஞ்சவங்க -> English
-# "Purinjavas") has zero frequency in the target, while real words and names do
-# not. This failure is invisible to the back-translation check, so it's scored
-# separately. Imported defensively; the signal is skipped if wordfreq is absent.
-wordfreq>=3.0.0
-
 # CREPE neural pitch tracker — detects the speaker's gender so the sample dub
 # picks a matching voice. Reuses the torch above; the 'tiny' model is a few MB
 # and downloads on first use. Robust to the octave errors and background noise
