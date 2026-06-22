@@ -1,0 +1,11 @@
+# A controlled, cohesive theme so the app looks intentional regardless of the
+# viewer's light/dark setting. (secrets.toml lives next to this and is gitignored.)
+[theme]
+base = "light"
+primaryColor = "#4f46e5"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f5f6fa"
+textColor = "#0f172a"
+
+[server]
+maxUploadSize = 200
