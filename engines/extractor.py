@@ -79,40 +79,67 @@ class TranscriptResult:
 
 # --- Audio acquisition --------------------------------------------------------
 def _download_youtube_audio(url: str, workdir: str) -> str:
-    """Download best audio track from a YouTube URL into workdir. Returns path."""
+    """Download best audio track from a YouTube URL into workdir. Returns path.
+
+    YouTube rate-limits / 403s automated downloads, hardest from datacenter IPs
+    (so this is the fragile part of any cloud deploy). We try progressively
+    harder: mobile/TV player clients first, then the SAME request authenticated
+    with cookies from whatever browser is installed. Authenticated requests clear
+    most rate-limit 403s on a local machine. Cookies are best-effort and skipped
+    silently when no browser/cookie store is reachable (e.g. a headless host),
+    which is why the plain attempt runs first.
+    """
     try:
         import yt_dlp
     except ImportError as exc:  # pragma: no cover
         raise ExtractionError("yt-dlp is not installed.") from exc
 
     out_tmpl = os.path.join(workdir, "yt_audio.%(ext)s")
-    ydl_opts = {
+    base_opts = {
         "format": "bestaudio/best",
         "outtmpl": out_tmpl,
         "quiet": True,
         "no_warnings": True,
         "noplaylist": True,
-        "retries": 4,
-        "fragment_retries": 4,
-        # YouTube intermittently 403s the default web client. Trying the mobile
-        # clients first bypasses most of those blocks. (Let pydub/ffmpeg do the
-        # final conversion, so no double-encode here.)
-        "extractor_args": {"youtube": {"player_client": ["android", "ios", "web"]}},
+        "retries": 2,
+        "fragment_retries": 2,
+        "socket_timeout": 20,   # don't let a single hung request stall the UI
+        "extractor_args": {
+            "youtube": {"player_client": ["ios", "android", "mweb", "tv", "web"]}
+        },
     }
-    try:
-        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            ydl.download([url])
-    except Exception as exc:
-        raise ExtractionError(
-            "Could not download that video. YouTube sometimes blocks automated "
-            "downloads (a 403); try again, try a different link, or use the upload "
-            "option. It may also be private, age-restricted, or region-locked."
-        ) from exc
 
-    files = [f for f in glob.glob(os.path.join(workdir, "yt_audio.*"))]
-    if not files:
-        raise ExtractionError("Download produced no audio file.")
-    return files[0]
+    # Plain first (works on a fresh IP / cloud); then authenticated with browser
+    # cookies (beats rate-limit 403s locally). Kept short so a true block surfaces
+    # in seconds, not minutes. Cookie attempts are skipped silently when the store
+    # isn't reachable (sandboxed/headless).
+    attempts = [base_opts]
+    for browser in ("chrome", "safari"):
+        opts = dict(base_opts)
+        opts["cookiesfrombrowser"] = (browser,)
+        attempts.append(opts)
+
+    last_exc = None
+    for opts in attempts:
+        try:
+            with yt_dlp.YoutubeDL(opts) as ydl:
+                ydl.download([url])
+            files = glob.glob(os.path.join(workdir, "yt_audio.*"))
+            if files:
+                return files[0]
+        except Exception as exc:
+            last_exc = exc
+            for f in glob.glob(os.path.join(workdir, "yt_audio.*")):
+                try:
+                    os.remove(f)   # clear partials before the next attempt
+                except OSError:
+                    pass
+
+    raise ExtractionError(
+        "Could not download that video. YouTube is rate-limiting automated "
+        "downloads from this network (a 403). Wait a few minutes and retry, try a "
+        "different link, or use the Upload a file option, which always works."
+    ) from last_exc
 
 
 def _estimate_gender(audio: AudioSegment) -> str:
