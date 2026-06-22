@@ -58,10 +58,11 @@ _LEVEL_STYLE = {
 
 # Sample videos a viewer can copy and paste in. Covers all three source languages.
 SAMPLES = [
+    ("English · Barbie monologue", "https://youtube.com/shorts/q9wKARQ8_pg"),
     ("English · skincare tips", "https://youtube.com/shorts/obRs6VrF9FE"),
-    ("Hindi · cooking vlog", "https://youtube.com/shorts/QsCSPgNQIRo"),
-    ("Tamil · cricket reaction", "https://youtube.com/shorts/mRFs19QPAwI"),
-    ("English · baby expenses", "https://youtube.com/shorts/ot8iXgKvG8o"),
+    ("Hindi · Antarctica vlog", "https://youtube.com/shorts/LPI9mLkIIS8"),
+    ("Tamil · assembly speech", "https://youtube.com/shorts/1CBtqHEDUXI"),
+    ("Tamil · shirt seller", "https://youtube.com/shorts/mRFs19QPAwI"),
 ]
 
 # Hardcoded benchmark context so a single score feels grounded, not arbitrary.
