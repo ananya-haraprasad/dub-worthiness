@@ -63,10 +63,13 @@ _LEVEL_STYLE = {
 # live score speak for itself. Label format: "Language · Sentence-case description".
 SAMPLES = [
     ("English · Barbie monologue", "https://youtube.com/shorts/q9wKARQ8_pg"),
+    ("English · Skincare tips", "https://youtube.com/shorts/obRs6VrF9FE"),
     ("Hindi · Antarctica vlog", "https://youtube.com/shorts/LPI9mLkIIS8"),
+    ("Hindi · Dear Zindagi monologue", "https://youtube.com/shorts/iMphpp3Yfh0"),
+    ("Hindi · Street-food vlog", "https://youtube.com/shorts/L5mWKH07TBQ"),
     ("Tamil · Assembly speech", "https://youtube.com/shorts/1CBtqHEDUXI"),
     ("Tamil · Shirt seller", "https://youtube.com/shorts/mRFs19QPAwI"),
-    ("English · Skincare tips", "https://youtube.com/shorts/obRs6VrF9FE"),
+    ("Tamil · Village advice", "https://youtube.com/shorts/0uHkXWIKaQ4"),
 ]
 
 # Hardcoded benchmark context so a single score feels grounded, not arbitrary.

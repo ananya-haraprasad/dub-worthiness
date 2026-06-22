@@ -44,7 +44,7 @@ def _load() -> list[dict]:
 
 def _mt(term: str, target_lang: str, api_key: str) -> str:
     """What Sarvam Mayura produces for this English term, right now."""
-    out = sarvam_translate(term, "English", target_lang, api_key, sleep=0.3)
+    out = sarvam_translate(term, "English", target_lang, api_key)
     return out or ""
 
 

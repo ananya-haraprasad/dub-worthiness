@@ -18,8 +18,8 @@ from typing import Callable
 
 from engines.translate import SARVAM_LANG_CODES, translate as sarvam_translate
 
-DEFAULT_SLEEP = 0.3        # gap between Sarvam translate calls (be gentle on limits)
-MAX_CHUNKS = 16            # per-clip cap on sentence chunks (bounds translate calls)
+DEFAULT_SLEEP = 0.0        # Sarvam calls run sequentially; no anti-block delay needed
+MAX_CHUNKS = 8             # per-clip cap on sentence chunks (bounds calls + latency)
 
 # A faithful back-translation never returns a perfect match: benign paraphrase
 # and register shifts cost a little similarity with zero real meaning loss. So we

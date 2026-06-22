@@ -15,7 +15,6 @@ credits on every analysis.
 from __future__ import annotations
 
 import base64
-import time
 
 import requests
 
@@ -56,7 +55,6 @@ def build_excerpts(transcript: str, source_lang: str, targets: list[str],
     for t in targets:
         try:
             out["by_language"][t] = translate_excerpt(src_ex, source_lang, t, api_key)
-            time.sleep(0.3)
         except DubError:
             out["by_language"][t] = ""
     return out
