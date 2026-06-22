@@ -27,8 +27,6 @@ from __future__ import annotations
 
 import re
 
-from engines.langs import LANG_CODES
-
 # Max penalty each signal can subtract from 100.
 WEIGHTS = {
     "semantic_loss": 58,
@@ -134,13 +132,23 @@ def compute_language_score(results: dict, lang: str) -> dict:
     # Untranslated leftovers in the actual translation (e.g. Tamil புரிஞ்சவங்க left
     # as "Purinjavas"). Invisible to the round-trip — a transliteration round-trips
     # perfectly — so it needs its own signal. Each leftover is a word the audience
-    # literally can't read: one hurts, several wreck the dub. Per-word cost plus a
-    # density term, capped.
-    fwd_text = results.get("semantic", {}).get("translations", {}).get(lang, "")
-    untranslated, scanned = _untranslated_scan(fwd_text, LANG_CODES.get(lang, "en"))
-    untr_ratio = len(untranslated) / max(scanned, 1)
-    untranslated_penalty = min(len(untranslated) * 8 + untr_ratio * 70,
-                               WEIGHTS["untranslated"])
+    # literally can't read: one hurts, several wreck the dub.
+    #
+    # Reliable ONLY for an English target: English wordfreq is comprehensive, so a
+    # zero-frequency word is genuinely foreign, while real words AND international
+    # names/loanwords (jersey, Messi, Bangalore) register. For Hindi/Tamil targets
+    # the same check false-positives, because legitimate loanwords and names in
+    # native script (शर्टें, मेसी) simply aren't in the frequency table — that wrongly
+    # tanked a clean Hindi dub. So skip non-English targets; English-source
+    # anglicization is already covered by the localization signal.
+    if lang == "English":
+        fwd_text = results.get("semantic", {}).get("translations", {}).get(lang, "")
+        untranslated, scanned = _untranslated_scan(fwd_text, "en")
+        untr_ratio = len(untranslated) / max(scanned, 1)
+        untranslated_penalty = min(len(untranslated) * 8 + untr_ratio * 70,
+                                   WEIGHTS["untranslated"])
+    else:
+        untranslated, untranslated_penalty = [], 0.0
 
     penalties = {
         "semantic": eff_loss * 58,
