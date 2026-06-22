@@ -23,7 +23,8 @@ from engines.langs import LANG_CODES
 
 SARVAM_TTS_URL = "https://api.sarvam.ai/text-to-speech"
 TTS_MODEL = "bulbul:v3"
-TTS_SPEAKER = "priya"
+# Match the dub voice to the source speaker's gender (both verified on v3).
+TTS_SPEAKERS = {"male": "aditya", "female": "priya", "unknown": "priya"}
 TTS_LANG_CODE = {"English": "en-IN", "Hindi": "hi-IN", "Tamil": "ta-IN"}
 EXCERPT_WORDS = 55       # ~ first 15-20s of speech
 MAX_TTS_CHARS = 900      # well under bulbul:v3's 2500 cap; keeps samples cheap
@@ -63,15 +64,17 @@ def build_excerpts(transcript: str, source_lang: str, targets: list[str]) -> dic
     return out
 
 
-def synthesize(text: str, target_lang: str, api_key: str) -> bytes:
-    """Voice the (already translated) text with Sarvam TTS. Returns WAV bytes."""
+def synthesize(text: str, target_lang: str, api_key: str,
+               gender: str = "unknown") -> bytes:
+    """Voice the (already translated) text with Sarvam TTS. Returns WAV bytes.
+    `gender` ('male'/'female') picks a matching voice."""
     if not text.strip():
         raise DubError("Nothing to synthesise.")
     payload = {
         "text": text[:MAX_TTS_CHARS],
         "target_language_code": TTS_LANG_CODE.get(target_lang, "en-IN"),
         "model": TTS_MODEL,
-        "speaker": TTS_SPEAKER,
+        "speaker": TTS_SPEAKERS.get(gender, TTS_SPEAKERS["unknown"]),
     }
     try:
         resp = requests.post(

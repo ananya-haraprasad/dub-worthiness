@@ -65,7 +65,7 @@ def analyze(transcript: str, model, source_lang: str, targets: list[str],
 
     chunks = [c for c in _chunk_text(transcript) if c.strip()]
     if not chunks:
-        return {"by_language": {}, "worst_chunks": [],
+        return {"by_language": {}, "worst_chunks": [], "translations": {},
                 "note": "Transcript was empty; no semantic analysis run."}
 
     # Encode originals (in the source language) once; reused across targets.
@@ -73,11 +73,13 @@ def analyze(transcript: str, model, source_lang: str, targets: list[str],
 
     by_language: dict[str, dict] = {}
     all_chunk_records: list[dict] = []
+    translations: dict[str, str] = {}    # full forward translation per target
     total_steps = max(1, len(target_items) * len(chunks))
     step = 0
 
     for lang_name, lang_code in target_items:
         sims: list[float] = []
+        fwd_texts: list[str] = []
         for ci, chunk in enumerate(chunks):
             step += 1
             progress_cb(
@@ -86,6 +88,8 @@ def analyze(transcript: str, model, source_lang: str, targets: list[str],
             )
 
             fwd = _translate(chunk, src_code, lang_code, sleep)
+            if fwd:
+                fwd_texts.append(fwd)
             back = _translate(fwd, lang_code, src_code, sleep) if fwd else None
             if not back:
                 continue  # skip chunks where MT failed rather than crash
@@ -115,6 +119,7 @@ def analyze(transcript: str, model, source_lang: str, targets: list[str],
                 "similarity": None, "loss": None, "chunks_scored": 0,
                 "note": "Translation unavailable (rate-limited or offline).",
             }
+        translations[lang_name] = " ".join(fwd_texts)
 
     # The genuinely worst chunk per target language (only if meaning really
     # dropped). Avoids surfacing a high-similarity chunk as "where meaning slipped
@@ -133,6 +138,7 @@ def analyze(transcript: str, model, source_lang: str, targets: list[str],
         "source_language": source_lang,
         "by_language": by_language,
         "worst_chunks": worst,
+        "translations": translations,
         "chunks_analyzed": len(chunks),
         "note": (f"Back-translation round trip ({source_lang}→target→{source_lang}) "
                  f"via Google Translate (free). Lower similarity = more meaning "

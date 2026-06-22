@@ -62,6 +62,7 @@ class TranscriptResult:
     duration_seconds: float
     num_chunks: int
     chunks: list = field(default_factory=list)  # [{idx, start_s, text, lang}]
+    voice_gender: str = "unknown"               # "male" | "female" | "unknown"
 
     def to_dict(self) -> dict:
         return {
@@ -72,6 +73,7 @@ class TranscriptResult:
             "duration_seconds": round(self.duration_seconds, 1),
             "num_chunks": self.num_chunks,
             "chunks": self.chunks,
+            "voice_gender": self.voice_gender,
         }
 
 
@@ -111,6 +113,49 @@ def _download_youtube_audio(url: str, workdir: str) -> str:
     if not files:
         raise ExtractionError("Download produced no audio file.")
     return files[0]
+
+
+def _estimate_gender(audio: AudioSegment) -> str:
+    """Rough male/female from median pitch (F0), so the dub voice can match.
+
+    Autocorrelation pitch over voiced 40ms frames of the first 30s. Median F0
+    below ~165 Hz reads male, above reads female. Returns 'unknown' on anything
+    odd. It's a heuristic, not speaker ID, but good enough to pick a voice.
+    """
+    try:
+        import numpy as np
+        sr = audio.frame_rate
+        clip = audio[:30_000]  # first 30s is plenty for gender
+        samples = np.array(clip.get_array_of_samples()).astype(np.float32)
+        if clip.channels == 2:
+            samples = samples.reshape(-1, 2).mean(axis=1)
+        peak_amp = np.abs(samples).max()
+        if peak_amp == 0:
+            return "unknown"
+        samples /= peak_amp
+        frame = int(0.04 * sr)
+        lo, hi = int(sr / 300), int(sr / 80)  # lag range for 80-300 Hz
+        f0s = []
+        for i in range(0, len(samples) - frame, frame):
+            f = samples[i:i + frame]
+            if np.sqrt((f * f).mean()) < 0.04:  # skip near-silence
+                continue
+            f = f - f.mean()
+            corr = np.correlate(f, f, "full")[frame - 1:]
+            if corr[0] <= 0:
+                continue
+            seg = corr[lo:hi]
+            if not len(seg):
+                continue
+            peak = int(np.argmax(seg)) + lo
+            if corr[peak] / corr[0] < 0.3:  # weak periodicity => unvoiced
+                continue
+            f0s.append(sr / peak)
+        if len(f0s) < 5:
+            return "unknown"
+        return "male" if float(np.median(f0s)) < 165 else "female"
+    except Exception:
+        return "unknown"
 
 
 def _load_and_normalise(path: str) -> tuple[AudioSegment, float]:
@@ -258,8 +303,11 @@ def extract_and_transcribe(api_key: str, youtube_url: Optional[str] = None,
 
         progress_cb(0.04, "Preparing audio…")
         audio, duration = _load_and_normalise(src)
+        gender = _estimate_gender(audio)
 
-        return transcribe(audio, duration, api_key, progress_cb=progress_cb)
+        result = transcribe(audio, duration, api_key, progress_cb=progress_cb)
+        result.voice_gender = gender
+        return result
     finally:
         # Best-effort cleanup of the working directory.
         try:

@@ -337,7 +337,7 @@ def run_analysis(api_key, source_sig, youtube_url, uploaded_path, cb):
                 "source_language": source_lang,
                 "by_language": {l: {"similarity": None, "loss": None,
                                     "chunks_scored": 0} for l in targets},
-                "worst_chunks": [],
+                "worst_chunks": [], "translations": {},
                 "note": "Semantic model could not load (likely memory limit).",
             }
         else:
@@ -502,8 +502,11 @@ def render_sample_dub(res, api_key):
     # A fragment so clicking "Voice" reruns only this block, not the whole page
     # (otherwise Streamlit dims the previous frame and you see ghosted cards).
     st.markdown('<div class="eyebrow">Hear it dubbed · sample</div>', unsafe_allow_html=True)
+    gender = res["transcript"].get("voice_gender", "unknown")
+    voice_note = (f" Voiced with a {gender} voice to match the speaker."
+                  if gender in ("male", "female") else "")
     st.caption("The opening, translated and voiced with Sarvam TTS so you can actually "
-               "hear it. Audio is generated when you click, not on every run.")
+               "hear it. Audio is generated when you click, not on every run." + voice_note)
     dub = res.get("dub", {})
     src = res["source_lang"]
     src_ex = dub.get("source_excerpt", "")
@@ -529,7 +532,7 @@ def render_sample_dub(res, api_key):
                                  use_container_width=True):
                 try:
                     with st.spinner(f"Recording the {lang} voiceover…"):
-                        tts_cache[key] = dubber.synthesize(txt, lang, api_key)
+                        tts_cache[key] = dubber.synthesize(txt, lang, api_key, gender)
                 except dubber.DubError as e:
                     st.warning(f"Couldn't synthesise: {e}")
             if key in tts_cache:
@@ -592,6 +595,8 @@ def render_localization_gap(res):
 
 def render_transcript(res):
     st.markdown('<div class="eyebrow">Transcript explorer</div>', unsafe_allow_html=True)
+    src, targets = res["source_lang"], res["targets"]
+    translations = res["semantic"].get("translations", {})
     idi, cul = res["idiomatic"], res["cultural"]
     idiom_phrases = [f["phrase"] for f in idi["found_idioms"]]
     risky_refs = (cul["top_risky_references"]
@@ -599,16 +604,22 @@ def render_transcript(res):
                   + cul["references_found"].get("niche_everywhere", []))
     highlighted = highlight_transcript(res["transcript"]["transcript"],
                                        idiom_phrases, risky_refs)
-    if idiom_phrases or risky_refs:
-        st.markdown(
-            "<div class='legend'><mark class='idiom'>idiom / slang</mark> &nbsp; "
-            "<mark class='culture'>cultural reference</mark></div>",
-            unsafe_allow_html=True,
-        )
-    else:
-        st.markdown("<div class='legend empty'>No idioms or risky cultural "
-                    "references detected to highlight.</div>", unsafe_allow_html=True)
-    st.markdown(f"<div class='tx-box'>{highlighted}</div>", unsafe_allow_html=True)
+    tabs = st.tabs([f"{src} · original"] + [f"{t} · translated" for t in targets])
+    with tabs[0]:
+        if idiom_phrases or risky_refs:
+            st.markdown(
+                "<div class='legend'><mark class='idiom'>idiom / slang</mark> &nbsp; "
+                "<mark class='culture'>cultural reference</mark></div>",
+                unsafe_allow_html=True)
+        st.markdown(f"<div class='tx-box'>{highlighted}</div>", unsafe_allow_html=True)
+    for tab, lang in zip(tabs[1:], targets):
+        with tab:
+            txt = (translations.get(lang) or "").strip()
+            box = (html.escape(txt) if txt
+                   else "<span class='dub-empty'>Translation unavailable.</span>")
+            st.markdown(f"<div class='tx-box'>{box}</div>", unsafe_allow_html=True)
+    st.caption("The other tabs are machine translation, shown so a non-source-language "
+               "reader can follow what was said.")
 
     worst = res["semantic"].get("worst_chunks", [])
     if worst:
