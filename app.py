@@ -177,6 +177,9 @@ def inject_css():
                     border-radius:10px; padding:11px 14px; background:#f0f9ff;
                     color:#0c4a6e; font-size:.92rem; line-height:1.6; min-height:58px; }
         .dub-empty { color:var(--faint); font-style:italic; }
+        .dub-note { background:#fffbeb; border:1px solid #fde68a; border-radius:10px;
+                    padding:12px 15px; color:#92400e; font-size:.86rem; line-height:1.55;
+                    margin-top:.7rem; }
         [data-testid="stMetricValue"] { font-size:1.4rem; font-weight:800; }
         </style>
         """,
@@ -441,9 +444,7 @@ def render_risk_profile(res):
 def render_sample_dub(res, api_key):
     st.markdown('<div class="eyebrow">Hear it dubbed · sample</div>', unsafe_allow_html=True)
     st.caption("The opening, translated and voiced with Sarvam TTS — a tangible "
-               "preview of the dub. Flat delivery on a prosody-heavy clip is the "
-               "very risk the score flags. (Audio uses free Sarvam credits, so it's "
-               "generated on click.)")
+               "preview. Audio uses free Sarvam credits, so it's generated on click.")
     dub = res.get("dub", {})
     src = res["source_lang"]
     src_ex = dub.get("source_excerpt", "")
@@ -474,6 +475,19 @@ def render_sample_dub(res, api_key):
                     st.warning(f"Couldn't synthesise: {e}")
             if key in tts_cache:
                 st.audio(tts_cache[key], format="audio/wav")
+
+    st.markdown(
+        "<div class='dub-note'>⚠️ <b>This is raw machine translation, not a finished "
+        "dub.</b> It can <i>transliterate</i> English terms instead of finding natural "
+        "equivalents — e.g. “cuticle” → “க்யூட்டிகில்”, which is English in Tamil "
+        "letters, not real Tamil. That's a <b>translation-quality</b> problem, and it is "
+        "deliberately <b>not</b> what the Dub Worthiness Score measures. The score rates "
+        "whether the source's meaning and structure are <i>worth</i> dubbing — it can't "
+        "vouch for an auto-dub's fluency, because back-translation uses the same engine "
+        "both ways and transliteration round-trips perfectly (so it reads as “clean”). "
+        "A production dub needs Sarvam's Mayura translation + a native-speaker QA pass.</div>",
+        unsafe_allow_html=True,
+    )
 
 
 def render_transcript(res):
@@ -551,7 +565,20 @@ def render_footer(res):
 | Prosody dependency | 10% | Meaning carried by delivery, not words (**text-based proxy**). |
 
 **Audience Opportunity** is a *separate* dimension and is **never multiplied** into
-quality. **Honest limits:** prosody is a text proxy; `langdetect` is weak on short
+quality.
+
+**What this score is — and isn't.** It rates whether a clip's *meaning and
+structure* survive localisation, i.e. whether it's **worth** dubbing. It does
+**not** judge the *fluency of a specific auto-dub*: because back-translation uses
+the same MT engine both ways, a transliteration like "cuticle"→"க்யூட்டிகில்"
+round-trips perfectly and reads as "clean" — so the score can't catch a bad
+machine dub. Output fluency needs a human/QA pass (and Sarvam's Mayura
+translation in production). I tested three automatic dub-fluency detectors
+(romanised-leakage, source jargon-density, target-language OOV-rate); none
+separated good dubs from bad ones reliably, so I flag the limitation rather than
+ship a misleading number.
+
+**Other honest limits:** prosody is a text proxy; `langdetect` is weak on short
 text; idiom matching is tuned for Roman/code-mixed tokens, so native-script
 (Devanagari/Tamil) idioms are under-counted; back-translation uses free Google
 Translate and may rate-limit.

@@ -103,7 +103,14 @@ dub-worthiness/
   the exact signal the structural and semantic engines measure.
 - **CPU-only PyTorch pinned** (`--extra-index-url …/cpu`) to fit Streamlit Cloud's
   ~1 GB tier; the embedding model loads via `@st.cache_resource`.
-- **Honest limitations are surfaced, not hidden:** prosody is a text proxy;
+- **Scope is stated honestly:** the score rates whether content is *worth* dubbing
+  (meaning/structure preservability of the source), **not** the fluency of a
+  specific machine dub. Back-translation uses the same engine both ways, so a
+  transliteration ("cuticle"→"க்யூட்டிகில்") round-trips perfectly and reads as
+  "clean" — the score can't catch a bad auto-dub. I tested three fluency detectors
+  (romanised-leakage, source jargon-density, target-language OOV-rate); none was
+  reliable, so the limitation is flagged in the UI rather than faked with a number.
+- **Other limitations are surfaced, not hidden:** prosody is a text proxy;
   `langdetect` is weak on short/Romanised text; dictionary matching favours
   Roman/code-mixed tokens. Each is labelled in the UI.
 
