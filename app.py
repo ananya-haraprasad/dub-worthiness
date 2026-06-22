@@ -50,11 +50,19 @@ ENGINE_META = {
 }
 
 _LEVEL_STYLE = {
-    "low": ("#15803d", "#dcfce7"), "medium": ("#b45309", "#fef3c7"),
-    "high": ("#b91c1c", "#fee2e2"), "clean": ("#15803d", "#dcfce7"),
-    "mixed": ("#b45309", "#fef3c7"), "interleaved": ("#b91c1c", "#fee2e2"),
-    "unknown": ("#475569", "#e2e8f0"), "undetermined": ("#475569", "#e2e8f0"),
+    "low": ("#2f7d4f", "#dcfce7"), "medium": ("#b9822b", "#fef3c7"),
+    "high": ("#a8472f", "#fee2e2"), "clean": ("#2f7d4f", "#dcfce7"),
+    "mixed": ("#b9822b", "#fef3c7"), "interleaved": ("#a8472f", "#fee2e2"),
+    "unknown": ("#8a8073", "#e2e8f0"), "undetermined": ("#8a8073", "#e2e8f0"),
 }
+
+# Sample videos a viewer can copy and paste in. Covers all three source languages.
+SAMPLES = [
+    ("English · skincare tips", "https://youtube.com/shorts/obRs6VrF9FE"),
+    ("Hindi · cooking vlog", "https://youtube.com/shorts/QsCSPgNQIRo"),
+    ("Tamil · cricket reaction", "https://youtube.com/shorts/mRFs19QPAwI"),
+    ("English · baby expenses", "https://youtube.com/shorts/ot8iXgKvG8o"),
+]
 
 # Hardcoded benchmark context so a single score feels grounded, not arbitrary.
 BENCHMARKS = {
@@ -106,81 +114,76 @@ def inject_css():
         button, input, textarea, .stMarkdown, p, span, div, td, th, label {
             font-family:'Hanken Grotesk', system-ui, -apple-system, sans-serif; }
         .stApp { background: var(--paper); }
-        .block-container { max-width: 1080px; padding-top: 2.2rem; }
+        .block-container { max-width: 1060px; padding-top: 2.2rem; }
         h1,h2,h3,h4 { color:var(--ink); font-family:'Fraunces',Georgia,serif; letter-spacing:-0.01em; }
+        /* hide Streamlit dev chrome (toolbar, deploy, menu, footer) */
+        [data-testid="stToolbar"], [data-testid="stDecoration"], [data-testid="stStatusWidget"],
+        #MainMenu, footer, .stDeployButton { display:none !important; }
 
         .hero-title { font-family:'Fraunces',Georgia,serif; font-size:3rem; font-weight:600;
                       color:var(--ink); letter-spacing:-0.02em; line-height:1.04; margin-bottom:.2rem; }
         .hero-title .q { color:var(--clay); }
-        .hero-sub { color:var(--muted); font-size:1.08rem; margin:.15rem 0 0; max-width:660px; line-height:1.5; }
+        .hero-sub { color:var(--muted); font-size:1.08rem; margin:.15rem 0 0; max-width:640px; line-height:1.5; }
+        /* section label */
         .eyebrow { color:var(--clay); font-size:.72rem; font-weight:800; text-transform:uppercase;
-                   letter-spacing:.12em; margin:0 0 .4rem; }
+                   letter-spacing:.14em; margin:0 0 .55rem; }
 
-        /* verdict */
-        .verdict { border:1px solid var(--line); border-left:4px solid var(--clay); border-radius:14px;
-                   padding:22px 26px; background:var(--surface); box-shadow:0 1px 2px rgba(60,40,20,.04); }
-        .chips { margin:.1rem 0 .7rem; }
-        .chip { display:inline-block; background:var(--paper); border:1px solid var(--line);
-                border-radius:999px; padding:4px 13px; font-size:.8rem; font-weight:600;
-                color:var(--muted); margin:0 6px 6px 0; }
-        .chip b { color:var(--ink); }
-        .verdict-head { font-family:'Fraunces',serif; font-size:1.9rem; font-weight:600;
-                        color:var(--ink); margin:.1rem 0; line-height:1.12; }
-        .verdict-sub { color:var(--muted); font-size:.97rem; margin:.3rem 0 0; max-width:760px; line-height:1.55; }
+        /* verdict: flat, ruled at top, no pill or side bar */
+        .verdict { border-top:2px solid var(--ink); padding:16px 0 2px; }
+        .chips { margin:.1rem 0 .7rem; color:var(--muted); font-size:.86rem; }
+        .chips b { color:var(--ink); font-weight:700; }
+        .chips .sep { color:var(--faint); margin:0 9px; }
+        .verdict-head { font-family:'Fraunces',serif; font-size:2rem; font-weight:600;
+                        color:var(--ink); margin:.1rem 0; line-height:1.1; }
+        .verdict-sub { color:var(--muted); font-size:.97rem; margin:.4rem 0 0; max-width:740px; line-height:1.55; }
 
-        /* cards */
-        .card { border:1px solid var(--line); border-radius:16px; padding:20px 22px;
-                background:var(--surface); box-shadow:0 1px 2px rgba(60,40,20,.04); height:100%; }
-        .lang-row { display:flex; justify-content:space-between; align-items:center; }
-        .lang-name { font-family:'Fraunces',serif; font-size:1.45rem; font-weight:600; color:var(--ink); }
-        .pill { display:inline-block; padding:4px 11px; border-radius:999px; font-size:.72rem;
-                font-weight:700; color:#fff; }
-        .ring-wrap { display:flex; align-items:center; gap:18px; margin:.6rem 0 .2rem; }
+        /* scorecards: flat bordered, no shadow */
+        .card { border:1px solid var(--line); border-radius:6px; padding:20px 22px;
+                background:var(--surface); height:100%; }
+        .lang-row { display:flex; justify-content:space-between; align-items:baseline; }
+        .lang-name { font-family:'Fraunces',serif; font-size:1.5rem; font-weight:600; color:var(--ink); }
+        .grade { font-weight:800; font-size:.76rem; text-transform:uppercase; letter-spacing:.05em; }
+        .ring-wrap { display:flex; align-items:center; gap:18px; margin:.7rem 0 .2rem; }
         .opp { flex:1; }
-        .opp-label { color:var(--faint); font-size:.68rem; font-weight:800; text-transform:uppercase;
-                     letter-spacing:.07em; }
+        .opp-label { color:var(--faint); font-size:.68rem; font-weight:800; text-transform:uppercase; letter-spacing:.07em; }
         .opp-num { font-family:'Fraunces',serif; font-size:1.5rem; font-weight:600; color:var(--teal); line-height:1; }
-        .opp-track { height:7px; background:#ece3d3; border-radius:5px; margin-top:7px; overflow:hidden; }
-        .opp-fill { height:100%; background:var(--teal); border-radius:5px; }
-        .reco { margin-top:.8rem; padding-top:.7rem; border-top:1px dashed var(--line);
+        .opp-track { height:6px; background:#ece3d3; border-radius:4px; margin-top:7px; overflow:hidden; }
+        .opp-fill { height:100%; background:var(--teal); border-radius:4px; }
+        .reco { margin-top:.85rem; padding-top:.7rem; border-top:1px solid var(--line);
                 font-weight:600; color:var(--ink); font-size:.92rem; }
 
-        /* breakdown */
+        /* breakdown bar */
         .bd-head { color:var(--faint); font-size:.68rem; font-weight:800; text-transform:uppercase;
                    letter-spacing:.07em; margin:1rem 0 .35rem; }
-        .bd-bar { display:flex; height:14px; border-radius:7px; overflow:hidden; background:#ece3d3; }
+        .bd-bar { display:flex; height:12px; border-radius:3px; overflow:hidden; background:#ece3d3; }
         .bd-bar > div { height:100%; }
         .bd-legend { margin-top:.5rem; font-size:.78rem; color:var(--muted); }
-        .bd-legend .lg { display:inline-block; margin:0 10px 2px 0; white-space:nowrap; }
-        .bd-legend .lg i { display:inline-block; width:9px; height:9px; border-radius:2px;
-                           margin-right:5px; vertical-align:middle; }
+        .bd-legend .lg { display:inline-block; margin:0 12px 2px 0; white-space:nowrap; }
+        .bd-legend .lg i { display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:5px; vertical-align:middle; }
         .lg-clean { color:#2f7d4f; font-weight:600; }
 
-        /* risk rows */
-        .rp-row { display:flex; align-items:center; gap:14px; padding:12px 16px; border:1px solid var(--line);
-                  border-left-width:4px; border-radius:12px; background:var(--surface); margin-bottom:8px; }
+        /* risk: ruled rows, no boxes or side bars */
+        .rp-row { display:flex; align-items:center; gap:14px; padding:13px 2px; border-bottom:1px solid var(--line); }
         .rp-name { font-weight:700; color:var(--ink); width:148px; flex:0 0 auto; }
         .rp-val { font-weight:800; color:var(--ink); width:92px; flex:0 0 auto; font-size:.95rem; }
         .rp-help { color:var(--muted); font-size:.86rem; flex:1; }
-        .lvl { display:inline-block; padding:3px 9px; border-radius:6px; font-size:.7rem; font-weight:800;
-               letter-spacing:.03em; width:84px; text-align:center; flex:0 0 auto; }
+        .lvl { font-weight:800; font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; width:74px; flex:0 0 auto; }
 
         /* transcript */
-        mark.idiom { background:#f4da94; padding:0 2px; border-radius:3px; }
-        mark.culture { background:#eac6b3; padding:0 2px; border-radius:3px; }
-        .tx-box { border:1px solid var(--line); border-radius:14px; padding:16px 18px; background:var(--paper);
+        mark.idiom { background:#f4da94; padding:0 2px; border-radius:2px; }
+        mark.culture { background:#eac6b3; padding:0 2px; border-radius:2px; }
+        .tx-box { border:1px solid var(--line); border-radius:6px; padding:16px 18px; background:var(--paper);
                   max-height:320px; overflow-y:auto; line-height:1.75; font-size:.95rem; color:var(--ink); }
         .legend { font-size:.8rem; color:var(--muted); margin-bottom:.4rem; }
         .empty { color:var(--faint); font-style:italic; }
         .bt-orig { color:var(--muted); margin-bottom:4px; } .bt-back { color:var(--ink); font-weight:600; }
         .small-muted { color:var(--muted); font-size:.86rem; }
-        .dub-src { color:var(--muted); font-size:.92rem; font-style:italic; border-left:3px solid var(--line);
-                   padding-left:11px; margin:.2rem 0 .9rem; }
+        .dub-src { color:var(--muted); font-size:.92rem; font-style:italic; margin:.2rem 0 .9rem; }
         .dub-lang { font-family:'Fraunces',serif; font-weight:600; font-size:1.15rem; color:var(--ink); margin-bottom:.25rem; }
-        .dub-text { border:1px solid var(--line); border-left:4px solid var(--teal); border-radius:10px;
-                    padding:11px 14px; background:#eef4f1; color:#134a43; font-size:.92rem; line-height:1.6; min-height:58px; }
+        .dub-text { border:1px solid var(--line); border-radius:6px; padding:11px 14px;
+                    background:#eef4f1; color:#134a43; font-size:.92rem; line-height:1.6; min-height:58px; }
         .dub-empty { color:var(--faint); font-style:italic; }
-        .dub-note { background:#fbf1df; border:1px solid #ecd6a8; border-radius:10px; padding:12px 15px;
+        .dub-note { background:#fbf1df; border:1px solid #ecd6a8; border-radius:6px; padding:12px 15px;
                     color:#7a5a1e; font-size:.86rem; line-height:1.55; margin-top:.7rem; }
         .lg-table { width:100%; border-collapse:collapse; font-size:.9rem; margin-top:.3rem; }
         .lg-table th { text-align:left; color:var(--faint); font-size:.66rem; font-weight:800; text-transform:uppercase;
@@ -195,16 +198,16 @@ def inject_css():
         .lg-score { font-size:.7rem; font-weight:700; color:var(--muted); }
         [data-testid="stMetricValue"] { font-size:1.4rem; font-weight:800; font-family:'Fraunces',serif; }
 
-        /* home explainers */
-        .step { border:1px solid var(--line); border-radius:14px; padding:16px 18px; background:var(--surface); height:100%; }
-        .step-n { font-family:'Fraunces',serif; font-size:1.5rem; color:var(--clay); font-weight:600; line-height:1; }
-        .step-t { font-weight:700; color:var(--ink); margin:.35rem 0 .2rem; }
+        /* home: steps as ruled editorial columns, signals as ruled rows */
+        .step { border-top:2px solid var(--ink); padding:12px 16px 0 0; height:100%; }
+        .step-n { font-family:'Fraunces',serif; font-size:1.6rem; color:var(--clay); font-weight:600; line-height:1; }
+        .step-t { font-weight:700; color:var(--ink); margin:.4rem 0 .2rem; }
         .step-d { color:var(--muted); font-size:.88rem; line-height:1.5; }
-        .signal { border-left:3px solid var(--clay); padding:3px 0 3px 13px; margin-bottom:13px; }
+        .signal { padding:0 0 13px; border-bottom:1px solid var(--line); margin-bottom:13px; }
         .signal-t { font-weight:700; color:var(--ink); font-size:.95rem; }
         .signal-d { color:var(--muted); font-size:.87rem; line-height:1.45; }
 
-        /* fun loading */
+        /* loading */
         .load-wrap { text-align:center; padding:18px 0 8px; }
         .plane { font-size:1.7rem; display:inline-block; animation:fly 1.3s ease-in-out infinite; }
         @keyframes fly { 0%{transform:translateX(-7px) rotate(-4deg)} 50%{transform:translateX(7px) rotate(4deg)} 100%{transform:translateX(-7px) rotate(-4deg)} }
@@ -220,12 +223,12 @@ def inject_css():
 # --- Small render helpers ----------------------------------------------------
 def grade_pill(grade: str) -> str:
     color = GRADE_COLORS.get(grade, "#6b7280")
-    return f'<span class="pill" style="background:{color}">{html.escape(grade)}</span>'
+    return f'<span class="grade" style="color:{color}">{html.escape(grade)}</span>'
 
 
 def level_chip(level: str) -> str:
-    fg, bg = _LEVEL_STYLE.get(level, ("#475569", "#e2e8f0"))
-    return f'<span class="lvl" style="color:{fg};background:{bg}">{html.escape(level.upper())}</span>'
+    fg, _bg = _LEVEL_STYLE.get(level, ("#8a8073", "#e2e8f0"))
+    return f'<span class="lvl" style="color:{fg}">{html.escape(level.upper())}</span>'
 
 
 def score_ring(score: int, color: str, size: int = 118) -> str:
@@ -398,13 +401,11 @@ def render_verdict(res):
     else:
         head = f"Dub into {best} first. {best_s['grade']} ({best_s['dub_quality_score']})"
 
-    chips = (
-        f'<span class="chip">Source <b>{html.escape(source)}</b></span>'
-        f'<span class="chip">{html.escape(cat)}</span>'
-        f'<span class="chip">{int(dur//60)}:{int(dur%60):02d}</span>'
-        f'<span class="chip">{pr["speaking_rate_wpm"]:.0f} wpm</span>'
-        f'<span class="chip">{tx.get("word_count",0):,} words</span>'
-    )
+    sep = '<span class="sep">·</span>'
+    chips = (f'Source <b>{html.escape(source)}</b>{sep}<b>{html.escape(cat)}</b>{sep}'
+             f'{int(dur // 60)}:{int(dur % 60):02d}{sep}'
+             f'{pr["speaking_rate_wpm"]:.0f} wpm{sep}'
+             f'{tx.get("word_count", 0):,} words')
     sub = (f"How well this {source} clip travels into "
            f"<b>{' and '.join(targets)}</b>. {opp_best} has the largest audience upside. "
            f"Travel score and opportunity are scored separately below. A hard-to-dub "
@@ -483,9 +484,8 @@ def render_risk_profile(res):
     ]
     html_rows = ""
     for name, val, level, help_text in rows:
-        fg, _ = _LEVEL_STYLE.get(level, ("#475569", "#e2e8f0"))
         html_rows += (
-            f'<div class="rp-row" style="border-left-color:{fg}">'
+            f'<div class="rp-row">'
             f'<div class="rp-name">{html.escape(name)}</div>'
             f'<div class="rp-val">{html.escape(str(val))}</div>'
             f'{level_chip(level)}'
@@ -743,8 +743,6 @@ def render_home_explainers():
         cols[i % 2].markdown(f"<div class='signal'><div class='signal-t'>{html.escape(t)}</div>"
                              f"<div class='signal-d'>{html.escape(d)}</div></div>",
                              unsafe_allow_html=True)
-    st.write("")
-    st.caption("Built for Sarvam Studio.")
 
 
 # --- App body ----------------------------------------------------------------
@@ -768,10 +766,14 @@ def main():
         st.markdown("**Languages, any direction**\n\nIt auto-detects the source, "
                     "currently **English, Hindi, or Tamil**, and scores dubbing into "
                     "the other two. More languages later.")
-        st.markdown(f"**API key:** {'loaded ✅' if api_key else 'missing ❌'}")
         st.caption(f"Clips are trimmed to the first "
                    f"{extractor.MAX_DURATION_SECONDS // 60} minutes to stay within the "
                    f"free Sarvam tier.")
+        st.markdown("---")
+        st.markdown("**Samples to try**\n\nCopy a link and paste it above.")
+        for _label, _exurl in SAMPLES:
+            st.caption(_label)
+            st.code(_exurl, language=None)
 
     if not api_key:
         st.error(
