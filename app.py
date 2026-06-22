@@ -13,6 +13,7 @@ import re
 import tempfile
 
 import streamlit as st
+import streamlit.components.v1 as components
 
 from engines import (
     extractor,
@@ -393,7 +394,6 @@ def render_verdict(res):
 
     best = res["scores"]["quality_priority_order"][0]
     best_s = by[best]
-    opp_best = res["scores"]["opportunity_priority_order"][0]
 
     grades = {l: by[l]["grade"] for l in targets}
     if len(set(grades.values())) == 1 and best_s["grade"] == "Travels cleanly":
@@ -407,9 +407,8 @@ def render_verdict(res):
              f'{pr["speaking_rate_wpm"]:.0f} wpm{sep}'
              f'{tx.get("word_count", 0):,} words')
     sub = (f"How well this {source} clip travels into "
-           f"<b>{' and '.join(targets)}</b>. {opp_best} has the largest audience upside. "
-           f"Travel score and opportunity are scored separately below. A hard-to-dub "
-           f"clip can still be worth localising.")
+           f"<b>{' and '.join(targets)}</b>. Each score starts at 100 and comes down "
+           f"for the risks shown below.")
     st.markdown(
         f'<div class="verdict"><div class="chips">{chips}</div>'
         f'<div class="eyebrow">Recommendation</div>'
@@ -426,7 +425,6 @@ def render_scorecards(res):
     for col, lang in zip(cols, targets):
         s = res["scores"]["by_language"][lang]
         color = GRADE_COLORS.get(s["grade"], "#6b7280")
-        opp = s["opportunity_score"]
         bd = breakdown_bar(s["dub_quality_score"], s.get("penalties", {}), color)
         with col:
             st.markdown(
@@ -436,10 +434,7 @@ def render_scorecards(res):
                 f'<div class="ring-wrap">'
                 f'<div style="text-align:center"><div class="opp-label">Travel score</div>'
                 f'{score_ring(s["dub_quality_score"], color)}</div>'
-                f'<div class="opp"><div class="opp-label">Audience opportunity</div>'
-                f'<div class="opp-num">{opp}<span style="font-size:.8rem;color:#94a3b8">/100</span></div>'
-                f'<div class="opp-track"><div class="opp-fill" style="width:{opp}%"></div></div>'
-                f'</div></div>'
+                f'</div>'
                 f'<div class="reco">↳ {html.escape(s["recommendation"])}</div>'
                 f'{bd}</div>',
                 unsafe_allow_html=True,
@@ -448,8 +443,9 @@ def render_scorecards(res):
 
 def render_risk_profile(res):
     st.markdown('<div class="eyebrow">Risk profile</div>', unsafe_allow_html=True)
-    st.caption("The five signals behind the score. Semantic loss and cultural risk "
-               "are shown for the worst-affected target language.")
+    st.caption("The signals behind the score (localization is shown in its own "
+               "panel above). Semantic loss and cultural risk are for the "
+               "worst-affected target language.")
     targets = res["targets"]
     sem = res["semantic"]["by_language"]
     idi, cul, pr, stc = res["idiomatic"], res["cultural"], res["prosody"], res["structural"]
@@ -522,7 +518,7 @@ def render_sample_dub(res, api_key):
             if txt and st.button(f"🔊  Voice {lang} sample", key=f"tts_{lang}",
                                  use_container_width=True):
                 try:
-                    with st.spinner(f"Synthesising {lang} with Sarvam TTS…"):
+                    with st.spinner(f"Recording the {lang} voiceover…"):
                         tts_cache[key] = dubber.synthesize(txt, lang, api_key)
                 except dubber.DubError as e:
                     st.warning(f"Couldn't synthesise: {e}")
@@ -665,9 +661,6 @@ clip at 85 to 95, because meaning round-trips fine for short, literal speech.
 Localization catches the real failure, content full of English terms that get
 transliterated instead of localized.
 
-**Audience Opportunity** is a separate dimension and is never multiplied into the
-score. A hard-to-dub clip can still be worth localising.
-
 **What the score is, and isn't.** It rates whether a clip is *worth* dubbing, not
 the fluency of one machine dub. Back-translation uses the same engine both ways,
 so a transliteration like "cuticle" to "க்யூட்டிகில்" round-trips perfectly and
@@ -770,10 +763,27 @@ def main():
                    f"{extractor.MAX_DURATION_SECONDS // 60} minutes to stay within the "
                    f"free Sarvam tier.")
         st.markdown("---")
-        st.markdown("**Samples to try**\n\nCopy a link and paste it above.")
-        for _label, _exurl in SAMPLES:
-            st.caption(_label)
-            st.code(_exurl, language=None)
+        st.markdown("**Samples to try**\n\nCopy one and paste it above.")
+        _rows = "".join(
+            f"<div class='s'><span class='t'>{html.escape(label)}</span>"
+            f"<button onclick=\"cp('{url}',this)\">Copy link</button></div>"
+            for label, url in SAMPLES)
+        components.html(
+            "<style>@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&display=swap');"
+            "body{margin:0;font-family:'Hanken Grotesk',system-ui,sans-serif;background:transparent;}"
+            ".s{display:flex;justify-content:space-between;align-items:center;gap:8px;"
+            "padding:8px 0;border-bottom:1px solid #e0d6c4;}"
+            ".t{font-size:.86rem;color:#23201b;}"
+            "button{font-family:inherit;font-size:.72rem;font-weight:700;color:#c0573c;background:#fffdf8;"
+            "border:1px solid #d8b9ad;border-radius:5px;padding:4px 11px;cursor:pointer;white-space:nowrap;}"
+            "button:hover{background:#f3e7e1;}</style>"
+            f"<div>{_rows}</div>"
+            "<script>function cp(u,b){var t=document.createElement('textarea');t.value=u;"
+            "document.body.appendChild(t);t.select();try{document.execCommand('copy');}catch(e){}"
+            "document.body.removeChild(t);var o=b.textContent;b.textContent='Copied';"
+            "setTimeout(function(){b.textContent=o;},1200);}</script>",
+            height=len(SAMPLES) * 42 + 8,
+        )
 
     if not api_key:
         st.error(

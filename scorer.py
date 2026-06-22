@@ -27,7 +27,7 @@ from __future__ import annotations
 
 # Max penalty each signal can subtract from 100.
 WEIGHTS = {
-    "semantic_loss": 40,
+    "semantic_loss": 58,
     "localization": 30,
     "idiomatic_density": 20,
     "cultural_risk": 16,
@@ -49,15 +49,14 @@ def _grade(score: int) -> str:
     return "Not recommended"
 
 
-def _recommendation(lang: str, score: int, opportunity: int) -> str:
-    if score >= 80:
+def _recommendation(lang: str, score: int) -> str:
+    # Thresholds match _grade() so the wording never contradicts the grade.
+    if score >= 85:
         return f"A strong, low-effort {lang} candidate. You can dub this with confidence."
-    if score >= 60:
+    if score >= 65:
         return f"Worth dubbing into {lang}, with a light pass on the flagged lines."
-    if score >= 40:
-        opp = "high" if opportunity >= 85 else "moderate"
-        return (f"Dub into {lang} only if the {opp} audience payoff is worth a heavy "
-                f"localisation rewrite.")
+    if score >= 45:
+        return f"Dub into {lang} only with a heavy localisation rewrite of the flagged lines."
     return f"Not a good fit for a straight {lang} dub. It would need a near-rewrite."
 
 
@@ -76,7 +75,7 @@ def compute_language_score(results: dict, lang: str) -> dict:
     loc_wrong = sum(1 for r in loc_rows if not r.get("correct", True))
 
     penalties = {
-        "semantic": loss * 40,
+        "semantic": loss * 58,
         "localization": min(loc_wrong, 5) * 6,
         "idiomatic": min((idiom_density / 20) * 20, 20),
         "cultural": _CULTURAL_PENALTY.get(cultural_risk, 0),
@@ -123,7 +122,7 @@ def compute_language_score(results: dict, lang: str) -> dict:
         "grade": _grade(score),
         "penalties": {k: round(v, 1) for k, v in penalties.items()},
         "top_risks": top_risks,
-        "recommendation": _recommendation(lang, score, opp),
+        "recommendation": _recommendation(lang, score),
         "semantic_available": semantic_available,
     }
 

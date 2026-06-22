@@ -9,3 +9,8 @@ textColor = "#23201b"
 
 [server]
 maxUploadSize = 200
+
+[client]
+# Hide the developer toolbar and its keyboard shortcuts (so Cmd+C doesn't open
+# the "Clear caches" dialog, and a viewer never sees Rerun/Deploy controls).
+toolbarMode = "minimal"

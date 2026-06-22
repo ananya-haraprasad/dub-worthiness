@@ -90,15 +90,21 @@ def _download_youtube_audio(url: str, workdir: str) -> str:
         "quiet": True,
         "no_warnings": True,
         "noplaylist": True,
-        # Let pydub/ffmpeg handle the final conversion — no double-encode here.
+        "retries": 4,
+        "fragment_retries": 4,
+        # YouTube intermittently 403s the default web client. Trying the mobile
+        # clients first bypasses most of those blocks. (Let pydub/ffmpeg do the
+        # final conversion, so no double-encode here.)
+        "extractor_args": {"youtube": {"player_client": ["android", "ios", "web"]}},
     }
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([url])
     except Exception as exc:
         raise ExtractionError(
-            "Could not download that YouTube video. It may be private, "
-            "age-restricted, region-locked, or the URL may be wrong."
+            "Could not download that video. YouTube sometimes blocks automated "
+            "downloads (a 403); try again, try a different link, or use the upload "
+            "option. It may also be private, age-restricted, or region-locked."
         ) from exc
 
     files = [f for f in glob.glob(os.path.join(workdir, "yt_audio.*"))]
