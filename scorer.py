@@ -159,7 +159,10 @@ def compute_language_score(results: dict, lang: str) -> dict:
         "structural": interleave * 8,
         "prosody": _PROSODY_PENALTY.get(prosody_dep, 0),
     }
-    score = max(0, min(100, round(100 - sum(penalties.values()))))
+    # Cap at 97, not 100: a flawless score reads as overconfident, and no automated
+    # estimate should claim a perfect dub (delivery, casting, and timing always
+    # carry residual risk a transcript can't see). 97 still means "as clean as it gets".
+    score = max(0, min(97, round(100 - sum(penalties.values()))))
 
     # --- Plain-English top risks (largest contributors first) ----------------
     n_risky = sum(
