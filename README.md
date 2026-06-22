@@ -6,8 +6,9 @@ percentage.
 
 Paste a YouTube URL or upload an MP3/MP4/WAV. The app transcribes it with the
 **Sarvam STT API**, runs five scoring engines, and returns a per-language **Dub
-Worthiness Score (0–100)**, a risk breakdown, a transcript explorer, and
-language-priority recommendations.
+Worthiness Score (0–100)**, a risk breakdown, a transcript explorer,
+language-priority recommendations, and a **playable sample dub** (translated +
+voiced with Sarvam TTS) so you can *hear* what the score means.
 
 **Works in any direction across English, Hindi, and Tamil** — it auto-detects the
 source language and scores dubbing into the other two (English→Tamil,
@@ -82,7 +83,9 @@ dub-worthiness/
 │   ├── structural.py       # sentence-level code-switch shape (script + langdetect)
 │   ├── prosody.py          # speaking rate / emphasis / emotion (text proxy)
 │   ├── opportunity.py      # category detection + audience-size affinity
-│   └── textutils.py        # normalisation + Devanagari romanisation helpers
+│   ├── dubber.py           # sample dub: translate excerpt + Sarvam TTS (bulbul:v3)
+│   ├── langs.py            # source-language detection + target selection
+│   └── textutils.py        # normalisation + Devanagari/Tamil romanisation helpers
 ├── data/
 │   ├── hinglish_idioms.json        # 574 curated idioms
 │   ├── cultural_references.json    # 646 curated references
@@ -107,8 +110,9 @@ dub-worthiness/
 ---
 
 ## Tech stack
-Python · Streamlit · yt-dlp · Sarvam STT · deep-translator (free Google
-Translate) · sentence-transformers (`paraphrase-multilingual-MiniLM-L12-v2`,
-local) · pydub + ffmpeg · NLTK · langdetect · indic-transliteration.
+Python · Streamlit · yt-dlp · Sarvam STT (`saarika:v2.5`) · Sarvam TTS
+(`bulbul:v3`) · deep-translator (free Google Translate) · sentence-transformers
+(`paraphrase-multilingual-MiniLM-L12-v2`, local) · pydub + ffmpeg · NLTK ·
+langdetect · indic-transliteration.
 
 Everything runs on free tiers. No paid APIs.

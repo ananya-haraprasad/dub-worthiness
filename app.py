@@ -23,6 +23,7 @@ from engines import (
     prosody,
     opportunity,
     langs,
+    dubber,
 )
 import scorer
 
@@ -169,6 +170,13 @@ def inject_css():
         .empty { color:var(--faint); font-style:italic; }
         .bt-orig { color:#475569; margin-bottom:4px; } .bt-back { color:#0f172a; font-weight:600; }
         .small-muted { color:var(--muted); font-size:.85rem; }
+        .dub-src { color:var(--muted); font-size:.9rem; font-style:italic;
+                   border-left:3px solid var(--line); padding-left:10px; margin:.2rem 0 .8rem; }
+        .dub-lang { font-weight:800; color:var(--ink); margin-bottom:.2rem; }
+        .dub-text { border:1px solid var(--line); border-left:4px solid #0ea5e9;
+                    border-radius:10px; padding:11px 14px; background:#f0f9ff;
+                    color:#0c4a6e; font-size:.92rem; line-height:1.6; min-height:58px; }
+        .dub-empty { color:var(--faint); font-style:italic; }
         [data-testid="stMetricValue"] { font-size:1.4rem; font-weight:800; }
         </style>
         """,
@@ -283,8 +291,12 @@ def run_analysis(api_key, source_sig, youtube_url, uploaded_path, cb):
         sem_cache[th] = res["semantic"]
 
     # 4) Score
-    cb(0.94, "Computing Dub Worthiness Scores…")
+    cb(0.92, "Computing Dub Worthiness Scores…")
     res["scores"] = scorer.compute_scores(res, targets)
+
+    # 5) Sample-dub excerpts (cheap text translations; audio is on-demand in UI)
+    cb(0.97, "Preparing sample-dub text…")
+    res["dub"] = dubber.build_excerpts(transcript, source_lang, targets)
     cb(1.0, "Done.")
     return res
 
@@ -426,6 +438,44 @@ def render_risk_profile(res):
     st.markdown(html_rows, unsafe_allow_html=True)
 
 
+def render_sample_dub(res, api_key):
+    st.markdown('<div class="eyebrow">Hear it dubbed · sample</div>', unsafe_allow_html=True)
+    st.caption("The opening, translated and voiced with Sarvam TTS — a tangible "
+               "preview of the dub. Flat delivery on a prosody-heavy clip is the "
+               "very risk the score flags. (Audio uses free Sarvam credits, so it's "
+               "generated on click.)")
+    dub = res.get("dub", {})
+    src = res["source_lang"]
+    src_ex = dub.get("source_excerpt", "")
+    if src_ex:
+        st.markdown(f"<div class='dub-src'>Original ({html.escape(src)}): "
+                    f"{html.escape(src_ex[:300])}</div>", unsafe_allow_html=True)
+
+    th = hashlib.sha1(res["transcript"]["transcript"].encode("utf-8")).hexdigest()[:10]
+    tts_cache = st.session_state.setdefault("_tts_cache", {})
+    cols = st.columns(len(res["targets"]))
+    for col, lang in zip(cols, res["targets"]):
+        txt = dub.get("by_language", {}).get(lang, "")
+        with col:
+            st.markdown(f"<div class='dub-lang'>{lang}</div>", unsafe_allow_html=True)
+            if txt:
+                st.markdown(f"<div class='dub-text'>{html.escape(txt)}</div>",
+                            unsafe_allow_html=True)
+            else:
+                st.markdown("<div class='dub-text dub-empty'>Translation "
+                            "unavailable (rate-limited).</div>", unsafe_allow_html=True)
+            key = f"{th}:{lang}"
+            if txt and st.button(f"🔊  Voice {lang} sample", key=f"tts_{lang}",
+                                 use_container_width=True):
+                try:
+                    with st.spinner(f"Synthesising {lang} with Sarvam TTS…"):
+                        tts_cache[key] = dubber.synthesize(txt, lang, api_key)
+                except dubber.DubError as e:
+                    st.warning(f"Couldn't synthesise: {e}")
+            if key in tts_cache:
+                st.audio(tts_cache[key], format="audio/wav")
+
+
 def render_transcript(res):
     st.markdown('<div class="eyebrow">Transcript explorer</div>', unsafe_allow_html=True)
     idi, cul = res["idiomatic"], res["cultural"]
@@ -508,7 +558,8 @@ Translate and may rate-limit.
                 """)
             st.caption(f"Idioms: {res['idiomatic']['dictionary_size']} · "
                        f"Cultural base: {res['cultural']['dictionary_size']} · "
-                       f"STT: Sarvam saarika:v2.5 · Embeddings: MiniLM-L12-v2")
+                       f"STT: Sarvam saarika:v2.5 · TTS: Sarvam bulbul:v3 · "
+                       f"Embeddings: MiniLM-L12-v2 · Dub text: Google Translate")
     with c2:
         st.markdown('<div class="eyebrow">Export</div>', unsafe_allow_html=True)
         st.download_button("⬇  Full report (JSON)",
@@ -517,10 +568,12 @@ Translate and may rate-limit.
                            mime="application/json", use_container_width=True)
 
 
-def render_dashboard(res):
+def render_dashboard(res, api_key):
     render_verdict(res)
     st.write("")
     render_scorecards(res)
+    st.write("")
+    render_sample_dub(res, api_key)
     st.write("")
     render_risk_profile(res)
     st.write("")
@@ -614,7 +667,7 @@ def main():
 
     if "analysis" in st.session_state:
         st.divider()
-        render_dashboard(st.session_state["analysis"])
+        render_dashboard(st.session_state["analysis"], api_key)
 
 
 if __name__ == "__main__":
