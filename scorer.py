@@ -47,10 +47,13 @@ _CULTURAL_PENALTY = {"low": 0, "medium": 8, "high": 16}
 _PROSODY_PENALTY = {"low": 0, "medium": 4, "high": 8}
 
 
-# Grade bands: 90+ travels cleanly, 70-89 workable with a pass, below 70 needs
-# real localisation work (not a straight dub).
+# Grade bands: 85+ travels cleanly, 70-84 workable with a pass, below 70 needs
+# real localisation work. Calibrated to the actual score distribution under
+# per-sentence scoring: clean clips land ~85-95 (a high-drift line pulls them off
+# a perfect score), genuinely hard clips land below ~80, with a natural gap
+# between. A 90 cutoff sat inside the clean cluster and mislabelled good clips.
 def _grade(score: int) -> str:
-    if score >= 90:
+    if score >= 85:
         return "Travels cleanly"
     if score >= 70:
         return "Light adaptation needed"
@@ -61,7 +64,7 @@ def _grade(score: int) -> str:
 
 def _recommendation(lang: str, score: int) -> str:
     # Thresholds match _grade() so the wording never contradicts the grade.
-    if score >= 90:
+    if score >= 85:
         return f"A strong, low-effort {lang} candidate. You can dub this with confidence."
     if score >= 70:
         return f"Workable in {lang} with a light pass on the flagged lines."

@@ -6,6 +6,7 @@ nltk.download("punkt_tab", quiet=True)
 
 import hashlib
 import html
+import json
 import math
 import os
 import re
@@ -303,7 +304,36 @@ def _progress_cb_factory(placeholder):
     return cb
 
 
+_PREBAKED_DIR = os.path.join(os.path.dirname(__file__), "data", "prebaked")
+
+
+def _prebaked_result(youtube_url):
+    """If this is a curated example we pre-computed, load it instantly — no
+    download (datacenter IPs get 403'd by YouTube), no Sarvam credits. See
+    prebake.py. Returns the saved analysis dict, or None for anything else."""
+    if not youtube_url:
+        return None
+    m = re.search(r"(?:shorts/|v=|youtu\.be/)([A-Za-z0-9_-]{6,})", youtube_url)
+    if not m:
+        return None
+    path = os.path.join(_PREBAKED_DIR, m.group(1) + ".json")
+    if not os.path.exists(path):
+        return None
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return None
+
+
 def run_analysis(api_key, source_sig, youtube_url, uploaded_path, cb):
+    # Curated examples are served from a pre-baked result so the deployed app
+    # never needs a live YouTube download and costs nothing to demo.
+    prebaked = _prebaked_result(youtube_url)
+    if prebaked is not None:
+        cb(1.0, "Loaded a saved example…")
+        return prebaked
+
     st.session_state.setdefault("_tx_cache", {})
     st.session_state.setdefault("_sem_cache", {})
     tx_cache = st.session_state["_tx_cache"]
