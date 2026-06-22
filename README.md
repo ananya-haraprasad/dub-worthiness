@@ -1,23 +1,24 @@
 # 🎬 Will It Travel?
 
-*Will your Indian content travel into other languages? — a Travel Score (0–100),
-per language, with the localization gap shown honestly.*
+*Will your video travel into another language? A Travel Score (0 to 100) per
+language, with the localization gap shown honestly. Currently English, Hindi,
+and Tamil.*
 
-Predicts how well Indian video/audio content will **localise into other Indian
-languages** — with honest, explainable scoring instead of a naïve code-mixing
-percentage.
+Drop in any video or audio and the app estimates how well it localises into
+another language, with honest, explainable scoring instead of a naïve code-mixing
+percentage. It works in any direction across English, Hindi, and Tamil right now.
 
 Paste a YouTube URL or upload an MP3/MP4/WAV. The app transcribes it with the
-**Sarvam STT API**, runs five scoring engines, and returns a per-language **Dub
-Worthiness Score (0–100)**, a risk breakdown, a transcript explorer,
-language-priority recommendations, a **playable sample dub** (translated + voiced
-with Sarvam TTS) so you can *hear* what the score means, and a **Localization Gap**
-view that shows — live — where free machine translation *transliterates* English
-terms vs what a natural dub should say.
+**Sarvam STT API**, runs six scoring engines, and returns a per-language **Travel
+Score (0 to 100)**, a risk breakdown, a transcript explorer, language-priority
+recommendations, a **playable sample dub** (translated and voiced with Sarvam TTS)
+so you can *hear* what the score means, and a **Localization Gap** view that shows,
+live, where machine translation transliterates English terms instead of finding a
+real local word.
 
-**Works in any direction across English, Hindi, and Tamil** — it auto-detects the
-source language and scores dubbing into the other two (English→Tamil,
-Tamil→Hindi, Hindi→English, etc.).
+It auto-detects the source language and scores dubbing into the other two, so it
+covers every direction (English to Tamil, Tamil to Hindi, Hindi to English, and
+so on).
 
 > The core idea: code-mixing *percentage* is a useless signal. "Kal meeting hai"
 > is 100% mixed yet trivially dubbable. What actually predicts dubbing pain is
@@ -128,4 +129,4 @@ Python · Streamlit · yt-dlp · Sarvam STT (`saarika:v2.5`) · Sarvam TTS
 (`paraphrase-multilingual-MiniLM-L12-v2`, local) · pydub + ffmpeg · NLTK ·
 langdetect · indic-transliteration.
 
-Everything runs on free tiers. No paid APIs.
+Runs on the free Sarvam tier and otherwise-free libraries.
