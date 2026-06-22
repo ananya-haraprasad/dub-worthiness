@@ -22,11 +22,31 @@ CHUNK_WORDS = 150          # smaller chunks => more reliable MT
 DEFAULT_SLEEP = 0.5        # gap between Google Translate calls (avoid blocks)
 TRANSLATE_RETRIES = 2
 
+# A faithful back-translation never returns a perfect match. Two benign reasons:
+#   1. Paraphrase — "I went to the store" round-trips as "I visited the shop".
+#   2. Code-mixing — a Hinglish speaker says "इंपॉर्टेंट ऑप्शन चूज करना", and the
+#      round trip normalizes the English loanwords to formal Hindi
+#      ("महत्वपूर्ण विकल्प चुनना"). Same meaning, different surface form.
+# The embedding reads both as lower similarity. A measured clean Hinglish
+# monologue round-trips at ~0.72 similarity (0.28 raw "loss") with ZERO real
+# meaning loss; a colloquial street-vendor clip, whose slang genuinely doesn't
+# survive, lands far lower (~0.58, 0.42 loss). So we subtract a benign-drift
+# floor and rescale the remainder to 0..1. The floor sits a little BELOW the
+# clean baseline on purpose: a faithful translation then reads as near-clean
+# (small penalty, still "travels cleanly"), while a clip with real loss is still
+# clearly penalised. Tuned so those two measured clips land on opposite sides.
+BENIGN_LOSS_FLOOR = 0.20
+
 ProgressCb = Callable[[float, str], None]
 
 
 def _noop(_frac: float, _msg: str) -> None:
     pass
+
+
+def _calibrated_loss(raw_loss: float) -> float:
+    """Subtract the benign round-trip floor, then rescale to 0..1."""
+    return max(0.0, min(1.0, (raw_loss - BENIGN_LOSS_FLOOR) / (1 - BENIGN_LOSS_FLOOR)))
 
 
 def _chunk_text(text: str, size: int = CHUNK_WORDS) -> list[str]:
@@ -79,6 +99,7 @@ def analyze(transcript: str, model, source_lang: str, targets: list[str],
 
     for lang_name, lang_code in target_items:
         sims: list[float] = []
+        losses: list[float] = []   # calibrated (benign drift removed)
         fwd_texts: list[str] = []
         for ci, chunk in enumerate(chunks):
             step += 1
@@ -97,21 +118,24 @@ def analyze(transcript: str, model, source_lang: str, targets: list[str],
             back_emb = model.encode(back, convert_to_tensor=True,
                                     normalize_embeddings=True)
             sim = max(0.0, min(1.0, float(util.cos_sim(orig_emb[ci], back_emb).item())))
+            cal = _calibrated_loss(1 - sim)
             sims.append(sim)
+            losses.append(cal)
             all_chunk_records.append({
                 "language": lang_name,
                 "similarity": round(sim, 3),
-                "loss": round(1 - sim, 3),
+                "loss": round(cal, 3),          # calibrated meaning loss
+                "raw_loss": round(1 - sim, 3),  # before benign-drift floor
                 "original": chunk,
                 "back_translated": back,
             })
 
         if sims:
-            avg = sum(sims) / len(sims)
+            avg_loss = sum(losses) / len(losses)
             by_language[lang_name] = {
-                "similarity": round(avg, 3),
-                "loss": round(1 - avg, 3),
-                "max_loss": round(1 - min(sims), 3),  # worst single chunk
+                "similarity": round(sum(sims) / len(sims), 3),
+                "loss": round(avg_loss, 3),
+                "max_loss": round(max(losses), 3),  # worst single chunk
                 "chunks_scored": len(sims),
             }
         else:

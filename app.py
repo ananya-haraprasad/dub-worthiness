@@ -689,6 +689,13 @@ so a transliteration like "cuticle" to "க்யூட்டிகில்" ro
 reads as clean. Output fluency needs a human pass (and Sarvam's Mayura
 translation in production). The Localization panel above shows that gap directly.
 
+**Calibrated round trip.** A faithful round trip never scores a perfect match.
+Benign rewording, and for Hinglish the way the round trip normalises English
+loanwords back to formal Hindi ("इंपॉर्टेंट" to "महत्वपूर्ण"), drop the similarity
+without any real meaning loss. So a benign-drift floor is subtracted before this
+counts against the score, and only loss beyond it is penalised. A clean clip then
+reads clean; a clip whose slang genuinely collapses still drops.
+
 **Honest limits.** Prosody is a text proxy. `langdetect` is weak on short text.
 Idiom matching is tuned for Roman and code-mixed text, so for native-script
 (Devanagari or Tamil) sources the score leans more on semantic loss and
