@@ -346,17 +346,17 @@ def run_analysis(api_key, source_sig, youtube_url, uploaded_path, cb):
             }
         else:
             res["semantic"] = semantic.analyze(transcript, model, source_lang,
-                                               targets, progress_cb=cb)
+                                               targets, api_key, progress_cb=cb)
         sem_cache[th] = res["semantic"]
 
-    # 4) Sample-dub excerpts (cheap text translations; audio is on-demand in UI)
+    # 4) Sample-dub excerpts (Sarvam-translated; audio is on-demand in UI)
     cb(0.90, "Preparing sample-dub text…")
-    res["dub"] = dubber.build_excerpts(transcript, source_lang, targets)
+    res["dub"] = dubber.build_excerpts(transcript, source_lang, targets, api_key)
 
-    # 5) Localization gap (live MT vs natural equivalents). MUST run before
+    # 5) Localization gap (live Sarvam MT vs natural equivalents). MUST run before
     #    scoring: the localization difficulty feeds the Travel Score.
-    cb(0.95, "Comparing machine translation vs localisation…")
-    res["localization"] = localization.analyze(transcript, targets)
+    cb(0.95, "Comparing Sarvam translation vs localisation…")
+    res["localization"] = localization.analyze(transcript, targets, api_key)
 
     # 6) Score (uses semantic loss, localization difficulty, and the rest)
     cb(0.98, "Computing Travel Scores…")
@@ -563,12 +563,12 @@ def render_localization_gap(res):
     targets = [t for t in res["targets"] if t != "English"]
     if not any(loc.get("by_language", {}).get(t) for t in targets):
         return
-    st.markdown('<div class="eyebrow">Localization · what MT gets right vs. wrong</div>',
+    st.markdown('<div class="eyebrow">Localization · what Sarvam gets right vs. wrong</div>',
                 unsafe_allow_html=True)
-    st.caption("For common English terms, here is what machine translation does "
-               "live, next to the right call: localize to a native word, keep a fixed "
-               "term in English (translating “baby oil” literally is wrong), or keep a "
-               "naturalised loanword. A check means MT got it right, a cross means it didn't.")
+    st.caption("For common English terms, here is what Sarvam Mayura does live, next "
+               "to the right call: localize to a native word, keep a fixed term in "
+               "English (translating “baby oil” literally is wrong), or keep a "
+               "naturalised loanword. A check means it got it right, a cross means it didn't.")
     rec_label = {"localize": "localize", "keep_english": "keep English",
                  "loanword_ok": "loanword"}
     cols = st.columns(len(targets))
@@ -582,7 +582,7 @@ def render_localization_gap(res):
                 continue
             n_ok = sum(1 for r in rows if r["correct"])
             st.markdown(f"<div class='dub-lang'>{lang} &nbsp;"
-                        f"<span class='lg-score'>MT correct: {n_ok}/{len(rows)}</span></div>",
+                        f"<span class='lg-score'>Sarvam correct: {n_ok}/{len(rows)}</span></div>",
                         unsafe_allow_html=True)
             body = ""
             for r in rows:
@@ -596,7 +596,7 @@ def render_localization_gap(res):
                     f"<span class='lg-rec'>{rec_label.get(r['recommendation'], '')}</span></td>"
                     f"<td class='{icon_cls}'>{icon}</td></tr>")
             st.markdown(
-                f"<table class='lg-table'><tr><th>Term</th><th>MT now</th>"
+                f"<table class='lg-table'><tr><th>Term</th><th>Sarvam now</th>"
                 f"<th>Right call</th><th></th></tr>{body}</table>", unsafe_allow_html=True)
 
 
@@ -704,12 +704,12 @@ reads clean; a clip whose slang genuinely collapses still drops.
 **Honest limits.** Prosody is a text proxy. `langdetect` is weak on short text.
 Idiom matching is tuned for Roman and code-mixed text, so for native-script
 (Devanagari or Tamil) sources the score leans more on semantic loss and
-localization. Back-translation uses Google Translate and can rate-limit.
+localization. Translation and back-translation both run on Sarvam Mayura.
             """)
         st.caption(f"Idioms: {res['idiomatic']['dictionary_size']} · "
                    f"Cultural base: {res['cultural']['dictionary_size']} · "
-                   f"STT: Sarvam saarika:v2.5 · TTS: Sarvam bulbul:v3 · "
-                   f"Embeddings: MiniLM-L12-v2 · Dub text: Google Translate")
+                   f"STT: Sarvam saarika:v2.5 · Translation: Sarvam Mayura · "
+                   f"TTS: Sarvam bulbul:v3 · Embeddings: MiniLM-L12-v2")
 
 
 def render_dashboard(res, api_key):

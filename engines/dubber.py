@@ -7,10 +7,10 @@ voiced with Sarvam TTS. The point is to make the score concrete — and to expos
 its honest tie-in: a prosody-heavy clip sounds flat when voiced literally, which
 is exactly the risk the score flags.
 
-Pipeline: source transcript → excerpt → translate (Google, free) → Sarvam TTS.
-The dub *text* uses free Google Translate; a production version would swap in
-Sarvam's Mayura translation. Audio is synthesised on demand (button press) so we
-don't spend free TTS credits on every analysis.
+Pipeline: source transcript → excerpt → translate (Sarvam Mayura) → Sarvam TTS.
+The dub *text* and the voice are both Sarvam, so the whole sample runs on one
+stack. Audio is synthesised on demand (button press) so we don't spend TTS
+credits on every analysis.
 """
 from __future__ import annotations
 
@@ -19,7 +19,7 @@ import time
 
 import requests
 
-from engines.langs import LANG_CODES
+from engines.translate import translate as sarvam_translate
 
 SARVAM_TTS_URL = "https://api.sarvam.ai/text-to-speech"
 TTS_MODEL = "bulbul:v3"
@@ -38,26 +38,24 @@ def excerpt(transcript: str, n: int = EXCERPT_WORDS) -> str:
     return " ".join(transcript.split()[:n]).strip()
 
 
-def translate_excerpt(text: str, source_lang: str, target_lang: str) -> str:
-    from deep_translator import GoogleTranslator
-    src = LANG_CODES.get(source_lang, "auto")
-    tgt = LANG_CODES.get(target_lang, "en")
-    if src == tgt:
+def translate_excerpt(text: str, source_lang: str, target_lang: str,
+                      api_key: str) -> str:
+    if source_lang == target_lang:
         return text
-    try:
-        out = GoogleTranslator(source=src, target=tgt).translate(text[:MAX_TTS_CHARS])
-        return out or ""
-    except Exception as exc:
-        raise DubError(f"Translation failed: {exc}")
+    out = sarvam_translate(text[:MAX_TTS_CHARS], source_lang, target_lang, api_key)
+    if out is None:
+        raise DubError("Sarvam translation failed (check the key / credits).")
+    return out
 
 
-def build_excerpts(transcript: str, source_lang: str, targets: list[str]) -> dict:
-    """Cheap, instant: source excerpt + a translated excerpt per target."""
+def build_excerpts(transcript: str, source_lang: str, targets: list[str],
+                   api_key: str) -> dict:
+    """Cheap, instant: source excerpt + a Sarvam-translated excerpt per target."""
     src_ex = excerpt(transcript)
     out = {"source_excerpt": src_ex, "by_language": {}}
     for t in targets:
         try:
-            out["by_language"][t] = translate_excerpt(src_ex, source_lang, t)
+            out["by_language"][t] = translate_excerpt(src_ex, source_lang, t, api_key)
             time.sleep(0.3)
         except DubError:
             out["by_language"][t] = ""

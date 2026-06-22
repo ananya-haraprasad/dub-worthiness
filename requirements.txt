@@ -12,7 +12,6 @@ yt-dlp>=2024.5.0
 pydub>=0.25.1
 requests>=2.31.0
 python-dotenv>=1.0.0
-deep-translator>=1.11.4
 sentence-transformers>=2.7.0
 langdetect>=1.0.9
 nltk>=3.8.1

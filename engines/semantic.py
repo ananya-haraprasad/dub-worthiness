@@ -13,14 +13,12 @@ happens in the source language; the multilingual model embeds all three.
 """
 from __future__ import annotations
 
-import time
 from typing import Callable
 
-from engines.langs import LANG_CODES
+from engines.translate import SARVAM_LANG_CODES, translate as sarvam_translate
 
 CHUNK_WORDS = 150          # smaller chunks => more reliable MT
-DEFAULT_SLEEP = 0.5        # gap between Google Translate calls (avoid blocks)
-TRANSLATE_RETRIES = 2
+DEFAULT_SLEEP = 0.3        # gap between Sarvam translate calls (be gentle on limits)
 
 # A faithful back-translation never returns a perfect match. Two benign reasons:
 #   1. Paraphrase — "I went to the store" round-trips as "I visited the shop".
@@ -60,34 +58,18 @@ def _chunk_text(text: str, size: int = CHUNK_WORDS) -> list[str]:
     return [" ".join(words[i:i + size]) for i in range(0, len(words), size)] or [""]
 
 
-def _translate(text: str, source: str, target: str, sleep: float):
-    """One Google-Translate hop, with a short retry on transient failures."""
-    from deep_translator import GoogleTranslator
-
-    for attempt in range(TRANSLATE_RETRIES + 1):
-        try:
-            out = GoogleTranslator(source=source, target=target).translate(text)
-            time.sleep(sleep)
-            return out or ""
-        except Exception:
-            if attempt < TRANSLATE_RETRIES:
-                time.sleep(sleep * (attempt + 2))
-            else:
-                return None
-    return None
-
-
 def analyze(transcript: str, model, source_lang: str, targets: list[str],
-            sleep: float = DEFAULT_SLEEP, progress_cb: ProgressCb = _noop) -> dict:
-    """Round-trip each chunk source→target→source for each target; score loss.
+            api_key: str = "", sleep: float = DEFAULT_SLEEP,
+            progress_cb: ProgressCb = _noop) -> dict:
+    """Round-trip each chunk source→target→source (via Sarvam) for each target;
+    score how much meaning survives.
 
     `model` is a loaded SentenceTransformer (passed in so this stays pure and
     Streamlit-agnostic; the app caches it with @st.cache_resource).
     """
     from sentence_transformers import util
 
-    src_code = LANG_CODES.get(source_lang, "en")
-    target_items = [(t, LANG_CODES[t]) for t in targets if t in LANG_CODES]
+    target_items = [t for t in targets if t in SARVAM_LANG_CODES]
 
     chunks = [c for c in _chunk_text(transcript) if c.strip()]
     if not chunks:
@@ -105,7 +87,7 @@ def analyze(transcript: str, model, source_lang: str, targets: list[str],
     total_steps = max(1, len(target_items) * len(chunks))
     step = 0
 
-    for lang_name, lang_code in target_items:
+    for lang_name in target_items:
         sims: list[float] = []
         losses: list[float] = []   # calibrated (benign drift removed)
         fwd_texts: list[str] = []
@@ -116,10 +98,10 @@ def analyze(transcript: str, model, source_lang: str, targets: list[str],
                 f"Back-translation check: {source_lang}→{lang_name} ({ci + 1}/{len(chunks)})",
             )
 
-            fwd = _translate(chunk, src_code, lang_code, sleep)
+            fwd = sarvam_translate(chunk, source_lang, lang_name, api_key, sleep)
             if fwd:
                 fwd_texts.append(fwd)
-            back = _translate(fwd, lang_code, src_code, sleep) if fwd else None
+            back = sarvam_translate(fwd, lang_name, source_lang, api_key, sleep) if fwd else None
             if not back:
                 continue  # skip chunks where MT failed rather than crash
 
@@ -157,7 +139,7 @@ def analyze(transcript: str, model, source_lang: str, targets: list[str],
     # dropped). Avoids surfacing a high-similarity chunk as "where meaning slipped
     # most", which the old cross-language de-dup could do.
     worst = []
-    for lang_name, _code in target_items:
+    for lang_name in target_items:
         recs = [r for r in all_chunk_records if r["language"] == lang_name]
         if not recs:
             continue
@@ -173,6 +155,6 @@ def analyze(transcript: str, model, source_lang: str, targets: list[str],
         "translations": translations,
         "chunks_analyzed": len(chunks),
         "note": (f"Back-translation round trip ({source_lang}→target→{source_lang}) "
-                 f"via Google Translate (free). Lower similarity = more meaning "
-                 f"lost on the round trip."),
+                 f"via Sarvam Mayura. Lower similarity = more meaning lost on the "
+                 f"round trip."),
     }

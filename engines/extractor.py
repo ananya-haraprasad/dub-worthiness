@@ -274,6 +274,12 @@ def _transcribe_chunk(chunk_path: str, api_key: str) -> dict:
                     "is correct and has STT access / remaining credits."
                 )
 
+            if resp.status_code == 402:
+                raise ExtractionError(
+                    "Sarvam credits are exhausted (402 Payment Required). Top up or "
+                    "wait for the free tier to refresh, then try again."
+                )
+
             resp.raise_for_status()
             return resp.json()
 
